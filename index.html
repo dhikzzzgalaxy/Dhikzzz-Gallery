@@ -120,14 +120,21 @@
         }
 
         .nav-brand-icon {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             border-radius: 12px;
             background: linear-gradient(135deg, var(--blue-primary), #1e40af);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            overflow: hidden;
+        }
+
+        .nav-brand-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
         }
 
         .nav-brand-text {
@@ -1105,7 +1112,7 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <a href="#" class="nav-brand">
-            <div class="nav-brand-icon">&#128247;</div>
+            <div class="nav-brand-icon"><img src="data:image/jpeg;base64,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" alt="Logo"></div>
             <div class="nav-brand-text">Personal<span>Gallery</span></div>
         </a>
         <ul class="nav-links">
@@ -1258,7 +1265,7 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
             </a>
         </div>
-        <p class="footer-copyright">&copy; 2026 Saskia Gallery</p>
+        <p class="footer-copyright">&copy; 2026 Personal Gallery. All Rights Reserved.</p>
     </footer>
 
     <script>
