@@ -315,28 +315,28 @@
         .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
 
 .photo-img-wrapper {
-    overflow: hidden;
     position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Selalu persegi */
+    overflow: hidden;
+    background: #0a0c10;
+    border-radius: 16px 16px 0 0;
 }
 
 .photo-img-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transform: scale(1);
-    transition: transform 0.4s ease;
-    transform-origin: center;
+    display: block;
+    object-fit: cover;      /* Mengisi penuh kotak */
+    object-position: center; /* Fokus di tengah */
+    transform: none !important;
+    transition: none !important;
+}
 }
 
-/* Zoom saat ditahan dengan mouse */
-.photo-card:hover .photo-img-wrapper img {
-    transform: scale(1.15);
-}
-
-/* Zoom saat ditekan (mobile & desktop) */
-.photo-card:active .photo-img-wrapper img {
-    transform: scale(1.15);
-    transition-duration: 0.2s;
+.photo-card:hover .photo-img-wrapper img,
+.photo-card:hover img {
+    transform: none !important;
 }
 
 .photo-card:hover {
