@@ -343,6 +343,15 @@
     transform: translateY(-8px); /* atau hapus jika tidak ingin kartu bergerak */
 }
 
+.photo-card:active .photo-img-wrapper {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+}
+
+.photo-img-wrapper {
+    transition: transform 0.2s ease;
+}
+
         .badge-mini {
             position: absolute; top: 15px; left: 15px; background: rgba(37, 99, 235, 0.8);
             backdrop-filter: blur(5px); color: white; padding: 4px 12px;
@@ -350,11 +359,113 @@
         }
 
         /* Lightbox */
+        @keyframes lightboxFadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes contentScaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideOutToLeft {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+        }
+        
+        @keyframes slideOutToRight {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+        }
+        
+        @keyframes lightboxFadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        
+        @keyframes contentScaleOut {
+            from {
+                opacity: 1;
+                transform: scale(1);
+            }
+            to {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+        }
+        
         .lightbox {
             position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95);
             z-index: 3000; display: none; justify-content: center; align-items: center; padding: 40px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
-        .lightbox.active { display: flex; }
+        .lightbox.active { 
+            display: flex;
+            opacity: 1;
+            animation: lightboxFadeIn 0.3s ease;
+        }
+        
+        .lightbox.closing {
+            animation: lightboxFadeOut 0.4s ease forwards;
+        }
+        
+        .lightbox.closing .lightbox-content {
+            animation: contentScaleOut 0.4s ease forwards;
+        }
+        
+        .lightbox.active .lightbox-content {
+            animation: contentScaleIn 0.4s ease;
+        }
 
         .close-lightbox {
             position: absolute; top: 30px; right: 30px; font-size: 2.5rem;
@@ -372,7 +483,27 @@
             justify-content: center; border-radius: 24px; overflow: hidden;
             border: 1px solid var(--glass-border);
         }
-        .lightbox-img-container img { max-width: 100%; max-height: 75vh; object-fit: contain; }
+        .lightbox-img-container img { 
+            max-width: 100%; max-height: 75vh; object-fit: contain;
+        }
+        .lightbox-img-container img.fade-in {
+            animation: fadeInImage 0.4s ease;
+        }
+        .lightbox-img-container img.slide-right {
+            animation: slideInFromRight 0.4s ease;
+        }
+        .lightbox-img-container img.slide-left {
+            animation: slideInFromLeft 0.4s ease;
+        }
+        
+        @keyframes fadeInImage {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
 
         .lightbox-nav-bottom { display: flex; justify-content: center; gap: 20px; width: 100%; }
 
@@ -387,7 +518,7 @@
 
         /* Profile Page Styles (Integrated) */
         #profile-section {
-            display: none; padding: 120px 0 80px; position: relative; z-index: 10;
+            display: none; padding: 0 0 80px; position: relative; z-index: 10;
         }
         #profile-section.active { display: block; }
 
@@ -510,7 +641,7 @@
                         <div class="badge">
                             <span class="dot"></span> Koleksi Foto Pribadi
                         </div>
-                        <h2 class="hero-title">DhikzzzKiaaa<br><span class="gradient-text">Gallery</span></h2>
+                        <h2 class="hero-title"><span class="gradient-text"><DhikzzzKiaaa></span></h2>
                         <p class="hero-desc">Kumpulan Kenangan Yang Masih Ku Simpan Dengan Baik</p>
                         <div class="hero-btns">
                             <a href="#" id="hero-btn-album" class="btn btn-primary ripple">
@@ -521,6 +652,10 @@
                                 <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                                 Semua Foto
                             </a>
+                            <div class="total-foto btn" style="background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(5px); margin-top: 15px; cursor: default;">
+                                <svg style="color: var(--primary);" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                <span style="color: var(--text-gray); font-size: inherit; font-weight: inherit;">Total <span id="total-foto-count" style="color: var(--primary);">0</span> Foto</span>
+                            </div>
                         </div>
                     </div>
 
@@ -564,7 +699,6 @@
         <!-- Profile Section (Hidden by Default) -->
         <div id="profile-section" class="container">
             <div class="section-header">
-                <h2 class="section-title">Dhikzzz Kiaaa</h2>
     
     <style>
 .profile-section,
@@ -716,7 +850,7 @@
             position: relative; z-index: 1;
             max-width: 1000px;
             margin: 0 auto;
-            padding: 120px 24px 80px;
+            padding: 80px 24px 80px;
             min-height: 100vh;
         }
 
@@ -1344,6 +1478,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                 <button id="prev-btn" class="nav-btn">
                     <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
                 </button>
+                <div id="photo-name-display" style="display: flex; align-items: center; justify-content: center; color: white; font-size: 1.1rem; font-weight: 600; min-width: 200px; text-align: center;">Album 1</div>
                 <button id="next-btn" class="nav-btn">
                     <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </button>
@@ -1571,7 +1706,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                 data.forEach((photo, index) => {
                     const card = document.createElement('div');
                     card.className = 'photo-card scroll-reveal';
-                    card.innerHTML = `<div class="photo-img-wrapper"><img src="${photo.image}" alt="Photo" loading="lazy"><span class="badge-mini">${photo.category}</span></div>`;
+                    card.innerHTML = `<div class="photo-img-wrapper"><img src="${photo.image}" alt="Photo" loading="lazy"></div>`;
                     card.addEventListener('click', () => openLightbox(index));
                     galleryContainer.appendChild(card);
                 });
@@ -1600,16 +1735,66 @@ document.addEventListener('DOMContentLoaded',()=>{
                 renderGallery(filteredData);
             }
 
-            function openLightbox(index) {
+            let slideDirection = 'right';
+            let isLightboxOpen = false;
+            
+            function openLightbox(index, isNavigation = false) {
                 currentPhotoIndex = index;
+                
+                // Hapus semua class animasi sebelumnya
+                lightboxImg.classList.remove('fade-in', 'slide-left', 'slide-right');
+                
+                // Trigger reflow untuk reset animasi
+                void lightboxImg.offsetWidth;
+                
+                if (isNavigation) {
+                    // Animasi slide saat navigasi tombol
+                    if (slideDirection === 'left') {
+                        lightboxImg.classList.add('slide-left');
+                    } else {
+                        lightboxImg.classList.add('slide-right');
+                    }
+                } else {
+                    // Animasi fade-in saat membuka lightbox pertama kali
+                    lightboxImg.classList.add('fade-in');
+                }
+                
                 lightboxImg.src = filteredData[index].image;
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                document.getElementById('photo-name-display').textContent = filteredData[index].title;
+                
+                if (!isLightboxOpen) {
+                    lightbox.classList.add('active');
+                    isLightboxOpen = true;
+                    document.body.style.overflow = 'hidden';
+                }
             }
 
-            closeLightbox.addEventListener('click', () => { lightbox.classList.remove('active'); document.body.style.overflow = 'auto'; });
-            prevBtn.addEventListener('click', (e) => { e.stopPropagation(); currentPhotoIndex = (currentPhotoIndex - 1 + filteredData.length) % filteredData.length; openLightbox(currentPhotoIndex); });
-            nextBtn.addEventListener('click', (e) => { e.stopPropagation(); currentPhotoIndex = (currentPhotoIndex + 1) % filteredData.length; openLightbox(currentPhotoIndex); });
+            closeLightbox.addEventListener('click', () => { closeLightboxFunc(); });
+            
+            function closeLightboxFunc() {
+                // Tambahkan class closing untuk memicu animasi fade-out
+                lightbox.classList.add('closing');
+                
+                // Setelah animasi fade-out selesai (0.4s), hapus class active dan closing
+                setTimeout(() => {
+                    lightbox.classList.remove('active');
+                    lightbox.classList.remove('closing');
+                    document.body.style.overflow = 'auto';
+                    isLightboxOpen = false;
+                }, 400);
+            }
+            prevBtn.addEventListener('click', (e) => { 
+                e.stopPropagation(); 
+                slideDirection = 'left';
+                currentPhotoIndex = (currentPhotoIndex - 1 + filteredData.length) % filteredData.length; 
+                openLightbox(currentPhotoIndex, true); 
+            });
+            nextBtn.addEventListener('click', (e) => { 
+                e.stopPropagation(); 
+                slideDirection = 'right';
+                currentPhotoIndex = (currentPhotoIndex + 1) % filteredData.length; 
+                openLightbox(currentPhotoIndex, true); 
+            });
 
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) header.classList.add('scrolled');
@@ -1665,6 +1850,10 @@ document.addEventListener('DOMContentLoaded',()=>{
 
             document.querySelectorAll('.umur-value').forEach(el => { const b = el.dataset.birth; if(b) el.textContent = calculateAge(b); });
             document.querySelectorAll('.hari-value').forEach(el => { const s = el.dataset.since; if(s) el.textContent = calculateDaysSince(s).toLocaleString('id-ID') + ' Hari'; });
+
+            // Update total foto count on Home
+            const totalFotoCount = document.getElementById('total-foto-count');
+            if (totalFotoCount) totalFotoCount.textContent = galleryData.length;
 
             renderGallery(filteredData);
         });
