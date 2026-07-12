@@ -374,10 +374,33 @@
         }
         .lightbox-img-container img { max-width: 100%; max-height: 75vh; object-fit: contain; }
 
-        .lightbox-nav-bottom { display: flex; justify-content: center; gap: 20px; width: 100%; }
+        .lightbox-nav-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 
-        .nav-btn {
-            background: rgba(255, 255, 255, 0.08); border: 1px solid var(--glass-border);
+    margin-top: 20px;
+    width: 100%;
+}
+
+.lightbox-title {
+    flex: 1;
+    max-width: 400px;
+
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nav-btn {
+    flex-shrink: 0;
+}
             color: white; width: 45px; height: 45px; border-radius: 50%;
             cursor: pointer; backdrop-filter: blur(5px); transition: var(--transition);
             display: flex; align-items: center; justify-content: center;
@@ -1334,22 +1357,43 @@ document.addEventListener('DOMContentLoaded',()=>{
     </main>
 
     <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox">
-        <span class="close-lightbox">&times;</span>
-        <div class="lightbox-content">
-            <div class="lightbox-img-container">
-                <img id="lightbox-img" src="" alt="">
-            </div>
-            <div class="lightbox-nav-bottom">
-                <button id="prev-btn" class="nav-btn">
-                    <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                </button>
-                <button id="next-btn" class="nav-btn">
-                    <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </button>
-            </div>
+<div id="lightbox" class="lightbox">
+    <!-- Tombol Tutup -->
+    <span class="close-lightbox">&times;</span>
+
+    <div class="lightbox-content">
+
+        <!-- Gambar -->
+        <div class="lightbox-img-container">
+            <img id="lightbox-img" src="" alt="">
         </div>
+
+        <!-- Navigasi -->
+        <div class="lightbox-nav-bottom">
+
+            <!-- Tombol Sebelumnya -->
+            <button id="prev-btn" class="nav-btn" aria-label="Previous">
+                <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+
+            <!-- Nama Foto -->
+            <div id="lightbox-title" class="lightbox-title">
+                Nama Foto
+            </div>
+
+            <!-- Tombol Selanjutnya -->
+            <button id="next-btn" class="nav-btn" aria-label="Next">
+                <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+
+        </div>
+
     </div>
+</div>
 
     <script>
         const galleryData = [
@@ -1599,10 +1643,12 @@ document.addEventListener('DOMContentLoaded',()=>{
                 });
                 renderGallery(filteredData);
             }
-
+            const lightboxTitle = document.getElementById("lightbox-title");
+            
             function openLightbox(index) {
-                currentPhotoIndex = index;
-                lightboxImg.src = filteredData[index].image;
+    currentIndex = index;
+    lightboxImg.src = photos[index].src;
+    lightboxTitle.textContent = photos[index].title;
                 lightbox.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
