@@ -375,57 +375,6 @@
         .lightbox-img-container img { max-width: 100%; max-height: 75vh; object-fit: contain; }
 
         .lightbox-nav-bottom { display: flex; justify-content: center; gap: 20px; width: 100%; }
-        
-        /* Navigasi Lightbox */
-.lightbox-navigation {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-
-    width: min(90vw, 700px);
-}
-
-.lightbox-prev,
-.lightbox-next {
-    width: 46px;
-    height: 46px;
-
-    border: none;
-    border-radius: 50%;
-
-    background: rgba(0,0,0,.6);
-    color: #fff;
-    font-size: 24px;
-    cursor: pointer;
-
-    transition: .25s;
-}
-
-.lightbox-prev:hover,
-.lightbox-next:hover {
-    background: rgba(255,255,255,.18);
-}
-
-.lightbox-title {
-    flex: 1;
-    text-align: center;
-
-    color: #fff;
-    font-size: 18px;
-    font-weight: 600;
-
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-    padding: 0 12px;
-}
 
         .nav-btn {
             background: rgba(255, 255, 255, 0.08); border: 1px solid var(--glass-border);
@@ -1395,15 +1344,6 @@ document.addEventListener('DOMContentLoaded',()=>{
                 <button id="prev-btn" class="nav-btn">
                     <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
                 </button>
-                <div class="lightbox-navigation">
-    <button class="lightbox-prev">&#10094;</button>
-
-    <div class="lightbox-title" id="lightboxTitle">
-        Nama Foto
-    </div>
-
-    <button class="lightbox-next">&#10095;</button>
-</div>
                 <button id="next-btn" class="nav-btn">
                     <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </button>
@@ -1660,20 +1600,12 @@ document.addEventListener('DOMContentLoaded',()=>{
                 renderGallery(filteredData);
             }
 
-            const lightboxTitle = document.getElementById("lightbox-title");
-
-function openLightbox(index) {
-    currentPhotoIndex = index;
-
-    // Tampilkan gambar
-    lightboxImg.src = filteredData[index].image;
-
-    // Tampilkan nama foto
-    lightboxTitle.textContent = filteredData[index].title;
-
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
+            function openLightbox(index) {
+                currentPhotoIndex = index;
+                lightboxImg.src = filteredData[index].image;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
 
             closeLightbox.addEventListener('click', () => { lightbox.classList.remove('active'); document.body.style.overflow = 'auto'; });
             prevBtn.addEventListener('click', (e) => { e.stopPropagation(); currentPhotoIndex = (currentPhotoIndex - 1 + filteredData.length) % filteredData.length; openLightbox(currentPhotoIndex); });
