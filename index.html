@@ -382,9 +382,14 @@
 }
 
 .lightbox-img-container img {
-    max-width: 100%;
-    max-height: 75vh;
+    width: auto;
+    height: auto;
+    max-width: 80vw;   /* Maksimal 80% lebar layar */
+    max-height: 70vh;  /* Maksimal 70% tinggi layar */
     object-fit: contain;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
 
     transform: scale(.9);
     opacity: 0;
