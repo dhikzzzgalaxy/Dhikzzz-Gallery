@@ -84,16 +84,15 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-    transition: var(--transition);
     padding: 16px 0;
     background: transparent;
+    transition: var(--transition);
 }
 
         #main-header.scrolled {
     background: transparent;
-    border-bottom: none;
-    backdrop-filter: none;
     padding: 12px 0;
+    border-bottom: none;
 }
 
         .navbar {
@@ -101,15 +100,12 @@
     justify-content: space-between;
     align-items: center;
 
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(18px) saturate(180%);
-    -webkit-backdrop-filter: blur(18px) saturate(180%);
-
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #111827; /* Dark */
+    border: 1px solid rgba(255,255,255,.08);
     border-radius: 18px;
 
     padding: 12px 18px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 25px rgba(0,0,0,.35);
 }
 
         .logo { display: flex; align-items: center; gap: 12px; }
