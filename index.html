@@ -317,18 +317,21 @@
 .photo-img-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1 / 1; /* Selalu persegi */
     overflow: hidden;
+    background: #0a0c10;
+    border-radius: 16px 16px 0 0;
 }
 
 .photo-img-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* atau cover jika ingin memenuhi kotak */
-    object-position: center;
+    display: block;
+    object-fit: cover;      /* Mengisi penuh kotak */
+    object-position: center; /* Fokus di tengah */
     transform: none !important;
     transition: none !important;
-    animation: none !important;
+}
 }
 
 .photo-card:hover .photo-img-wrapper img,
