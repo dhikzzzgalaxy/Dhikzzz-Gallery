@@ -3,1955 +3,712 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DhikzzzKiaaa Gallery | Koleksi Foto Pribadi</title>
-
+    <title>Dhikzzz Galaxy</title>
     <!-- Favicon & Icons -->
     <!-- Standard favicon (fallback) -->
-    <link rel="icon" href="favicon.ico?v=1783938375" type="image/x-icon">
-    <link rel="icon" href="favicon-16x16.png?v=1783938375" sizes="16x16" type="image/png">
-    <link rel="icon" href="favicon-32x32.png?v=1783938375" sizes="32x32" type="image/png">
-    <link rel="icon" href="favicon-48x48.png?v=1783938375" sizes="48x48" type="image/png">
-    <link rel="icon" href="favicon-192x192.png?v=1783938375" sizes="192x192" type="image/png">
-    <link rel="icon" href="favicon-512x512.png?v=1783938375" sizes="512x512" type="image/png">
+    <link rel="icon" href="favicon.ico?v=1783937123" type="image/x-icon">
+    <link rel="icon" href="favicon-16x16.png?v=1783937123" sizes="16x16" type="image/png">
+    <link rel="icon" href="favicon-32x32.png?v=1783937123" sizes="32x32" type="image/png">
+    <link rel="icon" href="favicon-48x48.png?v=1783937123" sizes="48x48" type="image/png">
+    <link rel="icon" href="favicon-192x192.png?v=1783937123" sizes="192x192" type="image/png">
+    <link rel="icon" href="favicon-512x512.png?v=1783937123" sizes="512x512" type="image/png">
 
     <!-- Apple Touch Icon (iOS Safari, Add to Home Screen) -->
-    <link rel="apple-touch-icon" href="apple-touch-icon-180x180.png?v=1783938375" sizes="180x180">
+    <link rel="apple-touch-icon" href="apple-touch-icon-180x180.png?v=1783937123" sizes="180x180">
 
     <!-- Web App Manifest (Android Chrome, PWA, Add to Home Screen) -->
-    <link rel="manifest" href="manifest.webmanifest?v=1783938375">
+    <link rel="manifest" href="manifest.webmanifest?v=1783937123">
 
     <!-- Microsoft Tile Icon (Windows) -->
-    <meta name="msapplication-TileImage" content="favicon-144x144.png?v=1783938375">
-    <meta name="msapplication-TileColor" content="#0a0c10">
+    <meta name="msapplication-TileImage" content="favicon-192x192.png?v=1783937123">
+    <meta name="msapplication-TileColor" content="#05050a">
 
     <!-- Theme Color for Mobile Browsers -->
-    <meta name="theme-color" content="#0a0c10">
+    <meta name="theme-color" content="#05050a">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Dhikzzz Gallery">
+    <meta name="apple-mobile-web-app-title" content="Dhikzzz Galaxy">
 
     <!-- Open Graph (Facebook, WhatsApp, Discord, LinkedIn) -->
-    <meta property="og:title" content="DhikzzzKiaaa Gallery | Koleksi Foto Pribadi">
-    <meta property="og:description" content="Koleksi kenangan foto pribadi DhikzzzKiaaa Gallery dengan tampilan modern premium.">
+    <meta property="og:title" content="Dhikzzz Galaxy">
+    <meta property="og:description" content="Download Aplikasi Mod Terbaik dari Dhikzzz Galaxy">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dhikzzzgalaxy.github.io/Dhikzzz-Gallery/">
-    <meta property="og:image" content="https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/IconKiaaa.jpg">
+    <meta property="og:url" content="https://dhikzzzgalaxy.github.io/">
+    <meta property="og:image" content="https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo_Dhikzzz_Galaxy.png">
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
-    <meta property="og:site_name" content="Dhikzzz Gallery">
+    <meta property="og:site_name" content="Dhikzzz Galaxy">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="DhikzzzKiaaa Gallery | Koleksi Foto Pribadi">
-    <meta name="twitter:description" content="Koleksi kenangan foto pribadi DhikzzzKiaaa Gallery dengan tampilan modern premium.">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/IconKiaaa.jpg">
+    <meta name="twitter:title" content="Dhikzzz Galaxy">
+    <meta name="twitter:description" content="Download Aplikasi Mod Terbaik dari Dhikzzz Galaxy">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo_Dhikzzz_Galaxy.png">
 
 
-    <meta name="description" content="Koleksi kenangan foto pribadi DhikzzzKiaaa Gallery dengan tampilan modern premium.">
     
-    <!-- Google Fonts: Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel (Untuk compile JSX di browser) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
     <style>
-        :root {
-            --primary: #2563eb;
-            --primary-glow: rgba(37, 99, 235, 0.5);
-            --secondary: #3b82f6;
-            --bg-dark: #0a0c10;
-            --bg-card: rgba(255, 255, 255, 0.05);
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --text-white: #ffffff;
-            --text-gray: #94a3b8;
-            --font-main: 'Poppins', sans-serif;
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            
-            /* Profile Variables */
-            --blue-primary: #3b82f6;
-            --blue-glow: rgba(59, 130, 246, 0.4);
-            --blue-soft: rgba(59, 130, 246, 0.15);
-            --text-muted: #6b6b80;
-        }
-
-        * {
+        body { 
+            background-color: #05050a; 
+            color: #e2e8f0; 
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg-dark);
-            color: var(--text-white);
             overflow-x: hidden;
-            line-height: 1.6;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Loading Screen */
-        #loading-screen {
-            position: fixed;
-            inset: 0;
-            background: var(--bg-dark);
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .loader {
-            width: 50px; height: 50px;
-            border: 3px solid var(--glass-border);
-            border-top: 3px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-
-        @keyframes spin { to { transform: rotate(360deg); } }
-
-        /* Header & Navbar */
-        #main-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    padding: 16px 0;
-    background: transparent;
-    transition: var(--transition);
-}
-
-        #main-header.scrolled {
-    background: transparent;
-    padding: 12px 0;
-    border-bottom: none;
-}
-
-        .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    background: #111827; /* Dark */
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 18px;
-
-    padding: 12px 18px;
-    box-shadow: 0 8px 25px rgba(0,0,0,.35);
-}
-
-        .logo { display: flex; align-items: center; gap: 12px; }
-
-        .profile-img {
-            width: 45px; height: 45px; border-radius: 50%; overflow: hidden;
-            border: 2px solid var(--primary);
-            box-shadow: 0 0 15px var(--primary-glow);
-        }
-
-        .profile-img img { width: 100%; height: 100%; object-fit: cover; }
-
-        .logo h1 { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.5px; }
-        .logo h1 span { color: var(--primary); }
-
-        .menu-toggle { cursor: pointer; color: var(--text-white); }
-
-/* Sidebar dropdown dari atas kanan */
-#sidebar {
-    position: fixed;
-    top: -300px;
-    right: 20px;
-    left: auto;
-
-    width: max-content;
-    min-width: 180px;
-    height: auto;
-
-    background: rgba(15, 23, 42, 0.35);
-    backdrop-filter: blur(30px) saturate(180%);
-    -webkit-backdrop-filter: blur(30px) saturate(180%);
-
-    border: 1px solid rgba(255,255,255,.12);
-    border-radius: 18px;
-
-    /* Atur padding */
-    padding: 12px 20px;
-
-    z-index: 2000;
-    transition: top .35s ease, opacity .35s ease;
-
-    opacity: 0;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
-
-/* Saat dibuka */
-#sidebar.active {
-    top: 70px;
-    opacity: 1;
-}
-
-/* Hilangkan header dan tombol X */
-.sidebar-header,
-.close-sidebar {
-    display: none !important;
-}
-
-/* Menu */
-.sidebar-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.sidebar-links li {
-    margin: 0;
-}
-
-.sidebar-links li + li {
-    margin-top: 16px;
-}
-
-.sidebar-links a {
-    display: block;
-    padding: 4px 0;
-    text-decoration: none;
-    color: var(--text-white);
-    font-size: 1.2rem;
-    font-weight: 500;
-    transition: var(--transition);
-}
-
-.sidebar-links a:hover,
-.sidebar-links a.active {
-    color: var(--primary);
-    transform: translateX(-5px);
-}
-
-/* Overlay */
-.sidebar-overlay {
-    position: fixed;
-    inset: 0;
-    background: transparent; /* Tidak menggelapkan halaman */
-    z-index: 1500;
-    display: none;
-}
-
-.sidebar-overlay.active {
-    display: block;
-}
-        /* Hero Section */
-        .hero {
-            min-height: 100vh; display: flex; align-items: center; position: relative;
-            padding-top: 100px; overflow: hidden;
-        }
-
-        .hero-content { text-align: center; max-width: 800px; margin: 0 auto; z-index: 10; }
-
-        .badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: var(--glass-bg); border: 1px solid var(--glass-border);
-            padding: 8px 16px; border-radius: 50px; font-size: 0.85rem;
-            margin-bottom: 25px; color: var(--text-gray);
-        }
-
-        .dot {
-            width: 8px; height: 8px; background: var(--primary); border-radius: 50%;
-            box-shadow: 0 0 10px var(--primary); animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.5); opacity: 0.5; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        .hero-title { font-size: 4.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
-        .gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #60a5fa);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-
-        .hero-desc { font-size: 1.2rem; color: var(--text-gray); margin-bottom: 40px; }
-
-        .hero-btns { display: flex; justify-content: center; gap: 20px; }
-
-        .btn {
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 15px 35px; border-radius: 12px; font-weight: 600;
-            text-decoration: none; transition: var(--transition); cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--primary); color: white; border: none;
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-5px); box-shadow: 0 15px 35px rgba(37, 99, 235, 0.5);
-        }
-
-        .btn-outline {
-            background: transparent; color: white;
-            border: 1px solid var(--glass-border); backdrop-filter: blur(5px);
-        }
-
-        .btn-outline:hover { background: var(--glass-bg); border-color: var(--primary); }
-
-        /* Floating Blurs */
-        .floating-blur {
-            position: absolute; width: 400px; height: 400px; border-radius: 50%;
-            filter: blur(100px); z-index: 1; opacity: 0.2; pointer-events: none;
-        }
-        .blur-1 { top: -100px; left: -100px; background: var(--primary); }
-        .blur-2 { bottom: -100px; right: -100px; background: #60a5fa; }
-
-        /* Stats */
-        .stats-container {
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;
-            margin-top: 80px; background: var(--glass-bg); backdrop-filter: blur(10px);
-            padding: 40px; border-radius: 24px; border: 1px solid var(--glass-border);
-        }
-
-        .stat-item { text-align: center; }
-        .stat-item h3 { font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 5px; }
-        .stat-item p { font-size: 0.8rem; font-weight: 600; color: var(--text-gray); letter-spacing: 2px; }
-
-        /* Gallery Section */
-        .gallery-section { padding: 100px 0; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-title { font-size: 2.5rem; margin-bottom: 15px; }
-        .section-desc { color: var(--text-gray); }
-
-        .gallery-controls { display: flex; flex-direction: column; gap: 30px; margin-bottom: 50px; }
-
-        .search-box { position: relative; max-width: 500px; margin: 0 auto; width: 100%; }
-        .search-box svg { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-gray); }
-        .search-box input {
-            width: 100%; background: var(--glass-bg); border: 1px solid var(--glass-border);
-            padding: 15px 15px 15px 45px; border-radius: 12px; color: white;
-            font-family: inherit; outline: none; transition: var(--transition);
-        }
-        .search-box input:focus { border-color: var(--primary); background: rgba(255, 255, 255, 0.05); }
-
-        .filter-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
-
-        .filter-btn {
-            padding: 10px 20px; background: var(--glass-bg); border: 1px solid var(--glass-border);
-            border-radius: 50px; color: var(--text-gray); cursor: pointer;
-            font-weight: 500; transition: var(--transition);
-        }
-        .filter-btn:hover, .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
-
-        .gallery-info { text-align: center; font-size: 0.9rem; color: var(--text-gray); }
-
-        /* Gallery Grid */
-        .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
-
-.photo-img-wrapper {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1 / 1; /* Selalu persegi */
-    overflow: hidden;
-    background: #0a0c10;
-    border-radius: 16px;
-}
-
-.photo-img-wrapper img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;      /* Mengisi penuh kotak */
-    object-position: center; /* Fokus di tengah */
-    transform: none !important;
-    transition: none !important;
-}
-}
-
-.photo-card:hover .photo-img-wrapper img,
-.photo-card:hover img {
-    transform: none !important;
-}
-
-.photo-card:hover {
-    transform: translateY(-8px); /* atau hapus jika tidak ingin kartu bergerak */
-}
-
-.photo-card:active .photo-img-wrapper {
-    transform: scale(1.05);
-    transition: transform 0.2s ease;
-}
-
-.photo-img-wrapper {
-    transition: transform 0.2s ease;
-}
-
-        .badge-mini {
-            position: absolute; top: 15px; left: 15px; background: rgba(37, 99, 235, 0.8);
-            backdrop-filter: blur(5px); color: white; padding: 4px 12px;
-            border-radius: 50px; font-size: 0.7rem; font-weight: 600;
-        }
-
-        /* Lightbox */
-        @keyframes lightboxFadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+        /* Sembunyikan Scrollbar Horizontal tapi tetap bisa di-scroll */
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
         
-        @keyframes contentScaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
+        /* Animasi standar Tailwind */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideInUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes slideInRight { from { transform: translateX(30px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
         
-        @keyframes slideInFromRight {
-            from {
-                opacity: 0;
-                transform: translateX(100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes slideInFromLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes slideOutToLeft {
-            from {
-                opacity: 1;
-                transform: translateX(0);
-            }
-            to {
-                opacity: 0;
-                transform: translateX(-100px);
-            }
-        }
-        
-        @keyframes slideOutToRight {
-            from {
-                opacity: 1;
-                transform: translateX(0);
-            }
-            to {
-                opacity: 0;
-                transform: translateX(100px);
-            }
-        }
-        
-        @keyframes lightboxFadeOut {
-            from {
-                opacity: 1;
-            }
-            to {
-                opacity: 0;
-            }
-        }
-        
-        @keyframes contentScaleOut {
-            from {
-                opacity: 1;
-                transform: scale(1);
-            }
-            to {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-        }
-        
-        .lightbox {
-            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95);
-            z-index: 3000; display: none; justify-content: center; align-items: center; padding: 40px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .lightbox.active { 
-            display: flex;
-            opacity: 1;
-            animation: lightboxFadeIn 0.3s ease;
-        }
-        
-        .lightbox.closing {
-            animation: lightboxFadeOut 0.4s ease forwards;
-        }
-        
-        .lightbox.closing .lightbox-content {
-            animation: contentScaleOut 0.4s ease forwards;
-        }
-        
-        .lightbox.active .lightbox-content {
-            animation: contentScaleIn 0.4s ease;
-        }
-
-        .close-lightbox {
-            position: absolute; top: 30px; right: 30px; font-size: 2.5rem;
-            color: white; cursor: pointer; z-index: 3100;
-        }
-
-        .lightbox-content {
-            display: flex; flex-direction: column; max-width: 900px; width: 100%;
-            background: transparent; border-radius: 24px; overflow: hidden;
-            align-items: center; gap: 15px;
-        }
-
-        .lightbox-img-container {
-            width: 100%; background: #000; display: flex; align-items: center;
-            justify-content: center; border-radius: 24px; overflow: hidden;
-            border: 1px solid var(--glass-border);
-        }
-        .lightbox-img-container img { 
-            max-width: 100%; max-height: 75vh; object-fit: contain;
-        }
-        .lightbox-img-container img.fade-in {
-            animation: fadeInImage 0.4s ease;
-        }
-        .lightbox-img-container img.slide-right {
-            animation: slideInFromRight 0.4s ease;
-        }
-        .lightbox-img-container img.slide-left {
-            animation: slideInFromLeft 0.4s ease;
-        }
-        
-        @keyframes fadeInImage {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .lightbox-nav-bottom { display: flex; justify-content: center; gap: 20px; width: 100%; }
-
-        .nav-btn {
-            background: rgba(255, 255, 255, 0.08); border: 1px solid var(--glass-border);
-            color: white; width: 45px; height: 45px; border-radius: 50%;
-            cursor: pointer; backdrop-filter: blur(5px); transition: var(--transition);
-            display: flex; align-items: center; justify-content: center;
-        }
-        .nav-btn:hover { background: var(--primary); border-color: var(--primary); transform: scale(1.05); }
-        .nav-btn svg { width: 24px; height: 24px; }
-
-        /* Profile Page Styles (Integrated) */
-        #profile-section {
-            display: none; padding: 0 0 80px; position: relative; z-index: 10;
-        }
-        #profile-section.active { display: block; }
-
-        .profile-badge {
-            display: flex; align-items: center; gap: 16px; margin-bottom: 36px;
-        }
-        .profile-badge-avatar {
-            width: 64px; height: 64px; border-radius: 50%; overflow: hidden;
-            border: 2px solid var(--blue-primary);
-            box-shadow: 0 8px 24px var(--blue-glow);
-        }
-        .profile-badge-avatar img { width: 100%; height: 100%; object-fit: cover; }
-        .profile-badge-name { font-size: 1.15rem; font-weight: 700; color: var(--text-white); line-height: 1.2; }
-        .profile-badge-role { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
-
-        .info-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;
-            margin-bottom: 40px;
-        }
-        .info-card {
-            background: var(--glass-bg); border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px); border-radius: 18px; padding: 26px 24px;
-            display: flex; align-items: center; gap: 18px; transition: var(--transition);
-            position: relative; overflow: hidden;
-        }
-        .info-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%;
-            background: linear-gradient(180deg, var(--blue-primary), transparent);
-            opacity: 0.6;
-        }
-        .info-card:hover { transform: translateY(-4px); border-color: rgba(59, 130, 246, 0.35); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3); }
-        
-        .info-icon {
-            width: 52px; height: 52px; min-width: 52px; border-radius: 14px;
-            background: var(--blue-soft); color: var(--blue-primary);
-            display: flex; align-items: center; justify-content: center;
-            border: 1px solid rgba(59, 130, 246, 0.25);
-        }
-        .info-content { display: flex; flex-direction: column; gap: 4px; }
-        .info-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); font-weight: 600; }
-        .info-value { font-size: 1.05rem; font-weight: 600; color: var(--text-white); }
-        .info-link { color: var(--blue-primary); text-decoration: none; font-weight: 600; }
-
-        .personal-info--pink .profile-badge-avatar { border-color: #ec4899; box-shadow: 0 8px 24px rgba(236, 72, 153, 0.4); }
-        .personal-info--pink .info-card::before { background: linear-gradient(180deg, #ec4899, transparent); }
-        .personal-info--pink .info-icon { background: rgba(236, 72, 153, 0.15); color: #ec4899; border-color: rgba(236, 72, 153, 0.25); }
-        .personal-info--pink .info-link { color: #ec4899; }
-
-        /* Skeleton Loading */
-        .skeleton {
-            background: linear-gradient(90deg, #1a1c23 25%, #2a2c35 50%, #1a1c23 75%);
-            background-size: 200% 100%; animation: loading 1.5s infinite;
-        }
-        @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-title { font-size: 3.5rem; }
-            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-        @media (max-width: 768px) {
-            .hero-title { font-size: 2.8rem; }
-            .stats-container { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-            .hero-btns { flex-direction: column; }
-            .btn { width: 100%; justify-content: center; }
-        }
-        @media (max-width: 480px) {
-            .hero-title { font-size: 2.2rem; }
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-            .logo h1 { font-size: 1.1rem; }
-            .nav-btn { width: 40px; height: 40px; }
-        }
-
-        .scroll-reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
-        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+        .fade-in { animation: fadeIn 0.7s ease-out forwards; }
+        .slide-in-from-bottom-4 { animation: slideInUp 0.7s ease-out forwards; }
+        .slide-in-from-right-8 { animation: slideInRight 0.5s ease-out forwards; }
     </style>
 </head>
-<body class="dark-mode">
+<body>
+    <div id="root"></div>
 
-    <!-- Header & Navbar -->
-    <header id="main-header">
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <div class="profile-img">
-                        <img src="https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/IconKiaaa.jpg" alt="DhikzzzKiaaa">
+    <script type="text/babel">
+        const { useState, useMemo, useEffect } = React;
+
+        // --- ICONS (Lucide Icons Inline SVGs pengganti import modul) ---
+        const SVG_PATHS = {
+            Search: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+            Download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>',
+            Star: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
+            ShieldCheck: '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2-1 4-2 7-2 2 0 5 1 7 2a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
+            ChevronLeft: '<path d="m15 18-6-6 6-6"/>',
+            Menu: '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>',
+            Monitor: '<rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/>',
+            Smartphone: '<rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/>',
+            Clock: '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+            LayoutGrid: '<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>',
+            Gamepad2: '<line x1="6" x2="10" y1="12" y2="12"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="15" x2="15.01" y1="13" y2="13"/><line x1="18" x2="18.01" y1="11" y2="11"/><rect width="20" height="12" x="2" y="6" rx="2"/>',
+            User: '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+            Info: '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>',
+            ShieldAlert: '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2-1 4-2 7-2 2 0 5 1 7 2a1 1 0 0 1 1 1v7z"/><path d="M12 8v4"/><path d="M12 16h.01"/>',
+            Sparkles: '<path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M3 5h4"/><path d="M19 17v4"/><path d="M17 19h4"/>',
+            HardDrive: '<line x1="22" x2="2" y1="12" y2="12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/><line x1="6" x2="6.01" y1="16" y2="16"/><line x1="10" x2="10.01" y1="16" y2="16"/>',
+            LinkIcon: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
+            Share2: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>'
+        };
+
+        const Icon = ({ name, size = 24, className = "" }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" 
+                 fill={className.includes('fill') ? 'currentColor' : 'none'} 
+                 stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" 
+                 className={className} dangerouslySetInnerHTML={{ __html: SVG_PATHS[name] }} />
+        );
+
+        // Komponen Icon mapping
+        const Search = (p) => <Icon name="Search" {...p} />;
+        const Download = (p) => <Icon name="Download" {...p} />;
+        const Star = (p) => <Icon name="Star" {...p} />;
+        const ShieldCheck = (p) => <Icon name="ShieldCheck" {...p} />;
+        const ChevronLeft = (p) => <Icon name="ChevronLeft" {...p} />;
+        const Menu = (p) => <Icon name="Menu" {...p} />;
+        const Monitor = (p) => <Icon name="Monitor" {...p} />;
+        const Smartphone = (p) => <Icon name="Smartphone" {...p} />;
+        const Clock = (p) => <Icon name="Clock" {...p} />;
+        const LayoutGrid = (p) => <Icon name="LayoutGrid" {...p} />;
+        const Gamepad2 = (p) => <Icon name="Gamepad2" {...p} />;
+        const User = (p) => <Icon name="User" {...p} />;
+        const Info = (p) => <Icon name="Info" {...p} />;
+        const ShieldAlert = (p) => <Icon name="ShieldAlert" {...p} />;
+        const Sparkles = (p) => <Icon name="Sparkles" {...p} />;
+        const HardDrive = (p) => <Icon name="HardDrive" {...p} />;
+        const LinkIcon = (p) => <Icon name="LinkIcon" {...p} />;
+        const Share2 = (p) => <Icon name="Share2" {...p} />;
+
+        // --- MOCK DATA ---
+        const CATEGORIES = ["All", "Entertainment", "Player", "Editing", "Music", "Social", "Book", "VPN", "Browser", "Launcher", "Widget", "Manager", "Tools", "Games"];
+
+        const MOCK_APPS = [
+            {
+                id: '1', title: 'FreeReels', developer: 'SKYWORK AI PTE.LTD.', version: '2.3.60', size: '65,83 MB', rating: 4.4, downloads: '100jt+',
+                androidMin: 'Android 7.0+', updatedAt: '5 Juli 2026', category: 'Entertainment', isPremium: true, isTrending: true,
+                icon: 'https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/FreeReels.png',
+                banner: 'https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/FreeReels.png',
+                description: 'FreeReels adalah aplikasi hiburan yang memungkinkan Anda menonton ribuan drama pendek, reels, dan serial berkualitas tinggi kapan saja dan di mana saja. Nikmati berbagai genre populer seperti romance, K-drama, drama Amerika, sejarah, modern, balas dendam, CEO romance, thriller, komedi, fantasi, misteri, dan masih banyak lagi. Dengan koleksi lebih dari 70.000 judul, dukungan 19+ bahasa, rekomendasi yang dipersonalisasi, pembaruan konten setiap hari, serta pemutaran HD yang lancar tanpa buffering, FreeReels menghadirkan pengalaman menonton yang cepat, nyaman, dan imersif. Temukan cerita favorit Anda, nikmati episode-episode seru dalam waktu singkat, dan tonton semuanya gratis tanpa perlu berlangganan.',
+                features: ['Premium Unlocked', 'No ADS', 'All Episodes unlocked', ' Remove Screenshot Restriction',  'Remove Google Play Store Updates', 'Remove Google Play Services', 'Log In Via Facebook'],
+                mirrors: [{ name: "Versi 2.3.60", url: "https://www.mediafire.com/file/74r8l7mpzyqwgqb/FreeReels_2.3.60_%2528200360001%2529_Release_Dhikzzz_Galaxy.apk/file", size: '65,83 MB' }, { name: "Versi 2.3.50", url: "https://www.mediafire.com/file/vpuxywbcr0soqnp/FreeReels_2.3.50_%2528200350001%2529_Release_Dhikzzz_Galaxy.apk/file", size: '65,96 MB' }, { name: "Versi 2.3.32", url: "https://www.mediafire.com/file/66g9fsf0bm05vs0/FreeReels_2.3.32_%2528200332002%2529_Release_Dhikzzz_Galaxy.apk/file", size: '65,26 MB' }, { name: "Versi 2.3.21", url: "https://www.mediafire.com/file/66imp79yx6capvf/FreeReels_2.3.21_%2528200321001%2529_Release_Dhikzzz_Galaxy.apk/file", size: '57,18 MB' }]
+            },
+            {
+                id: '2', title: 'Melolo', developer: 'POLIGON', version: '5.3.2', size: '88,24 MB', rating: 4.6, downloads: '100jt+',
+                androidMin: 'Android 6.0+', updatedAt: '7 Juli 2026', category: 'Entertainment', isPremium: true, isTrending: true,
+                icon: 'https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/Melolo.png',
+                banner: 'https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/Melolo.png',
+                description: 'Melolo adalah aplikasi drama pendek gratis yang menghadirkan berbagai cerita seru dan emosional dalam berbagai genre, seperti romansa, miliarder, balas dendam, fantasi, tragedi, dan masih banyak lagi. Nikmati koleksi drama pendek terbaru serta konten original eksklusif dengan kualitas video HD, subtitle bawaan, dan mode layar penuh otomatis untuk pengalaman menonton yang lebih imersif. Dengan rekomendasi drama populer yang selalu diperbarui, kamu dapat menonton kapan saja dan di mana saja, sehingga selalu ada cerita baru yang siap menghibur di setiap waktu.',
+                features: ['VIP Membership Unlocked', 'VIP Featured Unlocked', 'No ADS', 'Remove Dialog Security', 'Bypass Screenshot Or Screen Recorder', 'Log In Via Facebook'],
+                mirrors: [{ name: 'Versi 5.3.2', url: 'https://www.mediafire.com/file/4oev1yxkcevy670/Melolo_5.3.2_%252853218%2529_Release_Dhikzzz_Galaxy.apk/file', size: '88,24 MB' }, { name: 'Versi 5.3.0', url: 'https://www.mediafire.com/file/90z1lbqvbx46s79/Melolo_5.3.0_%252853018%2529_Release_Dhikzzz_Galaxy.apk/file', size: '124,45 MB' }]
+            },
+            {
+                id: '3', title: 'MovieBox', developer: 'COIHUB TECHNOLOGY', version: '3.0.15.0513.03', size: '56,26 MB', rating: 4.3, downloads: '1,4M+',
+                androidMin: 'Android 6.0+', updatedAt: '7 Juli 2026', category: 'Entertainment', isPremium: true, isTrending: true,
+                icon: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/MovieBox.png",
+                banner: 'https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/MovieBox.png',
+                description: 'MovieBox adalah aplikasi streaming hiburan yang memungkinkan pengguna menikmati berbagai pilihan film, serial TV, anime, K-Drama, dan konten video lainnya dalam satu platform. Aplikasi ini menawarkan antarmuka yang sederhana, pemutaran video berkualitas tinggi, pembaruan konten secara berkala, serta fitur pencarian yang memudahkan pengguna menemukan tayangan favorit mereka. Selain itu, MovieBox juga mendukung berbagai perangkat sehingga pengguna dapat menikmati hiburan kapan saja dan di mana saja dengan pengalaman menonton yang nyaman.',
+                features: ['Premium Unlocked', 'No ADS', '1080p High-Quality Unlocked', 'Multi-Download Support', 'Log In Via Email'],
+                mirrors: [{ name: 'Versi 3.0.15.0513.03', url: 'https://www.mediafire.com/file/4ywzxifyatagb5l/MovieBox_3.0.15.0513.03_%252850020104%2529_Release_Dhikzzz_Galaxy.apk/file', size: '56,26 MB' }]
+            },
+            {
+                id: '4', title: 'Muslim Pro', developer: 'Bitsmedia', version: '17.3', size: '77,82 MB', rating: 4.3, downloads: '100jt+',
+                androidMin: 'Android 7.0+', updatedAt: '8 Juli 2026', category: 'Book', isPremium: true, isTrending: false,
+                icon: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/MuslimPro.png",
+                banner: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/MuslimPro.png",
+                description: 'Muslim Pro adalah aplikasi Islami lengkap yang membantu umat Muslim menjalankan ibadah sehari-hari dengan lebih mudah. Aplikasi ini menyediakan waktu sholat yang akurat, notifikasi adzan, Al-Quran lengkap dengan audio dan terjemahan, penunjuk arah kiblat, doa harian, dzikir, tasbih digital, pencari masjid dan restoran halal, serta berbagai konten Islami seperti film, serial, dan kelas pembelajaran. Dengan dukungan berbagai bahasa, mode offline untuk membaca Al-Quran, dan antarmuka yang nyaman digunakan, Muslim Pro menjadi pendamping ibadah yang praktis bagi jutaan Muslim di seluruh dunia.',
+                features: ['Premium Unlocked', 'No ADS', 'Al-Quran Offline', 'Complete Access To Exclusive Qalbox Content', 'Log In Via Email & Facebook'],
+                mirrors: [{ name: 'Versi 17.3', url: 'https://www.mediafire.com/file/jzfgeqqfuctiass/Muslim_Pro_17.3_%25281703000201%2529_Release_Dhikzzz_Galaxy.apk/file', size: '77,82 MB' }]
+            },
+            {
+                id: '5', title: 'AIDA64', developer: 'FinalWire Ltd', version: '2.17', size: '18,37 MB', rating: 4.5, downloads: '10jt+',
+                androidMin: 'Android 4.4+', updatedAt: '8 Juli 2026', category: 'Tools', isPremium: true, isTrending: false,
+                icon: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/AIDA64.jpg",
+                banner: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/AIDA64.jpg",
+                description: 'AIDA64 adalah aplikasi utilitas diagnostik untuk perangkat Android yang menampilkan informasi lengkap mengenai hardware dan software. Aplikasi ini mampu menampilkan detail CPU, GPU, RAM, penyimpanan, baterai, layar, kamera, sensor, jaringan Wi-Fi dan seluler, sistem operasi Android, serta informasi perangkat lainnya secara real-time. Selain itu, AIDA64 juga menyediakan daftar aplikasi yang terinstal, codec, direktori sistem, dan berbagai informasi teknis yang berguna untuk memantau performa, menganalisis spesifikasi, serta melakukan diagnosis perangkat Android dengan akurat.',
+                features: ['No ADS'],
+                mirrors: [{ name: 'Versi 2.17', url: 'https://www.mediafire.com/file/ccuiga54b1dw2ch/AIDA64_2.17_%2528217%2529_Release_Dhikzzz_Galaxy.apk/file', size: '18,37 MB' }]
+            },
+            {
+                id: '6', title: 'Al Quran Indonesia', developer: 'PT Dalfindo Pustaka Digital', version: '3.1.56', size: '43,43 MB', rating: 4.8, downloads: '50jt+',
+                androidMin: 'Android 7.0+', updatedAt: '8 Juli 2026', category: 'Book', isPremium: true, isTrending: false,
+                icon: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/Al-Quran-Indonesia.png",
+                banner: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/Al-Quran-Indonesia.png",
+                description: 'Al Quran Indonesia adalah aplikasi Al-Quran digital yang menyediakan 114 surah atau 30 juz lengkap dengan terjemahan Bahasa Indonesia, transliterasi, tajwid berwarna, serta audio murattal dari berbagai qari. Aplikasi ini juga dilengkapi jadwal sholat dan imsakiyah, alarm adzan, arah kiblat, kalender Hijriah, pencarian ayat, bookmark, penanda bacaan terakhir, serta fitur berbagi dan menyalin ayat. Dengan dukungan mode offline, tampilan yang sederhana, dan pilihan tema terang maupun gelap, aplikasi ini menjadi pendamping ibadah yang praktis untuk membaca Al-Quran kapan saja dan di mana saja.',
+                features: ['Premium Unlocked', 'No ADS'],
+                mirrors: [{ name: 'Versi 2.17', url: 'https://www.mediafire.com/file/3cza0qgwy3u07ql/Al_Qur%2527an_Indonesia_3.1.56_%2528356%2529_Release_Dhikzzz_Galaxy.apk/file', size: '43,43 MB' }]
+            },
+            {
+                id: '7', title: 'All Video Downloader', developer: 'InShot Inc.', version: '1.6.4', size: '24,04 MB', rating: 4.1, downloads: '100jt+',
+                androidMin: 'Android 7.0+', updatedAt: '8 Juli 2026', category: 'Tools', isPremium: true, isTrending: false,
+                icon: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/AllVideoDownloader.jpg",
+                banner: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/AllVideoDownloader.jpg",
+                description: 'All Video Downloader adalah aplikasi pengunduh video yang memungkinkan Anda menyimpan video, musik, dan berbagai file dari situs web melalui browser bawaan dengan cepat dan mudah. Aplikasi ini mendukung berbagai format file seperti MP4, MP3, M4A, MOV, AVI, PDF, dan lainnya, serta menyediakan fitur unduhan latar belakang, pengunduhan beberapa file sekaligus, pemutar video bawaan, pengelola unduhan, dukungan kartu SD, serta kemampuan melanjutkan unduhan yang terhenti. Dengan antarmuka yang sederhana dan dukungan berbagai jaringan, aplikasi ini memudahkan pengguna mengunduh serta menikmati konten secara offline kapan saja.',
+                features: ['Premium Unlocked', 'No ADS'],
+                mirrors: [{ name: 'Versi 1.6.4', url: 'https://www.mediafire.com/file/da1vcxq17wjedri/All_Video_Downloader_1.6.4_%252864%2529_Release_Dhikzzz_Galaxy.apk/file', size: '24,04 MB' }]
+            },
+            {
+                id: '8', title: 'Aloha Browser', developer: 'Aloha Mobile', version: '8.4.3', size: '308,22 MB', rating: 4.8, downloads: '10jt+',
+                androidMin: 'Android 10.0+', updatedAt: '8 Juli 2026', category: 'Browser', isPremium: true, isTrending: false,
+                icon: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/AlohaBrowser.jpg",
+                banner: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/AlohaBrowser.jpg",
+                description: 'Aloha Browser adalah browser pribadi yang dilengkapi VPN bawaan untuk memberikan pengalaman menjelajah internet yang cepat, aman, dan bebas batasan. Aplikasi ini menawarkan VPN tanpa batas, pemblokir iklan, mode penjelajahan privat, tab yang dilindungi kata sandi, pengelola unduhan, pemutar video dan musik offline, serta fitur berbagi file melalui Wi-Fi dengan enkripsi yang aman. Dengan fokus pada privasi pengguna, Aloha Browser membantu melindungi data dan identitas online dari pelacak maupun pengawasan, sehingga Anda dapat menjelajah, mengunduh, dan mengakses berbagai situs web dengan lebih nyaman dan aman.',
+                features: ['VPN Premium Unlocked', 'Stronger Lrivacy Protection', 'Unlimited VPN Usage',  'Ad Blocker '],
+                mirrors: [{ name: 'Versi 8.4.3', url: 'https://www.mediafire.com/file/k989fy422ztqslr/Aloha_8.4.3_%2528829043%2529_Release_Dhikzzz_Galaxy.apk/file', size: '308,22 MB' }]
+            },
+            {
+                id: '9', title: 'AI Video Enhancer - Utool', developer: 'Music Video Editor with Effects & Slideshow', version: '1.81.73', size: '49,09 MB', rating: 4.8, downloads: '10jt+',
+                androidMin: 'Android 7.0+', updatedAt: '9 Juli 2026', category: 'Editing', isPremium: true, isTrending: false,
+                icon: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/Utool.png",
+                banner: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/Utool.png",
+                description: 'Utool adalah editor foto dan video berbasis AI yang memudahkan Anda meningkatkan kualitas visual hanya dengan beberapa ketukan. Nikmati fitur AI Video Enhancer dan AI Photo Enhancer untuk memperjelas video buram, meningkatkan resolusi hingga 4K, memulihkan foto, serta membuat avatar dan karya seni AI yang unik. Aplikasi ini juga dilengkapi dengan kamera selfie, perekam layar Full HD tanpa batas waktu dan tanpa root, editor video musik, serta beragam efek, filter, dan musik populer untuk menghasilkan konten berkualitas tinggi. Dengan antarmuka yang sederhana, tanpa tanda air, dan hasil beresolusi HD, Utool memudahkan Anda membuat serta membagikan foto dan video menarik ke YouTube, TikTok, Instagram, Facebook, Snapchat, dan platform media sosial lainnya.',
+                features: ['Pro Unlocked', 'High Resolution Export', 'All Effects Unlocked',  'Faster Processing', ' No ADS'],
+                mirrors: [{ name: 'Versi 1.81.73', url: 'https://www.mediafire.com/file/jkqx6jw9e9s8fbe/AI_Video_Enhancer_-_Utool_1.181.73_%252873%2529_Release_Dhikzzz_Galaxy.apk/file', size: '49,09 MB' }]
+            },
+            {
+                id: '10', title: 'AutoResponder for WhatsApp', developer: 'AutoResponder.ai', version: '5.1.2', size: '13,40 MB', rating: 4.7, downloads: '5jt+',
+                androidMin: 'Android 7.0+', updatedAt: '9 Juli 2026', category: 'Social', isPremium: true, isTrending: false,
+                icon: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/AutoResponderForWA.jpg",
+                banner: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/AutoResponderForWA.jpg",
+                description: 'AutoResponder for WhatsApp adalah aplikasi yang memungkinkan Anda membalas pesan WhatsApp maupun WhatsApp Business secara otomatis dengan aturan yang dapat disesuaikan sesuai kebutuhan. Aplikasi ini mendukung balasan untuk semua pesan atau pesan tertentu, pesan sambutan, balasan dinamis menggunakan variabel seperti nama dan waktu, beberapa balasan dalam satu aturan, serta pengaturan untuk kontak, grup, dan nomor tak dikenal. Selain itu, tersedia fitur jadwal balasan, pencadangan aturan, integrasi AI melalui ChatGPT atau Dialogflow, dukungan Tasker/MacroDroid, serta kompatibilitas dengan Wear OS untuk memudahkan pengelolaan pesan. Beberapa fitur lanjutan memerlukan versi Pro. Aplikasi ini bekerja melalui akses notifikasi dan tidak terhubung langsung ke WhatsApp, serta tidak berafiliasi dengan WhatsApp Inc.',
+                features: ['Premium Unlocked', 'Pattern Matching Unlocked', 'Expert Matching (RegEx) Unlocked', 'Welcome Message Unlocked', 'Some Replies Unlocked', 'Random Reply Unlocked'],
+                mirrors: [{ name: 'Versi 5.1.2', url: 'https://www.mediafire.com/file/7y0wjynhzevkyh1/AutoResponder_for_WA_5.1.2_%2528404%2529_Release_Dhikzzz_Galaxy.apk/file', size: '13,40 MB' }]
+            },
+            {
+                id: '11', title: 'AutoResponder for Instagram', developer: 'AutoResponder.ai', version: '4.4.4', size: '12,29 MB', rating: 4.5, downloads: '100rb+',
+                androidMin: 'Android 7.0+', updatedAt: '10 Juli 2026', category: 'Social', isPremium: true, isTrending: false,
+                icon: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/AutoResponderForIG.jpg",
+                banner: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/AutoResponderForIG.jpg",
+                description: 'AutoResponder for Instagram adalah aplikasi yang membantu Anda membalas pesan Instagram Direct secara otomatis dengan mudah dan fleksibel. Anda dapat membuat balasan khusus untuk semua pesan atau pesan tertentu, mengirim pesan sambutan kepada pengguna baru, mengatur jadwal balasan, serta mengelola aturan untuk kontak maupun grup. Aplikasi ini juga mendukung integrasi AI seperti ChatGPT/GPT-4 dan Dialogflow, kompatibel dengan Tasker, MacroDroid, serta Wear OS untuk otomatisasi yang lebih canggih. Dengan fitur pencadangan aturan dan berbagai opsi kustomisasi, aplikasi ini sangat cocok untuk penggunaan pribadi maupun bisnis. AutoResponder bekerja melalui akses notifikasi tanpa mengakses Instagram secara langsung, sementara beberapa fitur lanjutan tersedia pada versi Pro.',
+                features: ['Premium Unlocked', 'Pattern Matching Unlocked', 'Expert Matching (RegEx) Unlocked',  'Welcome Message Unlocked', 'Some Replies Unlocked', 'Random Reply Unlocked'],
+                mirrors: [{ name: 'Versi 4.4.4', url: 'https://www.mediafire.com/file/5tbg6v0oa3bl16d/AutoResponder_for_IG_4.4.4_%2528145%2529_Release_Dhikzzz_Galaxy.apk/file', size: '12,29 MB' }]
+            },
+            {
+                id: '12', title: 'AutoResponder for Telegram', developer: 'AutoResponder.ai', version: '4.4.4', size: '12,29 MB', rating: 4.2, downloads: '100rb+',
+                androidMin: 'Android 7.0+', updatedAt: '10 Juli 2026', category: 'Social', isPremium: true, isTrending: false,
+                icon: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/AutoResponderForTG.jpg",
+                banner: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/AutoResponderForTG.jpg",
+                description: 'AutoResponder for Telegram adalah aplikasi yang memungkinkan Anda membalas pesan Telegram secara otomatis dengan cepat dan mudah. Anda dapat membuat balasan khusus untuk semua pesan atau pesan tertentu, mengirim pesan sambutan kepada pengguna baru, mengatur jadwal balasan, serta mengelola aturan untuk kontak maupun grup. Aplikasi ini juga mendukung integrasi AI seperti ChatGPT/GPT-4 dan Dialogflow, kompatibel dengan Tasker, MacroDroid, serta Wear OS untuk otomatisasi yang lebih canggih. Dengan fitur pencadangan aturan dan berbagai opsi kustomisasi, aplikasi ini sangat cocok digunakan untuk kebutuhan pribadi maupun bisnis. AutoResponder bekerja melalui akses notifikasi tanpa mengakses Telegram secara langsung, sementara beberapa fitur lanjutan hanya tersedia pada versi Pro.',
+                features: ['Premium Unlocked', 'Pattern Matching Unlocked', 'Expert Matching (RegEx) Unlocked',  'Welcome Message Unlocked', 'Some Replies Unlocked', 'Random Reply Unlocked'],
+                mirrors: [{ name: 'Versi 4.4.4', url: 'https://www.mediafire.com/file/by9eta5tp1sq5xe/AutoResponder_for_TG_4.4.4_%2528136%2529_Release_Dhikzzz_Galaxy.apk/file', size: '12,29 MB' }]
+            },
+            {
+                id: '13', title: 'JOOX', developer: 'Tencent Mobility Limited', version: '9.5.3', size: '125,11 MB', rating: 4.4, downloads: '100jt+',
+                androidMin: 'Android 5.0+', updatedAt: '10 Juli 2026', category: 'Music', isPremium: true, isTrending: false,
+                icon: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/Joox.jpg",
+                banner: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/Joox.jpg",
+                description: 'JOOX Music adalah aplikasi streaming musik yang menghadirkan jutaan lagu, playlist, radio, audiobook, dan podcast dalam satu platform. Nikmati rekomendasi musik yang dipersonalisasi, lirik lagu secara real-time, playlist pilihan sesuai suasana hati, serta efek suara premium untuk pengalaman mendengarkan yang lebih imersif. Dengan JOOX VIP, Anda dapat menikmati streaming tanpa iklan, mengunduh lagu untuk didengarkan secara offline, serta mengakses kualitas audio Hi-Fi dan Hi-Res untuk suara yang lebih jernih dan detail.',
+                features: ['VIP Unlocked', 'All VIP Songs Unlocked', 'VIP Exclusive Frame Unlocked',  'No ADS', 'Log In Via Email & Facebook'],
+                mirrors: [{ name: 'Versi 9.5.3', url: 'https://www.mediafire.com/file/4939u7qw0gsbuyd/JOOX_9.5.3_%25281794%2529_Release_Dhikzzz_Galaxy.apk/file', size: '125,11 MB' }]
+            },
+            {
+                id: '14', title: 'Fizzo Novel', developer: 'POLIGON', version: '5.3.0', size: '72,26 MB', rating: 4.2, downloads: '50jt+',
+                androidMin: 'Android 6.0+', updatedAt: '10 Juli 2026', category: 'Book', isPremium: true, isTrending: false,
+                icon: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/FizzoNovel.jpg",
+                banner: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/FizzoNovel.jpg",
+                description: 'Fizzo Novel adalah aplikasi novel dan drama pendek yang menghadirkan ribuan cerita berkualitas dari berbagai genre, seperti romansa, fantasi, misteri, aksi, hingga kehidupan modern. Dengan fitur baca offline, audiobook, perpustakaan pribadi, rekomendasi cerita yang dipersonalisasi, serta pengaturan tampilan halaman yang dapat disesuaikan, Fizzo memberikan pengalaman membaca yang nyaman dan menyenangkan. Kamu juga dapat menulis novel, mengikuti pembaruan cerita terbaru, berinteraksi dengan komunitas pembaca, dan menikmati berbagai karya orisinal kapan saja dan di mana saja.',
+                features: ['VIP Unlocked', 'Unlimited Downloads', 'Exclusive VIP Badge', 'VIP Background Unlocked',  'No ADS', 'Log In Via Email & Facebook'],
+                mirrors: [{ name: 'Versi 5.3.0', url: 'https://www.mediafire.com/file/m3la0fnr06azzj8/Fizzo_Novel_5.3.0_%252853016%2529_Release_Dhikzzz_Galaxy.apk/file', size: '72,26 MB' }]
+            },
+            {
+                id: '15', title: 'EX File Manager', developer: 'Ace Mobile', version: '1.5.8', size: '60,91 MB', rating: 4.4, downloads: '10jt+',
+                androidMin: 'Android 6.0+', updatedAt: '10 Juli 2026', category: 'Manager', isPremium: true, isTrending: false,
+                icon: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/EXManager.jpg",
+                banner: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/EXManager.jpg",
+                description: 'EX Penjelajah File adalah aplikasi manajer file lengkap untuk Android yang memudahkan pengelolaan, penelusuran, pemindahan, pengeditan, dan pemutaran berbagai jenis file dalam satu tempat. Aplikasi ini mendukung penyimpanan internal, kartu SD, USB OTG, cloud, dan jaringan, serta dilengkapi penampil dokumen Office dan PDF, pemutar video dan musik, editor teks dan kode, kompresi serta ekstraksi arsip, enkripsi file, analisis penyimpanan, pembersihan file yang tidak diperlukan, hingga pengelolaan APK. Dengan antarmuka bergaya komputer yang intuitif, EX Penjelajah File memberikan pengalaman mengelola file yang cepat, aman, dan efisien.',
+                features: ['VIP Unlocked', 'Show Hidden Files Unlocked', 'File Encryption To Protect Privacy',  'No ADS', 'Find Obfuscated Videos and Images'],
+                mirrors: [{ name: 'Versi 1.5.8', url: 'https://www.mediafire.com/file/cpgp7lhq0dzxhn0/EX_Penjelajah_File_1.5.8_%252840%2529_Release_Dhikzzz_Galaxy.apk/file', size: '60,91 MB' }]
+            },
+            {
+                id: '16', title: 'ES File Manager', developer: 'Ace Mobile', version: '1.5.8', size: '70,17 MB', rating: 4.4, downloads: '10jt+',
+                androidMin: 'Android 6.0+', updatedAt: '10 Juli 2026', category: 'Manager', isPremium: true, isTrending: false,
+                icon: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/ESManager.jpg",
+                banner: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/ESManager.jpg",
+                description: 'EX Penjelajah File adalah aplikasi manajer file serbaguna untuk Android yang memungkinkan Anda mengelola, melihat, mengedit, dan memutar berbagai jenis file dengan mudah. Mendukung penyimpanan internal, kartu SD, USB OTG, cloud, dan jaringan, aplikasi ini dilengkapi penampil dokumen Office dan PDF, pembaca eBook, pemutar video dan musik, editor teks serta kode, kompresi dan ekstraksi arsip, enkripsi file, analisis penyimpanan, hingga pembersihan file yang tidak diperlukan. Dengan antarmuka bergaya komputer yang intuitif dan fitur lengkap, EX Penjelajah File memberikan solusi praktis untuk mengatur semua file Anda secara cepat, aman, dan efisien.',
+                features: ['VIP Unlocked', 'Show Hidden Files Unlocked', 'File Encryption To Protect Privacy',  'No ADS', 'Find Obfuscated Videos and Images'],
+                mirrors: [{ name: 'Versi 4.4.3.6', url: 'https://www.mediafire.com/file/4uey2zwod9198k4/ES_File_Explorer_4.4.3.6_%252810352%2529_Release_Dhikzzz_Galaxy.apk/file', size: '70,17 MB' }]
+            },
+            {
+                id: '17', title: 'DramaBox', developer: 'STORYMATRIX', version: '6.0.0', size: '62,65 MB', rating: 4.3, downloads: '100jt+',
+                androidMin: 'Android 6.0+', updatedAt: '10 Juli 2026', category: 'Entertainment', isPremium: true, isTrending: true,
+                icon: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/DramaBox.jpg",
+                banner: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/DramaBox.jpg",
+                description: 'DramaBox adalah aplikasi streaming drama pendek yang menghadirkan koleksi drama China, Korea, Jepang, dan berbagai negara Asia dengan genre romansa, misteri, thriller, komedi, hingga aksi. Nikmati tayangan berkualitas HD dengan subtitle dan dubbing Bahasa Indonesia, pembaruan episode setiap hari, rekomendasi tontonan yang dipersonalisasi, navigasi yang mudah, serta dukungan mode offline untuk menonton kapan saja tanpa koneksi internet. Sebagian drama dapat dinikmati secara gratis, sementara langganan tersedia untuk membuka lebih banyak konten eksklusif dan menikmati pengalaman menonton yang lebih lengkap.',
+                features: ['SVIP Unlocked', 'All Exclusive Dramas Unlocked', '1080p Resolution Unlocked', 'No ADS', 'Unlimited Points', 'Log In Via Facebook'],
+                mirrors: [{ name: 'Versi 6.0.0', url: 'https://www.mediafire.com/file/6zcqmn5rwztadhg/DramaBox_6.0.0_%2528600%2529_Release_Dhikzzz_Galaxy.apk/file', size: '62,65MB' }]
+            },
+            {
+                id: '18', title: 'Drama Queen', developer: 'Fun Technologies Studio', version: '0.1.51', size: '42,31 MB', rating: 4.2, downloads: '50rb+',
+                androidMin: 'Android 7.0+', updatedAt: '10 Juli 2026', category: 'Entertainment', isPremium: true, isTrending: false,
+                icon: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/DramaQueen.jpg",
+                banner: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/DramaQueen.jpg",
+                description: 'Drama Queen adalah aplikasi streaming yang menghadirkan beragam Drama Korea (Drakor), Drama China (Drachin), Donghua, dan serial Asia lainnya dalam satu platform. Nikmati koleksi drama terbaru dan terpopuler dengan streaming yang cepat, kualitas video yang jernih, dukungan subtitle, serta notifikasi episode terbaru agar tidak ketinggalan cerita favoritmu. Dengan antarmuka yang mudah digunakan, Drama Queen memberikan pengalaman menonton yang nyaman kapan saja dan di mana saja.',
+                features: ['Premium Unlocked', 'All Exclusive Dramas Unlocked', 'Content Quality Unlocked', 'No ADS', 'Log In Via Facebook'],
+                mirrors: [{ name: 'Versi 0.1.51', url: 'https://www.mediafire.com/file/rpw1col9c71jeyf/Drama_Queen_0.1.51_%252851%2529_Release_Dhikzzz_Galaxy.apk/file', size: '42,31 MB' }]
+            },
+            {
+                id: '19', title: 'Bacakomik', developer: 'Bacakomik', version: '1.5.7', size: '19,61 MB', rating: 4.0, downloads: '50rb+',
+                androidMin: 'Android 5.0+', updatedAt: '13 Juli 2026', category: 'Book', isPremium: true, isTrending: false,
+                icon: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/Bacakomik.jpg",
+                banner: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/Bacakomik.jpg",                
+                features: ['Pro Features Unlocked'],
+                mirrors: [{ name: 'Versi 1.5.7', url: 'https://www.mediafire.com/file/hap63p4eem4obve/Bacakomik_1.5.7_%2528157%2529_Release_Dhikzzz_Galaxy.apk/file', size: '19,61 MB' }]
+            },
+            {
+                id: '20', title: 'Komikindo', developer: 'KI OFF', version: '1.1.38', size: '33,53 MB', rating: 3.7, downloads: '10rb+',
+                androidMin: 'Android 6.0+', updatedAt: '13 Juli 2026', category: 'Book', isPremium: true, isTrending: false,
+                icon: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/KomikIndo.jpg",
+                banner: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/KomikIndo.jpg",
+                description: 'Komikindo Indonesia adalah aplikasi baca komik gratis yang menghadirkan ribuan manga, manhwa, dan manhua populer dengan pembaruan chapter setiap hari. Nikmati berbagai genre menarik, mulai dari aksi, petualangan, fantasi, romansa, hingga komedi, melalui antarmuka yang sederhana dan mudah digunakan. Temukan judul-judul favorit seperti One Piece, Tokyo Revengers, Jujutsu Kaisen, Solo Leveling, dan masih banyak lagi, sehingga Anda dapat mengikuti cerita terbaru kapan saja dan di mana saja langsung dari perangkat Android.',
+                features: ['Pro Features Unlocked'],
+                mirrors: [{ name: 'Versi 1.1.38', url: 'https://www.mediafire.com/file/j1hoyk3zn34z7bv/Komikindo_1.1.38_%252835%2529_Release_Dhikzzz_Galaxy.apk/file', size: '33,53 MB' }]
+            },
+            {
+                id: '21', title: 'KomikID', developer: 'Freesign', version: '1.5.10', size: '25,02 MB', rating: 4.2, downloads: '100rb+',
+                androidMin: 'Android 8.0+', updatedAt: '13 Juli 2026', category: 'Book', isPremium: true, isTrending: false,
+                icon: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/KomikID.jpg",
+                banner: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/KomikID.jpg",
+                description: 'KomikID adalah aplikasi baca komik yang menghadirkan ribuan manga, manhwa, dan manhua dari berbagai genre dengan pembaruan chapter setiap hari. Nikmati pengalaman membaca yang nyaman melalui fitur auto-scroll, favorit, riwayat bacaan, notifikasi chapter terbaru, serta kemampuan mengunduh komik untuk dibaca secara offline kapan saja tanpa koneksi internet. Dengan tampilan yang ringan, cepat, dan mudah digunakan, KomikID menjadi pilihan tepat bagi penggemar komik yang ingin mengikuti seri favorit mereka dengan praktis langsung dari perangkat Android.',
+                features: ['Pro Membership Unlocked', 'Pro Features Unlocked', 'No ADS'],
+                mirrors: [{ name: 'Versi 1.5.10', url: 'https://www.mediafire.com/file/xpaf2o9crbjk0yh/KomikID_1.5.10_%252848%2529_Release_Dhikzzz_Galaxy.apk/file', size: '25,02 MB' }]
+            },
+            {
+                id: '22', title: 'WEBTOON', developer: 'NAVER WEBTOON', version: '3.8.11', size: '77,27 MB', rating: 4.7, downloads: '100jt+',
+                androidMin: 'Android 9.0+', updatedAt: '13 Juli 2026', category: 'Book', isPremium: true, isTrending: false,
+                icon: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/WEEBTOON.jpg",
+                banner: "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo/WEEBTOON.jpg",
+                description: 'WEBTOON adalah aplikasi baca komik digital yang menghadirkan ribuan webtoon, manhwa, manga, dan komik dari berbagai genre seperti romantis, aksi, fantasi, komedi, horor, hingga kerajaan. Nikmati pembaruan episode setiap hari, unduh komik untuk dibaca secara offline, berinteraksi dengan kreator dan pembaca melalui komentar serta Creator Feed, mendukung kreator lokal lewat WEBTOON KANVAS, mengikuti berbagai event menarik, dan membaca judul-judul populer yang telah diadaptasi menjadi drama maupun film. Dengan antarmuka yang mudah digunakan dan koleksi cerita yang terus bertambah, WEBTOON memberikan pengalaman membaca komik yang seru kapan saja dan di mana saja.',
+                features: ['Premium Features Unlocked', 'Daily Pass Unlocked', 'Fast Pass Unlocked', 'Ad-Free Experience', 'Unlimited Reading', 'Offline Download', 'High Quality Images'],
+                mirrors: [{ name: 'Versi 3.8.11', url: 'https://www.mediafire.com/file/y0l8to1m7ab7s9g/WEBTOON_3.8.11_%25283081107%2529_Release_Dhikzzz_Galaxy.apk/file', size: '77,27 MB' }]
+            }
+        ];
+
+        // --- COMPONENTS ---
+        const Badge = ({ children, variant = 'primary' }) => {
+            const styles = {
+                primary: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
+premium: "bg-[#0D1931] text-[#2CB5FF] border border-[#1EA7FF] shadow-[0_0_15px_rgba(30,167,255,0.25)]",
+                success: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+            };
+            return <span className={`px-2 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md border ${styles[variant]} backdrop-blur-sm`}>{children}</span>;
+        };
+
+        const AppCard = ({ app, onClick }) => (
+            <div onClick={() => onClick(app)} className="group relative bg-white/[0.02] border border-white/[0.05] hover:border-cyan-500/40 rounded-2xl p-4 cursor-pointer transition-all duration-500 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {app.isPremium && <div className="absolute top-3 right-3 z-10"><Badge variant="premium">Premium</Badge></div>}
+                <div className="relative z-10 flex items-start gap-4">
+                    <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 group-hover:scale-105 transition-transform duration-500 shadow-lg">
+                        <img src={app.icon} alt={app.title} className="w-full h-full object-cover" />
                     </div>
-                    <h1>DhikzzzKiaaa<span>Gallery</span></h1>
-                </div>
-                <div class="menu-toggle" id="mobile-menu">
-                    <svg viewBox="0 0 24 24" width="30" height="30" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Sidebar / Offcanvas Menu -->
-    <aside id="sidebar">
-        <div class="sidebar-header">
-            <div class="close-sidebar" id="close-sidebar">
-                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </div>
-        </div>
-        <ul class="sidebar-links">
-            <li><a href="#" id="menu-home" class="active">Home</a></li>
-            <li><a href="#" id="menu-album">Album</a></li>
-            <li><a href="#" id="menu-profile">Profile Pribadi</a></li>
-        </ul>
-    </aside>
-    <div class="sidebar-overlay" id="sidebar-overlay"></div>
-
-    <main id="main-content">
-        <!-- Home Section -->
-        <div id="home-section">
-            <!-- Hero Section -->
-            <section id="home" class="hero">
-                <div class="container">
-                    <div class="hero-content scroll-reveal">
-                        <div class="badge">
-                            <span class="dot"></span> Koleksi Foto Pribadi
+                    <div className="flex-1 min-w-0">
+                        <h3 className="font-bold text-slate-100 truncate group-hover:text-cyan-400 transition-colors">{app.title}</h3>
+                        <p className="text-xs text-slate-400 truncate mt-0.5">{app.developer}</p>
+                        <div className="flex items-center gap-3 mt-3 text-xs text-slate-300">
+                            <span className="flex items-center gap-1"><Star size={12} className="text-yellow-400 fill-yellow-400" /> {app.rating}</span>
+                            <span className="flex items-center gap-1"><Download size={12} className="text-cyan-400" /> {app.size}</span>
                         </div>
-                        <h2 class="hero-title"><span class="gradient-text"><DhikzzzKiaaa></span></h2>
-                        <p class="hero-desc">Kumpulan Kenangan Yang Masih Ku Simpan Dengan Baik</p>
-                        <div class="hero-btns">
-                            <a href="#" id="hero-btn-album" class="btn btn-primary ripple">
-                                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                                Lihat Album
-                            </a>
-                            <a href="#" id="hero-btn-all" class="btn btn-outline ripple">
-                                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                                Semua Foto
-                            </a>
-                            <div class="total-foto btn" style="background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(5px); margin-top: 15px; cursor: default;">
-                                <svg style="color: var(--primary);" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                                <span style="color: var(--text-gray); font-size: inherit; font-weight: inherit;">Total <span id="total-foto-count" style="color: var(--primary);">0</span> Foto</span>
+                    </div>
+                </div>
+            </div>
+        );
+
+        // --- VIEWS ---
+        // --- VIEW: TAMPILAN SEMUA APLIKASI ---
+        const AllAppsView = ({ onAppSelect, onBack }) => {
+            useEffect(() => { window.scrollTo(0, 0); }, []);
+
+            return (
+                <div className="fade-in slide-in-from-bottom-4 duration-700 pb-24">
+                    <section className="relative pt-32 pb-12 px-4 md:px-8 max-w-7xl mx-auto flex flex-col items-center text-center">
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-purple-500/15 blur-[120px] rounded-full pointer-events-none" />
+                        <button onClick={onBack} className="absolute top-24 left-4 md:left-8 z-20 flex items-center gap-2 px-4 py-2 bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/10 rounded-xl text-slate-200 transition-colors">
+                            <ChevronLeft size={20} /> Kembali
+                        </button>
+                        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-100 mb-4 mt-12">Semua Aplikasi</h1>
+                        <p className="text-slate-400 text-lg max-w-2xl">Menampilkan seluruh koleksi aplikasi premium dari Dhikzzz Galaxy</p>
+                    </section>
+
+                    <div className="max-w-7xl mx-auto px-4 md:px-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+                            {MOCK_APPS.map(app => <AppCard key={app.id} app={app} onClick={onAppSelect} />)}
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        // --- VIEW: HOME ---
+        const HomeView = ({ onAppSelect, searchQuery, setSearchQuery, onShowAll }) => {
+            const filteredApps = useMemo(() => {
+                if (!searchQuery) return MOCK_APPS;
+                return MOCK_APPS.filter(app => app.title.toLowerCase().includes(searchQuery.toLowerCase()) || app.category.toLowerCase().includes(searchQuery.toLowerCase()));
+            }, [searchQuery]);
+            const trendingApps = filteredApps.filter(a => a.isTrending);
+
+            return (
+                <div className="fade-in slide-in-from-bottom-4 duration-700 pb-24">
+                    <section className="relative pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto flex flex-col items-center text-center">
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-cyan-500/20 blur-[120px] rounded-full pointer-events-none" />
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[300px] bg-purple-500/20 blur-[100px] rounded-full pointer-events-none" />
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-cyan-400 text-sm font-medium mb-6 backdrop-blur-md">
+                            <Sparkles size={16} /> 100% Aman & Anti Virus 
+                        </div>
+                        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight flex flex-col items-center">
+    <span className="text-slate-100">
+        Aplikasi Premium
+    </span>
+
+    <span className="mt-2 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 drop-shadow-[0_0_20px_rgba(0,243,255,0.45)]">
+        Dhikzzz Galaxy
+    </span>
+</h1>
+                        <p className="text-slate-400 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
+                            Temukan aplikasi favoritmu secara gratis di sini! Nikmati pengalaman tanpa iklan, fitur Premium yang sudah terbuka, serta berbagai fitur eksklusif lainnya tanpa batas.
+                        </p>
+                        <div className="relative w-full max-w-2xl group">
+                            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-500"></div>
+                            <div className="relative flex items-center bg-[#0a0a0f] border border-white/10 rounded-2xl px-4 py-3 backdrop-blur-xl">
+                                <Search className="text-slate-400 w-6 h-6 mr-3" />
+                                <input type="text" placeholder="Cari game, aplikasi, atau kategori..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-full bg-transparent border-none outline-none text-slate-100 placeholder-slate-500 text-lg" />
+                                <button className="hidden sm:flex px-6 py-2 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-semibold rounded-xl transition-all shadow-[0_0_15px_rgba(0,243,255,0.3)]">Search</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-16">
+                        <section>
+                            <div className="flex items-center justify-between mb-6">
+                                <h2 className="text-2xl font-bold text-slate-100 flex items-center gap-2"><LayoutGrid className="text-cyan-400" /> Categories </h2>
+                            </div>
+                            <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
+                                {CATEGORIES.map((cat, i) => (
+                                    <button  key={i} onClick={() => setSearchQuery(cat === "All" ? "" : cat)} className="whitespace-nowrap px-5 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.05] hover:bg-white/[0.08] hover:border-cyan-500/30 text-slate-300 hover:text-cyan-400 transition-all font-medium">
+                                        {cat}
+                                    </button>
+                                ))}
+                            </div>
+                        </section>
+
+                        {trendingApps.length > 0 && (
+                            <section>
+                                <h2 className="text-2xl font-bold text-slate-100 mb-6 flex items-center gap-2">🔥 Sering Dicari (Trending)</h2>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+                                    {trendingApps.map(app => <AppCard key={app.id} app={app} onClick={onAppSelect} />)}
+                                </div>
+                            </section>
+                        )}
+
+                        <section>
+                            <h2 className="text-2xl font-bold text-slate-100 mb-6 flex items-center gap-2"><Gamepad2 className="text-purple-400" /> Semua Aplikasi</h2>
+                            {filteredApps.length === 0 ? (
+                                <div className="text-center py-20 bg-white/[0.02] border border-white/[0.05] rounded-3xl"><p className="text-slate-400 text-lg">Tidak ada aplikasi yang ditemukan untuk "{searchQuery}"</p></div>
+                            ) : (
+                                <div>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+                                        {filteredApps.slice(0, 10).map(app => <AppCard key={app.id} app={app} onClick={onAppSelect} />)}
+                                    </div>
+                                    <div className="mt-10 flex justify-center">
+                                        <button
+                                            onClick={onShowAll}
+                                            className="px-8 py-4 rounded-2xl bg-white/[0.05] border border-white/[0.1] text-slate-300 font-semibold hover:bg-white/[0.1] hover:border-cyan-500/30 hover:text-cyan-400 transition-all flex items-center gap-3 group"
+                                        >
+                                            Tampilkan Semua Aplikasi
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+                        </section>
+                    </div>
+                </div>
+            );
+        };
+
+        const AppDetailView = ({ app, onBack }) => {
+            useEffect(() => { window.scrollTo(0, 0); }, []);
+
+            return (
+                <div className="fade-in slide-in-from-right-8 duration-500 pb-24 min-h-screen">
+                    <div className="relative h-[300px] md:h-[400px] w-full">
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#05050a] via-[#05050a]/80 to-transparent z-10" />
+                        <img src={app.banner} alt={app.title} className="w-full h-full object-cover" />
+                        <button onClick={onBack} className="absolute top-24 left-4 md:left-8 z-20 flex items-center gap-2 px-4 py-2 bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/10 rounded-xl text-slate-200 transition-colors">
+                            <ChevronLeft size={20} /> Kembali
+                        </button>
+                    </div>
+
+                    <div className="max-w-5xl mx-auto px-4 md:px-8 relative z-20 -mt-32 md:-mt-40">
+                        <div className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 blur-[80px]" />
+                            <div className="flex flex-col md:flex-row gap-6 md:gap-8 relative z-10">
+                                <div className="shrink-0"><img src={app.icon} alt={app.title} className="w-32 h-32 md:w-40 md:h-40 rounded-3xl shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10" /></div>
+                                <div className="flex-1 flex flex-col justify-center">
+                                    <div className="flex flex-wrap items-center gap-2 mb-3">
+                                        <Badge variant="primary">{app.category}</Badge>
+                                        {app.isPremium && <Badge variant="premium">Premium Unlocked</Badge>}
+                                        <Badge variant="success">Updated</Badge>
+                                    </div>
+                                    <h1 className="text-3xl md:text-4xl font-bold text-slate-100 mb-2">{app.title}</h1>
+                                    <p className="text-cyan-400 font-medium mb-6 text-lg">{app.developer}</p>
+                                    <div className="grid grid-cols-2 md:flex md:flex-wrap gap-4 md:gap-8 text-sm">
+                                        <div><p className="text-slate-500 mb-1 flex items-center gap-1"><Monitor size={14}/> Versi</p><p className="font-semibold text-slate-200">{app.version}</p></div>
+                                        <div><p className="text-slate-500 mb-1 flex items-center gap-1"><HardDrive size={14}/> Ukuran</p><p className="font-semibold text-slate-200">{app.size}</p></div>
+                                        <div><p className="text-slate-500 mb-1 flex items-center gap-1"><Star size={14}/> Rating</p><p className="font-semibold text-slate-200">{app.rating} / 5.0</p></div>
+                                        <div><p className="text-slate-500 mb-1 flex items-center gap-1"><Clock size={14}/> Diperbarui</p><p className="font-semibold text-slate-200">{app.updatedAt}</p></div>
+                                        <div className="col-span-2 md:col-span-1"><p className="text-slate-500 mb-1 flex items-center gap-1"><Smartphone size={14}/> Sistem</p><p className="font-semibold text-slate-200">{app.androidMin}</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
+                            <div className="lg:col-span-2 space-y-8">
+                                <div className="bg-white/[0.02] border border-white/[0.05] rounded-3xl p-6 md:p-8">
+                                    <h3 className="text-xl font-bold text-slate-100 mb-4 flex items-center gap-2"><Info className="text-cyan-400" /> Description</h3>
+                                    <p className="text-slate-300 leading-relaxed">{app.description}</p>
+                                </div>
+                                <div className="bg-white/[0.02] border border-white/[0.05] rounded-3xl p-6 md:p-8">
+                                    <h3 className="text-xl font-bold text-slate-100 mb-4 flex items-center gap-2"><Sparkles className="text-purple-400" /> Modification Features</h3>
+                                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                        {app.features.map((feat, i) => (
+                                            <li key={i} className="flex items-start gap-3 text-slate-300 bg-white/[0.02] p-3 rounded-xl border border-white/[0.05]">
+                                                <ShieldCheck className="text-emerald-400 shrink-0" size={20} /><span>{feat}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div className="space-y-6">
+                                <div className="bg-gradient-to-b from-white/[0.05] to-transparent border border-white/10 rounded-3xl p-6 relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 blur-[50px]" />
+                                    <h3 className="text-xl font-bold text-slate-100 mb-6 flex items-center gap-2"><Download className="text-cyan-400" /> Download</h3>
+                                    <div className="space-y-3 relative z-10">
+                                        {app.mirrors.map((mirror, i) => (
+                                            <a key={i} href={mirror.url}  target="_blank" rel="noopener noreferrer" className="flex items-center justify-between bg-[#0a0a0f] border border-white/10 p-4 rounded-2xl hover:border-cyan-500/50 hover:bg-white/[0.05] transition-all group cursor-pointer">
+                                                <div className="flex items-center gap-3">
+                                                    <div className="p-2 bg-white/5 rounded-lg text-slate-300 group-hover:text-cyan-400 transition-colors"><LinkIcon size={18} /></div>
+<div>
+    <div className="flex items-center gap-2">
+        <span className="font-semibold text-slate-200">
+            {mirror.name}
+        </span>
+
+        {i === 0 && (
+            <span className="px-2 py-0.5 text-[10px] font-bold uppercase rounded-full bg-cyan-500 text-white animate-pulse">
+                New
+            </span>
+        )}
+    </div>
+
+    <span className="text-xs text-slate-500">
+        {mirror.size}
+    </span>
+</div>
+                                                </div>
+                                                <Download size={20} className="text-slate-600 group-hover:text-cyan-400 transition-colors" />
+                                            </a>
+                                        ))}
+                                    </div>
+                                    <div className="mt-6 p-4 bg-orange-500/10 border border-orange-500/20 rounded-xl flex gap-3 text-orange-200/80 text-xs">
+                                        <ShieldAlert size={24} className="shrink-0 text-orange-400" />
+                                        <div className="flex flex-col">
+                                        <p>Aplikasi ini dirilis oleh Dhikzzz Galaxy dan telah saya pastikan aman untuk digunakan. Aplikasi tidak mengandung virus, malware, maupun kode berbahaya.
+                                        </p>
+                                        <p>
+                                        Jika muncul peringatan seperti "Aplikasi Berbahaya" atau "Aplikasi Berisiko", hal tersebut biasanya karena aplikasi diunduh dari luar Google Play Store, bukan karena mengandung virus. Apabila instalasi diblokir, Anda dapat menonaktifkan Google Play Protect sementara, lalu mengaktifkannya kembali setelah proses instalasi selesai.</p>
+                                    </div>
+                                </div>
+                                </div>
+                                <button
+    onClick={() => {
+        const shareUrl = window.location.href;
+
+        if (navigator.share) {
+            navigator.share({
+                title: app.title,
+                text: `Download ${app.title} dari Dhikzzz Galaxy`,
+                url: shareUrl
+            }).catch(() => {});
+        } else {
+            navigator.clipboard.writeText(shareUrl);
+            alert("Link aplikasi berhasil disalin!");
+        }
+    }}
+    className="w-full py-4 rounded-2xl bg-white/[0.03] border border-white/10 text-slate-300 font-semibold flex items-center justify-center gap-2 hover:bg-white/[0.08] transition-colors"
+>
+    <Share2 size={18} /> Bagikan Aplikasi
+</button>
                             </div>
                         </div>
                     </div>
-
-                <div class="floating-blur blur-1"></div>
-                <div class="floating-blur blur-2"></div>
-            </section>
-
-            <!-- Album & Gallery Section -->
-            <section id="album-section" class="gallery-section">
-                <div class="container">
-                    <div class="section-header scroll-reveal">
-                        <h2 class="section-title">Album Foto</h2>
-                        <p class="section-desc">Telusuri setiap momen berharga berdasarkan kategori.</p>
-                    </div>
-
-                    <!-- Filter & Search -->
-                    <div class="gallery-controls scroll-reveal">
-                        <div class="search-box">
-                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                            <input type="text" id="search-input" placeholder="Cari foto...">
-                        </div>
-                        <div class="filter-container">
-                            <button class="filter-btn active" data-filter="Semua">Semua</button>
-                            <button class="filter-btn" data-filter="Bersama">Bersama</button>
-                            <button class="filter-btn" data-filter="Saskia">Saskia</button>
-                            <button class="filter-btn" data-filter="Dika">Dika</button>
-                        </div>
-                        <div class="gallery-info">
-                            Menampilkan <span id="photo-count">0</span> foto
-                        </div>
-                    </div>
-
-                    <!-- Gallery Grid -->
-                    <div id="gallery-container" class="gallery-grid"></div>
                 </div>
-            </section>
-        </div>
+            );
+        };
 
-        <!-- Profile Section (Hidden by Default) -->
-        <div id="profile-section" class="container">
-            <div class="section-header">
-    
-    <style>
-.profile-section,
-.profile-card,
-.profile-content,
-.profile-info,
-.profile-details,
-.info-card,
-.info-content {
-    text-align: left !important;
-}
+        // --- MAIN APP ---
+        function App() {
+            const [currentView, setCurrentView] = useState('home');
+            const [selectedApp, setSelectedApp] = useState(null);
+            const [searchQuery, setSearchQuery] = useState('');
+            const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-.info-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start !important;
-    justify-content: center;
-    flex: 1;
-}
-
-.info-label,
-.info-value,
-.profile-name,
-.profile-title,
-.profile-description,
-.profile-text,
-.profile-card h1,
-.profile-card h2,
-.profile-card h3,
-.profile-card h4,
-.profile-card h5,
-.profile-card h6,
-.profile-card p,
-.profile-card span {
-    width: 100%;
-    text-align: left !important;
-}
-        /* ===== RESET & BASE ===== */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #0d1117;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0b8;
-            --text-muted: #6b6b80;
-            --blue-primary: #3b82f6;
-            --blue-glow: rgba(59, 130, 246, 0.4);
-            --blue-soft: rgba(59, 130, 246, 0.15);
-            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            overflow-x: hidden;
-            min-height: 100vh;
-            line-height: 1.6;
-        }
-
-        /* ===== PARTICLE CANVAS & BACKGROUND ===== */
-        #particles-canvas {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .bg-gradient-overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: 
-                radial-gradient(ellipse at 20% 50%, rgba(30, 58, 95, 0.3) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 80%, rgba(30, 58, 95, 0.2) 0%, transparent 50%);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        /* ===== NAVIGATION ===== */
-        .navbar{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 0 20px;
-    box-sizing: border-box;
-    z-index: 1000;
-        }
-
-        .nav-brand {
-            display: flex; align-items: center; gap: 12px;
-            text-decoration: none; color: var(--text-primary);
-        }
-
-        .nav-brand-icon {
-            width: 42px; height: 42px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, var(--blue-primary), #1e40af);
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 800; font-size: 1.2rem; color: white;
-        }
-
-        .nav-brand-text { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
-        .nav-brand-text span { color: var(--blue-primary); }
-.nav-brand-icon{overflow:hidden;padding:0;background:transparent;border-radius:12px;}
-.nav-brand-icon img{width:100%;height:100%;object-fit:cover;display:block;border-radius:12px;}
-
-        /* ===== LOADING SCREEN ===== */
-        .loader {
-            position: fixed; inset: 0; z-index: 2000;
-            background: var(--bg-primary);
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
-        }
-        .loader.hidden { opacity: 0; visibility: hidden; }
-        .loader-spinner {
-            width: 48px; height: 48px;
-            border: 3px solid rgba(59, 130, 246, 0.15);
-            border-top-color: var(--blue-primary);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin-bottom: 20px;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .loader-text { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
-
-        /* ===== PERSONAL INFO SECTION (PROFILE) ===== */
-        .page-profil {
-            position: relative; z-index: 1;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 80px 24px 80px;
-            min-height: 100vh;
-        }
-
-        .section-header { text-align: center; margin-bottom: 48px; }
-        .section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: 8px; }
-        .section-desc { color: var(--text-secondary); font-size: 1rem; font-weight: 300; }
-
-        .personal-info { padding: 20px 0 60px; }
-        .personal-info + .personal-info {
-            padding-top: 40px;
-            border-top: 1px solid var(--glass-border);
-            margin-top: 20px;
-        }
-
-        .profile-badge {
-            display: flex; align-items: center; justify-content: flex-start; gap: 16px;
-            margin-bottom: 36px;
-            opacity: 0; transform: translateY(20px);
-            animation: fadeInUp 0.7s ease forwards;
-        }
-
-        .profile-badge-avatar {
-            width: 64px; height: 64px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.4rem; font-weight: 800;
-            background: linear-gradient(135deg, var(--blue-primary), #2563eb);
-            color: white;
-            box-shadow: 0 8px 24px var(--blue-glow), inset 0 0 0 2px rgba(255,255,255,0.1);
-        }
-
-        .profile-badge-name { font-size: 1.15rem; font-weight: 700; color: var(--text-primary); line-height: 1.2; }
-        .profile-badge-role { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.1em; }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 18px;
-        }
-
-        .info-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            border-radius: 18px; padding: 26px 24px;
-            display: flex; align-items: center; gap: 18px;
-            transition: var(--transition-smooth);
-            position: relative; overflow: hidden;
-            opacity: 0; transform: translateY(20px);
-            animation: fadeInUp 0.6s ease forwards;
-        }
-        
-        .personal-info--pink .info-value.muted,
-        .personal-info--pink .info-value.placeholder-default {
-            font-style: italic;
-            color: rgba(255, 255, 255, 0.4);
-        }
-
-        /* Staggered Animations */
-        .info-card:nth-child(1) { animation-delay: 0.1s; }
-        .info-card:nth-child(2) { animation-delay: 0.2s; }
-        .info-card:nth-child(3) { animation-delay: 0.3s; }
-        .info-card:nth-child(4) { animation-delay: 0.4s; }
-
-        .info-card::before {
-            content: ''; position: absolute; top: 0; left: 0;
-            width: 3px; height: 100%;
-            background: linear-gradient(180deg, var(--blue-primary), transparent);
-            opacity: 0.6; transition: var(--transition-smooth);
-        }
-
-        .info-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(59, 130, 246, 0.35);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 30px var(--blue-glow);
-        }
-        .info-card:hover::before { opacity: 1; width: 5px; }
-
-        .info-icon {
-            width: 52px; height: 52px; min-width: 52px;
-            border-radius: 14px;
-            background: var(--blue-soft); color: var(--blue-primary);
-            display: flex; align-items: center; justify-content: center;
-            border: 1px solid rgba(59, 130, 246, 0.25);
-            transition: var(--transition-smooth);
-        }
-        .info-card:hover .info-icon {
-            background: var(--blue-primary); color: white;
-            box-shadow: 0 0 20px var(--blue-glow); transform: scale(1.05);
-        }
-
-        .info-content { display: flex; flex-direction: column; gap: 4px; }
-        .info-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); font-weight: 600; }
-        .info-value { font-size: 1.05rem; font-weight: 600; color: var(--text-primary); }
-        .info-value.umur-value { color: var(--blue-primary); font-size: 1.15rem;}
-        /* Styling untuk teks placeholder "Belum Ditentukan" */
-        .info-value.muted,
-        .info-value.placeholder-default {
-            font-style: italic;
-            color: rgba(255, 255, 255, 0.4);
-        }
-
-        /* ===== PINK THEME VARIANT (Saskia's Section) ===== */
-        .personal-info--pink .profile-badge-avatar {
-            background: linear-gradient(135deg, #ec4899, #db2777);
-            box-shadow: 0 8px 24px rgba(236, 72, 153, 0.4), inset 0 0 0 2px rgba(255,255,255,0.1);
-        }
-        .personal-info--pink .info-card::before { background: linear-gradient(180deg, #ec4899, transparent); }
-        .personal-info--pink .info-card:hover { border-color: rgba(236, 72, 153, 0.35); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(236, 72, 153, 0.4); }
-        .personal-info--pink .info-icon { background: rgba(236, 72, 153, 0.15); color: #ec4899; border-color: rgba(236, 72, 153, 0.25); }
-        .personal-info--pink .info-card:hover .info-icon { background: #ec4899; color: white; box-shadow: 0 0 20px rgba(236, 72, 153, 0.4); }
-        .personal-info--pink .info-value.umur-value { color: #ec4899; }
-
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 768px) {
-            .navbar { padding: 12px 20px; }
-            .info-grid { grid-template-columns: 1fr; gap: 14px; }
-            .info-card { padding: 22px 20px; }
-            .info-icon { width: 46px; height: 46px; min-width: 46px; }
-            .info-value { font-size: 1rem; }
-            .profile-badge { gap: 12px; }
-            .profile-badge-avatar { width: 54px; height: 54px; font-size: 1.2rem; }
-            .profile-badge-name { font-size: 1rem; }
-        }
-    .profile-badge-avatar--photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;}
-/* link colors */
-.info-link,.info-link:link,.info-link:visited,.info-link:active,.info-link:focus{text-decoration:none;font-weight:600;transition:.3s ease;}
-#info-dika .info-link,#info-dika .info-link:visited{color:#3b82f6;}
-#info-dika .info-link:hover{color:#60a5fa;}
-#profil-saskia .info-link,#profil-saskia .info-link:visited{color:#ec4899;}
-#profil-saskia .info-link:hover{color:#f472b6;}
-
-</style>
-</head>
-<body>
-
-    <!-- Loading Screen -->
-    <div class="loader" id="loader">
-        <div class="loader-spinner"></div>
-        <div class="loader-text">Memuat Profil...</div>
-    </div>
-
-    <!-- Particle Canvas -->
-    <canvas id="particles-canvas"></canvas>
-    <div class="bg-gradient-overlay"></div>
-
-    <!-- Main Content -->
-    <div class="page-profil">
-
-        <section class="personal-info" id="info-dika">
-            <div class="section-header">
-            </div>
-            <div class="profile-badge">
-                <div class="profile-badge-avatar profile-badge-avatar--photo"><img src="https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/IconDhikzzz.jpg" alt="SANJA DIKA WAHYUDA" loading="lazy"></div>
-                <div class="profile-badge-info">
-                    <div class="profile-badge-name">SANJA DIKA WAHYUDA</div>
-                    <div class="profile-badge-role">Pemilik Gallery</div>
-                </div>
-            </div>
-            <div class="info-grid">
-                <div class="info-card">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Tanggal Lahir</div>
-                        <div class="info-value">31 Desember 2009</div>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Umur</div>
-                        <div class="info-value umur-value" data-birth="2009-12-31">Memuat umur&hellip;</div>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Hobi</div>
-                        <div class="info-value">Game</div>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="12" r="2.5"/><circle cx="8.5" cy="18" r="2.5"/><circle cx="15.5" cy="18" r="2.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.04-.23-.29-.38-.63-.38-1.04 0-.83.67-1.5 1.5-1.5H16c3.31 0 6-2.69 6-6 0-5.17-4.5-8.96-10-8.96z"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Warna Favorit</div>
-                        <div class="info-value"><span class="color-swatch" style="background:#000;"></span>Hitam</div>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Makanan Favorit</div>
-                        <div class="info-value muted">Belum Ditentukan</div>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8l1 10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L7 8"/><line x1="5" y1="8" x2="19" y2="8"/><path d="M9 2h6v4H9z"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Minuman Favorit</div>
-                        <div class="info-value muted">Belum Ditentukan</div>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Tempat Favorit</div>
-                        <div class="info-value">Sunyi Dan Tenang</div>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M12 14l2-2 2 2"/><path d="M10 18h4"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Tanggal Kita Mengenal</div>
-                        <div class="info-value">20 Juli 2022</div>
-                    </div>
-                </div>
-                <div class="info-card hari-bubble-wrap">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Hari</div>
-                        <div class="info-value hari-value" data-since="2022-07-20">Memuat&hellip;</div>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Tanggal Kembali Bersama</div>
-                        <div class="info-value">18 Juni 2026</div>
-                    </div>
-                </div>
-                <div class="info-card info-card--contact">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Nomor Telepon</div>
-                        <div class="info-value">
-                            <a class="info-link" href="tel:+6285194758828" title="Nomor Telepon: +62 851-9475-8828">+62 851-9475-8828</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="info-card info-card--contact info-card--whatsapp">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Nomor WhatsApp</div>
-                        <div class="info-value">
-                            <a class="info-link" href="https://wa.me/6288212282844" target="_blank" rel="noopener noreferrer" title="Chat WhatsApp: +62 882-1228-2844">+62 882-1228-2844</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="info-card info-card--contact info-card--tiktok">
-    <div class="info-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.717h-3.287v13.548a2.896 2.896 0 1 1-2.896-2.896c.226 0 .447.027.659.076V9.36a6.184 6.184 0 0 0-.659-.034A6.183 6.183 0 1 0 15.82 15.51V8.687a8.06 8.06 0 0 0 4.713 1.52V6.686h-.944z"/>
-        </svg>
-    </div>
-             <div class="info-content">
-                   <div class="info-label">TikTok</div>
-                   <div class="info-value">
-                      <a class="info-link" href="https://www.tiktok.com/@silenceself" target="_blank" rel="noopener noreferrer" title="TikTok: @silenceself">Silence (Akun 1)</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="info-card info-card--contact info-card--tiktok">
-    <div class="info-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.717h-3.287v13.548a2.896 2.896 0 1 1-2.896-2.896c.226 0 .447.027.659.076V9.36a6.184 6.184 0 0 0-.659-.034A6.183 6.183 0 1 0 15.82 15.51V8.687a8.06 8.06 0 0 0 4.713 1.52V6.686h-.944z"/>
-        </svg>
-    </div>
-              <div class="info-content">
-                 <div class="info-label">TikTok</div>
-                  <div class="info-value">
-                      <a class="info-link" href="https://www.tiktok.com/@silencegalaksi" target="_blank" rel="noopener noreferrer" title="TikTok: @silencegalaksi">Galaksi (Akun 2)</a>
-                      </div>
-                  </div>
-               </div>
-               <div class="info-card info-card--contact info-card--facebook">
-    <div class="info-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073c0 6.019 4.388 11.009 10.125 11.927v-8.437H7.078v-3.49h3.047V9.413c0-3.017 1.792-4.687 4.533-4.687 1.313 0 2.686.235 2.686.235v2.962h-1.514c-1.491 0-1.956.927-1.956 1.878v2.272h3.328l-.532 3.49h-2.796V24C19.612 23.082 24 18.092 24 12.073z"/>
-        </svg>
-    </div>
-    <div class="info-content">
-                   <div class="info-label">Facebook</div>
-                   <div class="info-value">
-                     <a class="info-link" href="https://www.facebook.com/silencegalaksi" target="_blank" rel="noopener noreferrer" title="Facebook: Silence Galaksi">Silence Galaksi</a>
-                       </div>
-                   </div>
-                </div>
-                <div class="info-card info-card--contact info-card--instagram">
-    <div class="info-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm0 2h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5A3.75 3.75 0 0 1 7.75 4zm9.25 1.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
-        </svg>
-    </div>
-    <div class="info-content">
-                   <div class="info-label">Instagram</div>
-                   <div class="info-value">
-                      <a class="info-link" href="https://www.instagram.com/silencegalaksi" target="_blank" rel="noopener noreferrer" title="Instagram: @silencegalaksi">Galaksi</a>
-                     </div>
-                    </div>
-                </div>
-                <div class="info-card info-card--contact info-card--telegram">
-    <div class="info-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M9.993 15.674 9.62 20.93c.534 0 .765-.23 1.042-.506l2.5-2.39 5.18 3.79c.95.523 1.62.248 1.876-.88L23.62 4.99c.334-1.39-.502-1.934-1.427-1.59L1.98 11.19c-1.38.538-1.36 1.308-.235 1.654l5.17 1.613L18.92 6.89c.565-.374 1.08-.167.657.207"/>
-        </svg>
-    </div>
-    <div class="info-content">
-                 <div class="info-label">Telegram</div>
-                 <div class="info-value">
-                      <a class="info-link" href="https://t.me/Dhikzzzgalaxy" target="_blank" rel="noopener noreferrer" title="Telegram: @Dhikzzzgalaxy">Dhikzzz (Akun 1)</a>
-                       </div>
-                   </div>
-                </div>
-<div class="info-card info-card--contact info-card--telegram">
-    <div class="info-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M9.993 15.674 9.62 20.93c.534 0 .765-.23 1.042-.506l2.5-2.39 5.18 3.79c.95.523 1.62.248 1.876-.88L23.62 4.99c.334-1.39-.502-1.934-1.427-1.59L1.98 11.19c-1.38.538-1.36 1.308-.235 1.654l5.17 1.613L18.92 6.89c.565-.374 1.08-.167.657.207"/>
-        </svg>
-    </div>
-    <div class="info-content">
-                  <div class="info-label">Telegram</div>
-                  <div class="info-value">
-                        <a class="info-link" href="https://t.me/Dhikzzzgalaxy02" target="_blank" rel="noopener noreferrer" title="Telegram: @Dhikzzzgalaxy02">Dhikzzz Galaxy (Akun 2)</a>
-                       </div>
-                   </div>
-                </div>
-                <div class="info-card info-card--contact info-card--website">
-    <div class="info-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="2" y1="12" x2="22" y2="12"/>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-        </svg>
-    </div>
-    <div class="info-content">
-                <div class="info-label">Website Lain</div>
-                <div class="info-value">
-                   <a class="info-link"
-               href="https://dhikzzzgalaxy.vercel.app"
-               target="_blank"
-               rel="noopener noreferrer"
-               title="Website Resmi Dhikzzz Galaxy">
-                Dhikzzz Galaxy
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-                <section class="personal-info personal-info--pink" id="profil-saskia">
-            <div class="section-header">
-            </div>
-            <div class="profile-badge">
-                <div class="profile-badge-avatar profile-badge-avatar--photo"><img src="https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/IconKiaaa.jpg" alt="EMA SASKIA MANDASARI" loading="lazy"></div>
-                <div class="profile-badge-info">
-                    <div class="profile-badge-name">EMA SASKIA MANDASARI</div>
-                    <div class="profile-badge-role">Bidadari Gallery</div>
-                </div>
-            </div>
-            <div class="info-grid">
-                <div class="info-card">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Tanggal Lahir</div>
-                        <div class="info-value">07 Mei 2010</div>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Umur</div>
-                        <div class="info-value umur-value" data-birth="2010-05-07">Memuat umur&hellip;</div>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Hobi</div>
-                        <div class="info-value">Belum Ditentukan</div>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="12" r="2.5"/><circle cx="8.5" cy="18" r="2.5"/><circle cx="15.5" cy="18" r="2.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.04-.23-.29-.38-.63-.38-1.04 0-.83.67-1.5 1.5-1.5H16c3.31 0 6-2.69 6-6 0-5.17-4.5-8.96-10-8.96z"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Warna Favorit</div>
-                        <div class="info-value"><span class="color-swatch" style="background:#ec4899;"></span>Pink</div>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Makanan Favorit</div>
-                        <div class="info-value">Dimsum Dan Seblak</div>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8l1 10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L7 8"/><line x1="5" y1="8" x2="19" y2="8"/><path d="M9 2h6v4H9z"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Minuman Favorit</div>
-                        <div class="info-value">Kopi, Coklat, Dan Es Krim</div>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Tempat Favorit</div>
-                        <div class="info-value">Nyaman Dan Ramai</div>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M12 14l2-2 2 2"/><path d="M10 18h4"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Tanggal Kita Mengenal</div>
-                        <div class="info-value">20 Juli 2022</div>
-                    </div>
-                </div>
-                <div class="info-card hari-bubble-wrap">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Hari</div>
-                        <div class="info-value hari-value" data-since="2022-07-20">Memuat&hellip;</div>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Tanggal Kembali Bersama</div>
-                        <div class="info-value">18 Juni 2026</div>
-                    </div>
-                </div>
-                <div class="info-card info-card--contact">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Nomor Telepon</div>
-                        <div class="info-value">
-                            <a class="info-link" href="tel:+62887437044521" title="Nomor Telepon: +62 887-4370-44521">+62 887-4370-44521</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="info-card info-card--contact info-card--whatsapp">
-                    <div class="info-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
-                    <div class="info-content">
-                        <div class="info-label">Nomor WhatsApp</div>
-                        <div class="info-value">
-                            <a class="info-link" href="https://wa.me/6285709646912" target="_blank" rel="noopener noreferrer" title="Chat WhatsApp: +62 857-0964-6912">+62 857-0964-6912</a>
-                        </div>
-                    </div>
-                </div>
-                                <div class="info-card info-card--contact info-card--tiktok">
-    <div class="info-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.717h-3.287v13.548a2.896 2.896 0 1 1-2.896-2.896c.226 0 .447.027.659.076V9.36a6.184 6.184 0 0 0-.659-.034A6.183 6.183 0 1 0 15.82 15.51V8.687a8.06 8.06 0 0 0 4.713 1.52V6.686h-.944z"/>
-        </svg>
-    </div>
-              <div class="info-content">
-                 <div class="info-label">TikTok</div>
-                  <div class="info-value">
-                      <a class="info-link" href="https://www.tiktok.com/@emasaskia_" target="_blank" rel="noopener noreferrer" title="TikTok: @emasaskia_">𝓼𝓪𝓼𝓴𝓲𝓪 (Akun 1)</a>
-                      </div>
-                  </div>
-               </div>
-                               <div class="info-card info-card--contact info-card--tiktok">
-    <div class="info-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.717h-3.287v13.548a2.896 2.896 0 1 1-2.896-2.896c.226 0 .447.027.659.076V9.36a6.184 6.184 0 0 0-.659-.034A6.183 6.183 0 1 0 15.82 15.51V8.687a8.06 8.06 0 0 0 4.713 1.52V6.686h-.944z"/>
-        </svg>
-    </div>
-              <div class="info-content">
-                 <div class="info-label">TikTok</div>
-                  <div class="info-value">
-                      <a class="info-link" href="https://www.tiktok.com/@sassss_075" target="_blank" rel="noopener noreferrer" title="TikTok: @sassss_075">S (Akun 2)</a>
-                      </div>
-                  </div>
-               </div>
-               <div class="info-card info-card--contact info-card--facebook">
-    <div class="info-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073c0 6.019 4.388 11.009 10.125 11.927v-8.437H7.078v-3.49h3.047V9.413c0-3.017 1.792-4.687 4.533-4.687 1.313 0 2.686.235 2.686.235v2.962h-1.514c-1.491 0-1.956.927-1.956 1.878v2.272h3.328l-.532 3.49h-2.796V24C19.612 23.082 24 18.092 24 12.073z"/>
-        </svg>
-    </div>
-    <div class="info-content">
-                   <div class="info-label">Facebook</div>
-                    <div class="info-value">
-                      <a class="info-link" href="https://www.facebook.com/emasaskiaaa" target="_blank" rel="noopener noreferrer" title="Facebook: @emasaskiaaa">Ema Saskia</a>
-                       </div>
-                   </div>
-                </div>
-                <div class="info-card info-card--contact info-card--instagram">
-    <div class="info-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm0 2h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5A3.75 3.75 0 0 1 7.75 4zm9.25 1.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
-        </svg>
-    </div>
-    <div class="info-content">
-                  <div class="info-label">Instagram</div>
-                   <div class="info-value">
-                       <a class="info-link" href="https://www.instagram.com/emasaskia_" target="_blank" rel="noopener noreferrer" title="Instagram: @emasskiaa._">s (Akun 1)</a>
-                        </div>
-                   </div>
-                </div>
-                <div class="info-card info-card--contact info-card--instagram">
-    <div class="info-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm0 2h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5A3.75 3.75 0 0 1 7.75 4zm9.25 1.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
-        </svg>
-    </div>
-    <div class="info-content">
-                  <div class="info-label">Instagram</div>
-                   <div class="info-value">
-                       <a class="info-link" href="https://www.instagram.com/emasskiaa._" target="_blank" rel="noopener noreferrer" title="Instagram: @emasskiaa._">(Akun 2)</a>
-                        </div>
-                   </div>
-                </div>
-                                <div class="info-card info-card--contact info-card--instagram">
-    <div class="info-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm0 2h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5A3.75 3.75 0 0 1 7.75 4zm9.25 1.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
-        </svg>
-    </div>
-    <div class="info-content">
-                  <div class="info-label">Instagram</div>
-                   <div class="info-value">
-                       <a class="info-link" href="https://www.instagram.com/scc.sasss__" target="_blank" rel="noopener noreferrer" title="Instagram: @scc.sasss__">(Akun 3)</a>
-                        </div>
-                   </div>
-                </div>
-                <div class="info-card info-card--contact info-card--telegram">
-    <div class="info-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M9.993 15.674 9.62 20.93c.534 0 .765-.23 1.042-.506l2.5-2.39 5.18 3.79c.95.523 1.62.248 1.876-.88L23.62 4.99c.334-1.39-.502-1.934-1.427-1.59L1.98 11.19c-1.38.538-1.36 1.308-.235 1.654l5.17 1.613L18.92 6.89c.565-.374 1.08-.167.657.207"/>
-        </svg>
-    </div>
-    <div class="info-content">
-                  <div class="info-label">Telegram</div>
-                  <div class="info-value">
-                       <a class="info-link" href="https://t.me/" target="_blank" rel="noopener noreferrer" title="Telegram: @">Belum Ditentukan</a>
-                        </div>
-                  </div>
-                </div>
-            </div>
-        </section>
-
-    <script>
-        // --- 1. Loader Logic ---
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-            }, 600); // Penundaan sedikit agar transisi lebih smooth
-        });
-
-        // --- 2. Particles Background Animation ---
-        const canvas = document.getElementById('particles-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        function initParticles() {
-            particles = [];
-            let particleCount = window.innerWidth < 768 ? 40 : 80;
-            for(let i = 0; i < particleCount; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    s: Math.random() * 2 + 0.5,
-                    v: Math.random() * 0.5 + 0.2
-                });
-            }
-        }
-        initParticles();
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
-            
-            particles.forEach(p => {
-                // Bergerak pelan ke atas
-                p.y -= p.v;
-                if(p.y < 0) {
-                    p.y = canvas.height;
-                    p.x = Math.random() * canvas.width;
-                }
-                
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.s, 0, Math.PI * 2);
-                ctx.fill();
-            });
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
-
-        // --- 3. Umur (Age) Calculator ---
-        function calculateAge(birthDateString) {
-            const birthDate = new Date(birthDateString);
-            const now = new Date();
-            
-            let years = now.getFullYear() - birthDate.getFullYear();
-            let months = now.getMonth() - birthDate.getMonth();
-            let days = now.getDate() - birthDate.getDate();
-            
-            if (days < 0) {
-                months--;
-                // Ambil jumlah hari di bulan sebelumnya
-                const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-                days += lastMonth.getDate();
-            }
-            if (months < 0) {
-                years--;
-                months += 12;
-            }
-            
-            // Format agar rapih (jika hari 0, sembunyikan)
-            let result = `${years} Tahun ${months} Bulan`;
-            if (days > 0) result += ` ${days} Hari`;
-            
-            return result;
-        }
-
-        
-function calculateDaysSince(dateString){
- const start=new Date(dateString),today=new Date();
- start.setHours(0,0,0,0);today.setHours(0,0,0,0);
- return Math.floor((today-start)/86400000);
-}
-document.addEventListener('DOMContentLoaded',()=>{
- document.querySelectorAll('.umur-value').forEach(el=>{
-   const b=el.dataset.birth;
-   if(b) el.textContent=calculateAge(b);
- });
- document.querySelectorAll('.hari-value').forEach(el=>{
-   const s=el.dataset.since;
-   if(s) el.textContent=calculateDaysSince(s).toLocaleString('id-ID')+' Hari';
- });
-});
-
-</script>
-</body>
-</html>
-        </div>
-    </main>
-
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox">
-        <span class="close-lightbox">&times;</span>
-        <div class="lightbox-content">
-            <div class="lightbox-img-container">
-                <img id="lightbox-img" src="" alt="">
-            </div>
-            <div class="lightbox-nav-bottom">
-                <button id="prev-btn" class="nav-btn">
-                    <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                </button>
-                <div id="photo-name-display" style="display: flex; align-items: center; justify-content: center; color: white; font-size: 1.1rem; font-weight: 600; min-width: 200px; text-align: center;">Album 1</div>
-                <button id="next-btn" class="nav-btn">
-                    <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const galleryData = [
-            { "id": 1, "category": "Bersama", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-1.jpg", "title": "Album 1" },
-            { "id": 2, "category": "Bersama", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-2.jpg", "title": "Album 2" },
-            { "id": 3, "category": "Bersama", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-3.jpg", "title": "Album 3" },
-            { "id": 4, "category": "Bersama", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-4.jpg", "title": "Album 4" },
-            { "id": 5, "category": "Bersama", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-5.jpg", "title": "Album 5" },
-            { "id": 6, "category": "Bersama", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-6.jpg", "title": "Album 6" },
-            { "id": 7, "category": "Bersama", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-7.jpg", "title": "Album 7" },
-            { "id": 8, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-8.jpg", "title": "Album 8" },
-            { "id": 9, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-9.jpg", "title": "Album 9" },
-            { "id": 10, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-10.jpg", "title": "Album 10" },
-            { "id": 11, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-11.jpg", "title": "Album 11" },
-            { "id": 12, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-12.jpg", "title": "Album 12" },
-            { "id": 13, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-13.jpg", "title": "Album 13" },
-            { "id": 14, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-14.jpg", "title": "Album 14" },
-            { "id": 15, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-15.jpg", "title": "Album 15" },
-            { "id": 16, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-16.jpg", "title": "Album 16" },
-            { "id": 17, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-17.jpg", "title": "Album 17" },
-            { "id": 18, "category": "Dika", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-18.jpg", "title": "Album 18" },
-            { "id": 19, "category": "Dika", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-19.jpg", "title": "Album 19" },
-            { "id": 20, "category": "Dika", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-20.jpg", "title": "Album 20" },
-            { "id": 21, "category": "Dika", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-21.jpg", "title": "Album 21" },
-            { "id": 22, "category": "Dika", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-22.jpg", "title": "Album 22" },
-            { "id": 23, "category": "Dika", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-23.jpg", "title": "Album 23" },
-            { "id": 24, "category": "Dika", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-24.jpg", "title": "Album 24" },
-            { "id": 25, "category": "Dika", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-25.jpg", "title": "Album 25" },
-            { "id": 26, "category": "Dika", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-26.jpg", "title": "Album 26" },
-            { "id": 27, "category": "Dika", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-27.jpg", "title": "Album 27" },
-            { "id": 28, "category": "Dika", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-28.jpg", "title": "Album 28" },
-            { "id": 29, "category": "Dika", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-29.jpg", "title": "Album 29" },
-            { "id": 30, "category": "Dika", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-30.jpg", "title": "Album 30" },
-            { "id": 31, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-31.jpg", "title": "Album 31" },
-            { "id": 32, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-32.jpg", "title": "Album 32" },
-            { "id": 33, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-33.jpg", "title": "Album 33" },
-            { "id": 34, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-34.jpg", "title": "Album 34" },
-            { "id": 35, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-35.jpg", "title": "Album 35" },
-            { "id": 36, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-36.jpg", "title": "Album 36" },
-            { "id": 37, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-37.jpg", "title": "Album 37" },
-            { "id": 38, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-38.jpg", "title": "Album 38" },
-            { "id": 39, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-39.jpg", "title": "Album 39" },
-            { "id": 40, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-40.jpg", "title": "Album 40" },
-            { "id": 41, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-41.jpg", "title": "Album 41" },
-            { "id": 42, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-42.jpg", "title": "Album 42" },
-            { "id": 43, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-43.jpg", "title": "Album 43" },
-            { "id": 44, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-44.jpg", "title": "Album 44" },
-            { "id": 45, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-45.jpg", "title": "Album 45" },
-            { "id": 46, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-46.jpg", "title": "Album 46" },
-            { "id": 47, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-47.jpg", "title": "Album 47" },
-            { "id": 48, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-48.jpg", "title": "Album 48" },
-            { "id": 49, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-49.jpg", "title": "Album 49" },
-            { "id": 50, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-50.jpg", "title": "Album 50" },
-            { "id": 51, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-51.jpg", "title": "Album 51" },
-            { "id": 52, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-52.jpg", "title": "Album 52" },
-            { "id": 53, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-53.jpg", "title": "Album 53" },
-            { "id": 54, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-54.jpg", "title": "Album 54" },
-            { "id": 55, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-55.jpg", "title": "Album 55" },
-            { "id": 56, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-56.jpg", "title": "Album 56" },
-            { "id": 57, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-57.jpg", "title": "Album 57" },
-            { "id": 58, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-58.jpg", "title": "Album 58" },
-            { "id": 59, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-59.jpg", "title": "Album 59" },
-            { "id": 60, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-60.jpg", "title": "Album 60" },
-            { "id": 61, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-61.jpg", "title": "Album 61" },
-            { "id": 62, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-62.jpg", "title": "Album 62" },
-            { "id": 63, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-63.jpg", "title": "Album 63" },
-            { "id": 64, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-64.jpg", "title": "Album 64" },
-            { "id": 65, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-65.jpg", "title": "Album 65" },
-            { "id": 66, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-66.jpg", "title": "Album 66" },
-            { "id": 67, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-67.jpg", "title": "Album 67" },
-            { "id": 68, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-68.jpg", "title": "Album 68" },
-            { "id": 69, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-69.jpg", "title": "Album 69" },
-            { "id": 70, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-70.jpg", "title": "Album 70" },
-            { "id": 71, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-71.jpg", "title": "Album 71" },
-            { "id": 72, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-72.jpg", "title": "Album 72" },
-            { "id": 73, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-73.jpg", "title": "Album 73" },
-            { "id": 74, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-74.jpg", "title": "Album 74" },
-            { "id": 75, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-75.jpg", "title": "Album 75" },
-            { "id": 76, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-76.jpg", "title": "Album 76" },
-            { "id": 77, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-77.jpg", "title": "Album 77" },
-            { "id": 78, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-78.jpg", "title": "Album 78" },
-            { "id": 79, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-79.jpg", "title": "Album 79" },
-            { "id": 80, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-80.jpg", "title": "Album 80" },
-            { "id": 81, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-81.jpg", "title": "Album 81" },
-            { "id": 82, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-82.jpg", "title": "Album 82" },
-            { "id": 83, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-83.jpg", "title": "Album 83" },
-            { "id": 84, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-84.jpg", "title": "Album 84" },
-            { "id": 85, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-85.jpg", "title": "Album 85" },
-            { "id": 86, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-86.jpg", "title": "Album 86" },
-            { "id": 87, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-87.jpg", "title": "Album 87" },
-            { "id": 88, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-88.jpg", "title": "Album 88" },
-            { "id": 89, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-89.jpg", "title": "Album 89" },
-            { "id": 90, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-90.jpg", "title": "Album 90" },
-            { "id": 91, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-91.jpg", "title": "Album 91" },
-            { "id": 92, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-92.jpg", "title": "Album 92" },
-            { "id": 93, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-93.jpg", "title": "Album 93" },
-            { "id": 94, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-94.jpg", "title": "Album 94" },
-            { "id": 95, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-95.jpg", "title": "Album 95" },
-            { "id": 96, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-96.jpg", "title": "Album 96" },
-            { "id": 97, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-97.jpg", "title": "Album 97" },
-            { "id": 98, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-98.jpg", "title": "Album 98" },
-            { "id": 99, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-99.jpg", "title": "Album 99" },
-            { "id": 100, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-100.jpg", "title": "Album 100" },
-            { "id": 101, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-101.jpg", "title": "Album 101" },
-            { "id": 102, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-102.jpg", "title": "Album 102" },
-            { "id": 103, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-103.jpg", "title": "Album 103" },
-            { "id": 104, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-104.jpg", "title": "Album 104" },
-            { "id": 105, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-105.jpg", "title": "Album 105" },
-            { "id": 106, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-106.jpg", "title": "Album 106" },
-            { "id": 107, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-107.jpg", "title": "Album 107" },
-            { "id": 108, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-108.jpg", "title": "Album 108" },
-            { "id": 109, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-109.jpg", "title": "Album 109" },
-            { "id": 110, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-110.jpg", "title": "Album 110" },
-            { "id": 111, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-111.jpg", "title": "Album 111" },
-            { "id": 112, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-112.jpg", "title": "Album 112" },
-            { "id": 113, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-113.jpg", "title": "Album 113" },
-            { "id": 114, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-114.jpg", "title": "Album 114" },
-            { "id": 115, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-115.jpg", "title": "Album 115" },
-            { "id": 116, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-116.jpg", "title": "Album 116" },
-            { "id": 117, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-117.jpg", "title": "Album 117" },
-            { "id": 118, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-118.jpg", "title": "Album 118" },
-            { "id": 119, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-119.jpg", "title": "Album 119" },
-            { "id": 120, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-120.jpg", "title": "Album 120" },
-            { "id": 121, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-121.jpg", "title": "Album 121" },
-            { "id": 122, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-122.jpg", "title": "Album 122" },
-            { "id": 123, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-123.jpg", "title": "Album 123" },
-            { "id": 124, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-124.jpg", "title": "Album 124" },
-            { "id": 125, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-125.jpg", "title": "Album 125" },
-            { "id": 126, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-126.jpg", "title": "Album 126" },
-            { "id": 127, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-127.jpg", "title": "Album 127" },
-            { "id": 128, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-128.jpg", "title": "Album 128" },
-            { "id": 129, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-129.jpg", "title": "Album 129" },
-            { "id": 130, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-130.jpg", "title": "Album 130" },
-            { "id": 131, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-131.jpg", "title": "Album 131" },
-            { "id": 132, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-132.jpg", "title": "Album 132" },
-            { "id": 133, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-133.jpg", "title": "Album 133" },
-            { "id": 134, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-134.jpg", "title": "Album 134" },
-            { "id": 135, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-135.jpg", "title": "Album 135" },
-            { "id": 136, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-136.jpg", "title": "Album 136" },
-            { "id": 137, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-137.jpg", "title": "Album 137" },
-            { "id": 138, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-138.jpg", "title": "Album 138" },
-            { "id": 139, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-139.jpg", "title": "Album 139" },
-            { "id": 140, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-140.jpg", "title": "Album 140" },
-            { "id": 141, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-141.jpg", "title": "Album 141" },
-            { "id": 142, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-142.jpg", "title": "Album 142" },
-            { "id": 143, "category": "Dika", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-143.jpg", "title": "Album 143" },
-            { "id": 144, "category": "Dika", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-144.jpg", "title": "Album 144" }
-        ];
-
-        document.addEventListener('DOMContentLoaded', () => {
-            let filteredData = [...galleryData];
-            let currentPhotoIndex = 0;
-
-            // Navigation Elements
-            const homeSection = document.getElementById('home-section');
-            const profileSection = document.getElementById('profile-section');
-            const menuHome = document.getElementById('menu-home');
-            const menuAlbum = document.getElementById('menu-album');
-            const menuProfile = document.getElementById('menu-profile');
-            const sidebar = document.getElementById('sidebar');
-            const sidebarOverlay = document.getElementById('sidebar-overlay');
-
-            // Switch Section Function
-            function switchSection(section) {
-                homeSection.style.display = 'none';
-                profileSection.style.display = 'none';
-                menuHome.classList.remove('active');
-                menuAlbum.classList.remove('active');
-                menuProfile.classList.remove('active');
-
-                if (section === 'home') {
-                    homeSection.style.display = 'block';
-                    menuHome.classList.add('active');
-                    window.scrollTo(0, 0);
-                } else if (section === 'album') {
-                    homeSection.style.display = 'block';
-                    menuAlbum.classList.add('active');
-                    document.getElementById('album-section').scrollIntoView();
-                } else if (section === 'profile') {
-                    profileSection.style.display = 'block';
-                    menuProfile.classList.add('active');
-                    window.scrollTo(0, 0);
-                }
-                closeSidebarFunc();
-            }
-
-            menuHome.addEventListener('click', (e) => { e.preventDefault(); switchSection('home'); });
-            menuAlbum.addEventListener('click', (e) => { e.preventDefault(); switchSection('album'); });
-            menuProfile.addEventListener('click', (e) => { e.preventDefault(); switchSection('profile'); });
-            document.getElementById('hero-btn-album').addEventListener('click', (e) => { e.preventDefault(); switchSection('album'); });
-            document.getElementById('hero-btn-all').addEventListener('click', (e) => { e.preventDefault(); switchSection('album'); });
-
-            // Existing Gallery Logic
-            const loadingScreen = document.getElementById('loading-screen');
-            const header = document.getElementById('main-header');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const closeSidebar = document.getElementById('close-sidebar');
-            const galleryContainer = document.getElementById('gallery-container');
-            const searchInput = document.getElementById('search-input');
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const photoCountSpan = document.getElementById('photo-count');
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const closeLightbox = document.querySelector('.close-lightbox');
-            const prevBtn = document.getElementById('prev-btn');
-            const nextBtn = document.getElementById('next-btn');
-
-            window.addEventListener('load', () => {
-                setTimeout(() => {
-                    loadingScreen.style.opacity = '0';
-                    setTimeout(() => loadingScreen.style.display = 'none', 500);
-                    startCounters();
-                    revealOnScroll();
-                }, 1500);
-            });
-
-            function renderGallery(data) {
-                galleryContainer.innerHTML = '';
-                photoCountSpan.textContent = data.length;
-                if (data.length === 0) {
-                    galleryContainer.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 50px;">Tidak ada foto ditemukan.</p>';
-                    return;
-                }
-                data.forEach((photo, index) => {
-                    const card = document.createElement('div');
-                    card.className = 'photo-card scroll-reveal';
-                    card.innerHTML = `<div class="photo-img-wrapper"><img src="${photo.image}" alt="Photo" loading="lazy"></div>`;
-                    card.addEventListener('click', () => openLightbox(index));
-                    galleryContainer.appendChild(card);
-                });
-                setTimeout(revealOnScroll, 100);
-            }
-
-            searchInput.addEventListener('input', (e) => {
-                const term = e.target.value.toLowerCase();
-                filterData(term, document.querySelector('.filter-btn.active').dataset.filter);
-            });
-
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    filterData(searchInput.value.toLowerCase(), btn.dataset.filter);
-                });
-            });
-
-            function filterData(searchTerm, category) {
-                filteredData = galleryData.filter(item => {
-                    const matchesSearch = item.category.toLowerCase().includes(searchTerm) || item.title.toLowerCase().includes(searchTerm);
-                    const matchesCategory = category === 'Semua' || item.category === category;
-                    return matchesSearch && matchesCategory;
-                });
-                renderGallery(filteredData);
-            }
-
-            let slideDirection = 'right';
-            let isLightboxOpen = false;
-            
-            function openLightbox(index, isNavigation = false) {
-                currentPhotoIndex = index;
-                
-                // Hapus semua class animasi sebelumnya
-                lightboxImg.classList.remove('fade-in', 'slide-left', 'slide-right');
-                
-                // Trigger reflow untuk reset animasi
-                void lightboxImg.offsetWidth;
-                
-                if (isNavigation) {
-                    // Animasi slide saat navigasi tombol
-                    if (slideDirection === 'left') {
-                        lightboxImg.classList.add('slide-left');
-                    } else {
-                        lightboxImg.classList.add('slide-right');
+            // Sync React state dengan browser History API untuk tombol back HP
+            useEffect(() => {
+                const handlePopState = (event) => {
+                    // Jika sedang di detail view, tombol back harus kembali ke home
+                    if (currentView === 'detail') {
+                        event.preventDefault();
+                        setSelectedApp(null);
+                        setCurrentView('home');
+                        window.scrollTo(0, 0);
+                        return;
                     }
-                } else {
-                    // Animasi fade-in saat membuka lightbox pertama kali
-                    lightboxImg.classList.add('fade-in');
-                }
-                
-                lightboxImg.src = filteredData[index].image;
-                document.getElementById('photo-name-display').textContent = filteredData[index].title;
-                
-                if (!isLightboxOpen) {
-                    lightbox.classList.add('active');
-                    isLightboxOpen = true;
-                    document.body.style.overflow = 'hidden';
-                }
-            }
-
-            closeLightbox.addEventListener('click', () => { closeLightboxFunc(); });
-            
-            function closeLightboxFunc() {
-                // Tambahkan class closing untuk memicu animasi fade-out
-                lightbox.classList.add('closing');
-                
-                // Setelah animasi fade-out selesai (0.4s), hapus class active dan closing
-                setTimeout(() => {
-                    lightbox.classList.remove('active');
-                    lightbox.classList.remove('closing');
-                    document.body.style.overflow = 'auto';
-                    isLightboxOpen = false;
-                }, 400);
-            }
-            prevBtn.addEventListener('click', (e) => { 
-                e.stopPropagation(); 
-                slideDirection = 'left';
-                currentPhotoIndex = (currentPhotoIndex - 1 + filteredData.length) % filteredData.length; 
-                openLightbox(currentPhotoIndex, true); 
-            });
-            nextBtn.addEventListener('click', (e) => { 
-                e.stopPropagation(); 
-                slideDirection = 'right';
-                currentPhotoIndex = (currentPhotoIndex + 1) % filteredData.length; 
-                openLightbox(currentPhotoIndex, true); 
-            });
-
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) header.classList.add('scrolled');
-                else header.classList.remove('scrolled');
-                revealOnScroll();
-            });
-
-            mobileMenu.addEventListener('click', () => { sidebar.classList.add('active'); sidebarOverlay.classList.add('active'); });
-            function closeSidebarFunc() { sidebar.classList.remove('active'); sidebarOverlay.classList.remove('active'); }
-            closeSidebar.addEventListener('click', closeSidebarFunc);
-            sidebarOverlay.addEventListener('click', closeSidebarFunc);
-
-            function revealOnScroll() {
-                const reveals = document.querySelectorAll('.scroll-reveal');
-                reveals.forEach(el => {
-                    const windowHeight = window.innerHeight;
-                    const revealTop = el.getBoundingClientRect().top;
-                    if (revealTop < windowHeight - 150) el.classList.add('visible');
-                });
-            }
-
-            function startCounters() {
-                document.querySelectorAll('.counter').forEach(counter => {
-                    const target = +counter.getAttribute('data-target');
-                    const updateCount = () => {
-                        const count = +counter.innerText;
-                        const inc = target / 200;
-                        if (count < target) { counter.innerText = Math.ceil(count + inc); setTimeout(updateCount, 1); }
-                        else counter.innerText = target;
-                    };
-                    updateCount();
-                });
-            }
-
-            // Profile Logic
-            function calculateAge(birthDateString) {
-                const birthDate = new Date(birthDateString);
-                const now = new Date();
-                let years = now.getFullYear() - birthDate.getFullYear();
-                let months = now.getMonth() - birthDate.getMonth();
-                let days = now.getDate() - birthDate.getDate();
-                if (days < 0) { months--; const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0); days += lastMonth.getDate(); }
-                if (months < 0) { years--; months += 12; }
-                let result = `${years} Tahun ${months} Bulan`;
-                if (days > 0) result += ` ${days} Hari`;
-                return result;
-            }
-            function calculateDaysSince(dateString) {
-                const start = new Date(dateString); const today = new Date();
-                start.setHours(0,0,0,0); today.setHours(0,0,0,0);
-                return Math.floor((today-start)/86400000);
-            }
-
-            document.querySelectorAll('.umur-value').forEach(el => { const b = el.dataset.birth; if(b) el.textContent = calculateAge(b); });
-            document.querySelectorAll('.hari-value').forEach(el => { const s = el.dataset.since; if(s) el.textContent = calculateDaysSince(s).toLocaleString('id-ID') + ' Hari'; });
-
-            // Update total foto count on Home
-            const totalFotoCount = document.getElementById('total-foto-count');
-            if (totalFotoCount) totalFotoCount.textContent = galleryData.length;
-
-            renderGallery(filteredData);
-
-            // --- Fungsi untuk mengecek teks "Belum Ditentukan" ---
-            function checkPlaceholderText() {
-                document.querySelectorAll('.info-value').forEach(function(el) {
-                    var text = (el.textContent || '').trim();
-                    if (text === 'Belum Ditentukan') {
-                        el.classList.add('placeholder-default');
-                        el.classList.remove('muted');
-                    } else if (text && text !== 'Belum Ditentukan') {
-                        el.classList.remove('placeholder-default');
-                        el.classList.remove('muted');
+                    // Jika sedang di allapps view, tombol back harus kembali ke home
+                    if (currentView === 'allapps') {
+                        event.preventDefault();
+                        setCurrentView('home');
+                        window.scrollTo(0, 0);
+                        return;
                     }
-                });
-            }
-            // Jalankan saat halaman dimuat
-            setTimeout(checkPlaceholderText, 500);
-        });
+                    if (event.state && (event.state.view === 'home' || event.state.view === 'allapps')) {
+                        if (event.state.view === 'allapps') {
+                            setSelectedApp(null);
+                            setCurrentView('allapps');
+                        } else {
+                            setSelectedApp(null);
+                            setCurrentView('home');
+                        }
+                        window.scrollTo(0, 0);
+                    }
+                };
+                window.addEventListener('popstate', handlePopState);
+                return () => window.removeEventListener('popstate', handlePopState);
+            }, [currentView]);
+
+            const navigateToDetail = (app) => {
+                setSelectedApp(app);
+                setCurrentView('detail');
+                // Push state ke history agar tombol back HP berfungsi
+                window.history.pushState({ view: 'detail', appId: app.id }, '', '');
+            };
+
+            const navigateToAllApps = () => {
+                setCurrentView('allapps');
+                window.scrollTo(0, 0);
+                window.history.pushState({ view: 'allapps' }, '', '');
+            };
+
+            const navigateToHome = () => {
+                setSelectedApp(null);
+                setCurrentView('home');
+                window.scrollTo(0, 0);
+                // Kembali ke state sebelumnya di history
+                if (window.history.state && window.history.state.view === 'detail') {
+                    window.history.back();
+                }
+            };
+
+            return (
+                <div className="min-h-screen bg-[#05050a] text-slate-200 font-sans selection:bg-cyan-500/30 overflow-x-hidden">
+                    <div className="fixed inset-0 pointer-events-none z-0 opacity-40">
+                        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-purple-900/20 blur-[150px] rounded-full mix-blend-screen" />
+                        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-cyan-900/20 blur-[150px] rounded-full mix-blend-screen" />
+                    </div>
+
+                    <nav className="fixed top-0 w-full z-50 bg-[#05050a]/60 backdrop-blur-xl border-b border-white/[0.05] shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+                        <div className="max-w-7xl mx-auto px-4 md:px-8">
+                            <div className="flex items-center justify-between h-20">
+                                <div className="flex items-center gap-3 cursor-pointer group" onClick={navigateToHome}>
+                                    {/* Menerapkan Logo Baru di Navbar */}
+                                    <div className="w-11 h-11 rounded-xl overflow-hidden shadow-[0_0_15px_rgba(0,243,255,0.2)] group-hover:shadow-[0_0_25px_rgba(188,19,254,0.4)] transition-all duration-300 bg-white flex items-center justify-center border border-white/20">
+                                        <img src="https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo_Dhikzzz_Galaxy.png" alt="Dhikzzz Galaxy" className="w-full h-full object-contain p-1" />
+                                    </div>
+                                    <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-100 to-slate-400 group-hover:text-white transition-colors">Dhikzzz Galaxy</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </nav>
+
+                    <main className="relative z-10">
+                        {currentView === 'home' && <HomeView onAppSelect={navigateToDetail} searchQuery={searchQuery} setSearchQuery={setSearchQuery} onShowAll={navigateToAllApps} />}
+                        {currentView === 'allapps' && <AllAppsView onAppSelect={navigateToDetail} onBack={navigateToHome} />}
+                        {currentView === 'detail' && selectedApp && <AppDetailView app={selectedApp} onBack={navigateToHome} />}
+                    </main>
+
+                    <footer className="relative z-10 border-t border-white/[0.05] bg-black/40 backdrop-blur-md pt-16 pb-8">
+                        <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                            <div className="flex items-center gap-3">
+                                {/* Menerapkan Logo Baru di Footer */}
+                                <div className="w-8 h-8 rounded-lg overflow-hidden bg-white flex items-center justify-center opacity-90 border border-white/20">
+                                    <img src="https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Galaxy/main/Logo_Dhikzzz_Galaxy.png" alt="Dhikzzz Galaxy" className="w-full h-full object-contain p-0.5" />
+                                </div>
+                                <span className="font-bold text-slate-300">Dhikzzz Galaxy</span>
+                            </div>
+                            <p className="text-slate-500 text-sm text-center md:text-left">© 2026 Dhikzzz Galaxy</p>
+                        </div>
+                    </footer>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
     </script>
 </body>
 </html>
