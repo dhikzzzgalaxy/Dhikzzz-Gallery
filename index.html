@@ -669,6 +669,7 @@
         <ul class="sidebar-links">
             <li><a href="#" id="menu-home" class="active">Home</a></li>
             <li><a href="#" id="menu-album">Album</a></li>
+            <li><a href="#" id="menu-hidden">Hidden Album</a></li>
             <li><a href="#" id="menu-profile">Profile Pribadi</a></li>
         </ul>
     </aside>
@@ -735,6 +736,18 @@
                     <div id="gallery-container" class="gallery-grid"></div>
                 </div>
             </section>
+        </div>
+
+        <!-- Hidden Album Section -->
+        <div id="hidden-section" class="gallery-section" style="display: none;">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2 class="section-title">Hidden Album</h2>
+                    <p class="section-desc">Koleksi foto rahasia.</p>
+                </div>
+                <!-- Gallery Grid for Hidden Album -->
+                <div id="hidden-gallery-container" class="gallery-grid"></div>
+            </div>
         </div>
 
         <!-- Profile Section (Hidden by Default) -->
@@ -1561,6 +1574,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     </div>
 
     <script>
+        // Data untuk Album Utama
         const galleryData = [
             { "id": 1, "category": "Bersama", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-1.jpg", "title": "Album 1" },
             { "id": 2, "category": "Bersama", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-2.jpg", "title": "Album 2" },
@@ -1709,6 +1723,20 @@ document.addEventListener('DOMContentLoaded',()=>{
             { "id": 145, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-145.jpg", "title": "Album 145" }
         ];
 
+
+        const hiddenGalleryData = [
+            { "id": 1, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-1.jpg" },
+            { "id": 2, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-2.jpg" },
+            { "id": 3, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-3.jpg" },
+            { "id": 4, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-4.jpg" },
+            { "id": 5, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-5.jpg" },
+            { "id": 6, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-6.jpg" },
+            { "id": 7, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-7.jpg" },
+            { "id": 8, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-8.jpg" },
+            { "id": 9, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-9.jpg" },
+            { "id": 10, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-10.jpg" }
+        ];
+
         document.addEventListener('DOMContentLoaded', () => {
             let filteredData = [...galleryData];
             let currentPhotoIndex = 0;
@@ -1716,8 +1744,10 @@ document.addEventListener('DOMContentLoaded',()=>{
             // Navigation Elements
             const homeSection = document.getElementById('home-section');
             const profileSection = document.getElementById('profile-section');
+            const hiddenSection = document.getElementById('hidden-section');
             const menuHome = document.getElementById('menu-home');
             const menuAlbum = document.getElementById('menu-album');
+            const menuHidden = document.getElementById('menu-hidden');
             const menuProfile = document.getElementById('menu-profile');
             const sidebar = document.getElementById('sidebar');
             const sidebarOverlay = document.getElementById('sidebar-overlay');
@@ -1726,8 +1756,10 @@ document.addEventListener('DOMContentLoaded',()=>{
             function switchSection(section) {
                 homeSection.style.display = 'none';
                 profileSection.style.display = 'none';
+                hiddenSection.style.display = 'none';
                 menuHome.classList.remove('active');
                 menuAlbum.classList.remove('active');
+                menuHidden.classList.remove('active');
                 menuProfile.classList.remove('active');
 
                 if (section === 'home') {
@@ -1738,6 +1770,11 @@ document.addEventListener('DOMContentLoaded',()=>{
                     homeSection.style.display = 'block';
                     menuAlbum.classList.add('active');
                     document.getElementById('album-section').scrollIntoView();
+                } else if (section === 'hidden') {
+                    hiddenSection.style.display = 'block';
+                    menuHidden.classList.add('active');
+                    renderHiddenGallery();
+                    window.scrollTo(0, 0);
                 } else if (section === 'profile') {
                     profileSection.style.display = 'block';
                     menuProfile.classList.add('active');
@@ -1748,6 +1785,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
             menuHome.addEventListener('click', (e) => { e.preventDefault(); switchSection('home'); });
             menuAlbum.addEventListener('click', (e) => { e.preventDefault(); switchSection('album'); });
+            menuHidden.addEventListener('click', (e) => { e.preventDefault(); switchSection('hidden'); });
             menuProfile.addEventListener('click', (e) => { e.preventDefault(); switchSection('profile'); });
             document.getElementById('hero-btn-album').addEventListener('click', (e) => { e.preventDefault(); switchSection('album'); });
             document.getElementById('hero-btn-all').addEventListener('click', (e) => { e.preventDefault(); switchSection('album'); });
@@ -1786,9 +1824,39 @@ document.addEventListener('DOMContentLoaded',()=>{
                 data.forEach((photo, index) => {
                     const card = document.createElement('div');
                     card.className = 'photo-card scroll-reveal';
-                    card.innerHTML = `<div class="photo-img-wrapper"><img src="${photo.image}" alt="Photo" loading="lazy"></div>`;
-                    card.addEventListener('click', () => openLightbox(index));
+                    // Tambahkan badge kategori hanya untuk Album utama
+                    card.innerHTML = `
+                        <div class="photo-img-wrapper">
+                            <span class="badge-mini">${photo.category}</span>
+                            <img src="${photo.image}" alt="Photo" loading="lazy">
+                        </div>`;
+                    card.addEventListener('click', () => {
+                        filteredData = data;
+                        openLightbox(index);
+                    });
                     galleryContainer.appendChild(card);
+                });
+                setTimeout(revealOnScroll, 100);
+            }
+
+            function renderHiddenGallery() {
+                const hiddenGalleryContainer = document.getElementById('hidden-gallery-container');
+                hiddenGalleryContainer.innerHTML = '';
+                
+                if (hiddenGalleryData.length === 0) {
+                    hiddenGalleryContainer.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 50px;">Tidak ada foto di Hidden Album.</p>';
+                    return;
+                }
+
+                hiddenGalleryData.forEach((photo, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'photo-card scroll-reveal';
+                    card.innerHTML = `<div class="photo-img-wrapper"><img src="${photo.image}" alt="Photo" loading="lazy"></div>`;
+                    card.addEventListener('click', () => {
+                        filteredData = hiddenGalleryData;
+                        openLightbox(index);
+                    });
+                    hiddenGalleryContainer.appendChild(card);
                 });
                 setTimeout(revealOnScroll, 100);
             }
@@ -1840,7 +1908,15 @@ document.addEventListener('DOMContentLoaded',()=>{
                 }
                 
                 lightboxImg.src = filteredData[index].image;
-                document.getElementById('photo-name-display').textContent = filteredData[index].title;
+                
+                // Sembunyikan nama jika di Hidden Album
+                const photoNameDisplay = document.getElementById('photo-name-display');
+                if (menuHidden.classList.contains('active')) {
+                    photoNameDisplay.style.display = 'none';
+                } else {
+                    photoNameDisplay.style.display = 'block';
+                    photoNameDisplay.textContent = filteredData[index].title;
+                }
                 
                 if (!isLightboxOpen) {
                     lightbox.classList.add('active');
