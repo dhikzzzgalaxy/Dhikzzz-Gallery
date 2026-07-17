@@ -75,6 +75,59 @@
             --text-muted: #6b6b80;
         }
 
+        /* Submenu Styles */
+        .submenu-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+            opacity: 0;
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .submenu-container.active {
+            max-height: 200px; /* Cukup untuk dua item */
+            opacity: 1;
+            margin-top: 10px;
+        }
+
+        .submenu-item {
+            margin-bottom: 10px;
+        }
+
+        .submenu-link {
+            font-size: 1rem !important;
+            font-weight: 400 !important;
+            opacity: 0.8;
+            display: flex !important;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .submenu-link:hover, .submenu-link.active {
+            opacity: 1;
+            color: var(--primary) !important;
+            transform: translateX(5px) !important;
+        }
+
+        .menu-with-arrow {
+            display: flex !important;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 12px; /* Menambahkan jarak antar elemen */
+        }
+
+        .arrow-icon {
+            transition: transform 0.3s ease;
+            color: var(--text-gray);
+        }
+
+        .menu-hidden-wrapper.active .arrow-icon {
+            transform: rotate(180deg);
+            color: var(--primary);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -396,6 +449,7 @@
 }
 
         .badge-mini {
+            display: none; /* Menyembunyikan preview kategori di pojok kiri atas */
             position: absolute; top: 15px; left: 15px; background: rgba(37, 99, 235, 0.8);
             backdrop-filter: blur(5px); color: white; padding: 4px 12px;
             border-radius: 50px; font-size: 0.7rem; font-weight: 600;
@@ -669,7 +723,16 @@
         <ul class="sidebar-links">
             <li><a href="#" id="menu-home" class="active">Home</a></li>
             <li><a href="#" id="menu-album">Album</a></li>
-            <li><a href="#" id="menu-hidden">Hidden Album</a></li>
+            <li class="menu-hidden-wrapper">
+                <a href="#" id="menu-hidden" class="menu-with-arrow">
+                    Hidden Album
+                    <svg class="arrow-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </a>
+                <ul class="submenu-container" id="hidden-submenu">
+                    <li class="submenu-item"><a href="#" class="submenu-link" id="submenu-photo">Photo</a></li>
+                    <li class="submenu-item"><a href="#" class="submenu-link" id="submenu-posts">Posts & Reposts</a></li>
+                </ul>
+            </li>
             <li><a href="#" id="menu-profile">Profile Pribadi</a></li>
         </ul>
     </aside>
@@ -742,11 +805,16 @@
         <div id="hidden-section" class="gallery-section" style="display: none;">
             <div class="container">
                 <div class="section-header scroll-reveal">
-                    <h2 class="section-title">Hidden Album</h2>
-                    <p class="section-desc">Koleksi foto tersembunyi.</p>
+                    <h2 class="section-title" id="hidden-title">Hidden Album</h2>
+                    <p class="section-desc" id="hidden-desc">Koleksi momen-momen random.</p>
                 </div>
                 <!-- Gallery Grid for Hidden Album -->
                 <div id="hidden-gallery-container" class="gallery-grid"></div>
+                
+                <!-- Posts & Reposts Section (Placeholder) -->
+                <div id="posts-container" class="gallery-grid" style="display: none;">
+                    <p style="grid-column: 1/-1; text-align: center; padding: 50px; color: var(--text-gray);">Belum ada postingan atau repost untuk ditampilkan.</p>
+                </div>
             </div>
         </div>
 
@@ -1574,7 +1642,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     </div>
 
     <script>
-        // Data untuk Album Utama
+        // Data Album Utama
         const galleryData = [
             { "id": 1, "category": "Bersama", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-1.jpg", "title": "Album 1" },
             { "id": 2, "category": "Bersama", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-2.jpg", "title": "Album 2" },
@@ -1723,8 +1791,8 @@ document.addEventListener('DOMContentLoaded',()=>{
             { "id": 145, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-145.jpg", "title": "Album 145" }
         ];
 
-
-        const hiddenGalleryData = [
+        // Data Album Photo
+        const hiddenPhotoData = [
             { "id": 1, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-1.jpg" },
             { "id": 2, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-2.jpg" },
             { "id": 3, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-3.jpg" },
@@ -1736,6 +1804,18 @@ document.addEventListener('DOMContentLoaded',()=>{
             { "id": 9, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-9.jpg" },
             { "id": 10, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-10.jpg" },
             { "id": 11, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-11.jpg" }
+        ];
+
+        // Data Album Posts & Reposts
+        const hiddenPostsRepostsData = [
+            { "id": 1, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum2-1.jpg" },
+            { "id": 2, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum2-2.jpg" },
+            { "id": 3, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum2-3.jpg" },
+            { "id": 4, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum2-4.jpg" },
+            { "id": 5, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum2-5.jpg" },
+            { "id": 6, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum2-6.jpg" },
+            { "id": 7, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum2-7.jpg" },
+            { "id": 8, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum2-8.jpg" }
         ];
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -1752,9 +1832,19 @@ document.addEventListener('DOMContentLoaded',()=>{
             const menuProfile = document.getElementById('menu-profile');
             const sidebar = document.getElementById('sidebar');
             const sidebarOverlay = document.getElementById('sidebar-overlay');
+            
+            // Submenu Elements
+            const hiddenSubmenu = document.getElementById('hidden-submenu');
+            const menuHiddenWrapper = document.querySelector('.menu-hidden-wrapper');
+            const submenuPhoto = document.getElementById('submenu-photo');
+            const submenuPosts = document.getElementById('submenu-posts');
+            const hiddenTitle = document.getElementById('hidden-title');
+            const hiddenDesc = document.getElementById('hidden-desc');
+            const hiddenGalleryContainer = document.getElementById('hidden-gallery-container');
+            const postsContainer = document.getElementById('posts-container');
 
             // Switch Section Function
-            function switchSection(section) {
+            function switchSection(section, subCategory = null) {
                 homeSection.style.display = 'none';
                 profileSection.style.display = 'none';
                 hiddenSection.style.display = 'none';
@@ -1762,31 +1852,94 @@ document.addEventListener('DOMContentLoaded',()=>{
                 menuAlbum.classList.remove('active');
                 menuHidden.classList.remove('active');
                 menuProfile.classList.remove('active');
+                
+                // Reset Submenu active states
+                submenuPhoto.classList.remove('active');
+                submenuPosts.classList.remove('active');
 
                 if (section === 'home') {
                     homeSection.style.display = 'block';
                     menuHome.classList.add('active');
+                    hiddenSubmenu.classList.remove('active');
+                    menuHiddenWrapper.classList.remove('active');
                     window.scrollTo(0, 0);
+                    closeSidebarFunc();
                 } else if (section === 'album') {
                     homeSection.style.display = 'block';
                     menuAlbum.classList.add('active');
+                    hiddenSubmenu.classList.remove('active');
+                    menuHiddenWrapper.classList.remove('active');
                     document.getElementById('album-section').scrollIntoView();
+                    closeSidebarFunc();
                 } else if (section === 'hidden') {
                     hiddenSection.style.display = 'block';
                     menuHidden.classList.add('active');
-                    renderHiddenGallery();
+                    
+                    // Keep submenu open
+                    hiddenSubmenu.classList.add('active');
+                    menuHiddenWrapper.classList.add('active');
+
+                    if (subCategory === 'posts') {
+                        submenuPosts.classList.add('active');
+                        hiddenTitle.textContent = 'Posts & Reposts';
+                        hiddenDesc.textContent = 'Koleksi postingan dan repost pilihan.';
+                        hiddenGalleryContainer.style.display = 'none';
+                        postsContainer.style.display = 'grid';
+                        renderPostsGallery();
+                    } else {
+                        submenuPhoto.classList.add('active');
+                        hiddenTitle.textContent = 'Hidden Album';
+                        hiddenDesc.textContent = 'Koleksi momen-momen random.';
+                        hiddenGalleryContainer.style.display = 'grid';
+                        postsContainer.style.display = 'none';
+                        renderHiddenGallery();
+                    }
                     window.scrollTo(0, 0);
+                    // Do not close sidebar automatically if user clicked to expand, 
+                    // but if they clicked a sub-item, we might want to close it on mobile.
+                    if (subCategory) closeSidebarFunc();
                 } else if (section === 'profile') {
                     profileSection.style.display = 'block';
                     menuProfile.classList.add('active');
+                    hiddenSubmenu.classList.remove('active');
+                    menuHiddenWrapper.classList.remove('active');
                     window.scrollTo(0, 0);
+                    closeSidebarFunc();
                 }
-                closeSidebarFunc();
             }
+
+            // Toggle Submenu Logic
+            menuHidden.addEventListener('click', (e) => {
+                e.preventDefault();
+                const isSubmenuActive = hiddenSubmenu.classList.contains('active');
+                
+                if (isSubmenuActive && !menuHidden.classList.contains('active')) {
+                    // If it's open but we are not in hidden section, just close it
+                    hiddenSubmenu.classList.remove('active');
+                    menuHiddenWrapper.classList.remove('active');
+                } else if (!isSubmenuActive) {
+                    // Open it
+                    hiddenSubmenu.classList.add('active');
+                    menuHiddenWrapper.classList.add('active');
+                } else {
+                    // If already in hidden section and submenu is open, toggle it
+                    hiddenSubmenu.classList.toggle('active');
+                    menuHiddenWrapper.classList.toggle('active');
+                }
+            });
+
+            submenuPhoto.addEventListener('click', (e) => {
+                e.preventDefault();
+                switchSection('hidden', 'photo');
+            });
+
+            submenuPosts.addEventListener('click', (e) => {
+                e.preventDefault();
+                switchSection('hidden', 'posts');
+            });
 
             menuHome.addEventListener('click', (e) => { e.preventDefault(); switchSection('home'); });
             menuAlbum.addEventListener('click', (e) => { e.preventDefault(); switchSection('album'); });
-            menuHidden.addEventListener('click', (e) => { e.preventDefault(); switchSection('hidden'); });
             menuProfile.addEventListener('click', (e) => { e.preventDefault(); switchSection('profile'); });
             document.getElementById('hero-btn-album').addEventListener('click', (e) => { e.preventDefault(); switchSection('album'); });
             document.getElementById('hero-btn-all').addEventListener('click', (e) => { e.preventDefault(); switchSection('album'); });
@@ -1844,20 +1997,42 @@ document.addEventListener('DOMContentLoaded',()=>{
                 const hiddenGalleryContainer = document.getElementById('hidden-gallery-container');
                 hiddenGalleryContainer.innerHTML = '';
                 
-                if (hiddenGalleryData.length === 0) {
+                if (hiddenPhotoData.length === 0) {
                     hiddenGalleryContainer.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 50px;">Tidak ada foto di Hidden Album.</p>';
                     return;
                 }
 
-                hiddenGalleryData.forEach((photo, index) => {
+                hiddenPhotoData.forEach((photo, index) => {
                     const card = document.createElement('div');
                     card.className = 'photo-card scroll-reveal';
                     card.innerHTML = `<div class="photo-img-wrapper"><img src="${photo.image}" alt="Photo" loading="lazy"></div>`;
                     card.addEventListener('click', () => {
-                        filteredData = hiddenGalleryData;
+                        filteredData = hiddenPhotoData;
                         openLightbox(index);
                     });
                     hiddenGalleryContainer.appendChild(card);
+                });
+                setTimeout(revealOnScroll, 100);
+            }
+
+            function renderPostsGallery() {
+                const postsContainer = document.getElementById('posts-container');
+                postsContainer.innerHTML = '';
+                
+                if (hiddenPostsRepostsData.length === 0) {
+                    postsContainer.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 50px; color: var(--text-gray);">Belum ada postingan atau repost untuk ditampilkan.</p>';
+                    return;
+                }
+
+                hiddenPostsRepostsData.forEach((post, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'photo-card scroll-reveal';
+                    card.innerHTML = `<div class="photo-img-wrapper"><img src="${post.image}" alt="Post" loading="lazy"></div>`;
+                    card.addEventListener('click', () => {
+                        filteredData = hiddenPostsRepostsData;
+                        openLightbox(index);
+                    });
+                    postsContainer.appendChild(card);
                 });
                 setTimeout(revealOnScroll, 100);
             }
