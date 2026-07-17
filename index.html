@@ -282,6 +282,11 @@
     font-size: 1.2rem;
     font-weight: 500;
     transition: var(--transition);
+    pointer-events: none; /* Disable click by default */
+}
+
+#sidebar.active .sidebar-links a {
+    pointer-events: auto; /* Enable click when sidebar is active */
 }
 
 .sidebar-links a:hover,
@@ -409,6 +414,152 @@
 
         /* Gallery Grid */
         .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+
+        /* Audio Section Styles */
+        .audio-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .audio-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 15px 20px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .download-btn, .share-btn {
+            color: var(--text-white);
+            transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            border-radius: 50%;
+            background: transparent;
+            border: none;
+        }
+
+        .download-btn:hover, .share-btn:hover {
+            color: var(--primary);
+            background: rgba(255, 255, 255, 0.05);
+            transform: scale(1.1);
+        }
+
+        .audio-card:hover {
+            transform: scale(1.03);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .audio-progress-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin: 15px 0 20px 0;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .audio-progress-bar {
+            width: 0%;
+            height: 100%;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary-glow);
+            border-radius: 3px;
+            position: relative;
+        }
+
+        .audio-progress-thumb {
+            position: absolute;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary-glow);
+            transition: transform 0.2s ease;
+            z-index: 5;
+        }
+
+        .audio-card:hover .audio-progress-thumb {
+            transform: translateY(-50%) scale(1.2);
+        }
+
+
+
+
+
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .control-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-white);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            border-radius: 50%;
+        }
+
+        .control-btn:hover {
+            color: var(--primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .play-pause-btn {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        .play-pause-btn:hover {
+            background: var(--secondary);
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Responsive Audio Grid */
+        @media (max-width: 1024px) {
+            .audio-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .audio-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            .audio-grid { grid-template-columns: 1fr; }
+        }
+
 
 .photo-img-wrapper {
     position: relative;
@@ -733,6 +884,7 @@
                     <li class="submenu-item"><a href="#" class="submenu-link" id="submenu-posts">Posts & Reposts</a></li>
                 </ul>
             </li>
+            <li><a href="#" id="menu-audio">Audio</a></li>
             <li><a href="#" id="menu-profile">Profile Pribadi</a></li>
         </ul>
     </aside>
@@ -814,6 +966,20 @@
                 <!-- Posts & Reposts Section (Placeholder) -->
                 <div id="posts-container" class="gallery-grid" style="display: none;">
                     <p style="grid-column: 1/-1; text-align: center; padding: 50px; color: var(--text-gray);">Belum ada postingan atau repost untuk ditampilkan.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Audio Section -->
+        <div id="audio-section" class="gallery-section" style="display: none;">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2 class="section-title">Audio Collection</h2>
+                    <p class="section-desc">Dengarkan koleksi audio favorit.</p>
+                </div>
+                
+                <div id="audio-grid" class="audio-grid">
+                    <!-- Audio cards will be injected here -->
                 </div>
             </div>
         </div>
@@ -1818,6 +1984,20 @@ document.addEventListener('DOMContentLoaded',()=>{
             { "id": 8, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum2-8.jpg" }
         ];
 
+        // Data Audio
+        const audioData = [
+            { "id": 1, "url": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Audio/Audio-1.mp3" },
+            { "id": 2, "url": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Audio/Audio-2.mp3" },
+            { "id": 3, "url": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Audio/Audio-3.mp3" },
+            { "id": 4, "url": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Audio/Audio-4.mp3" },
+            { "id": 5, "url": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Audio/Audio-5.mp3" },
+            { "id": 6, "url": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Audio/Audio-6.mp3" },
+            { "id": 7, "url": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Audio/Audio-7.mp3" },
+            { "id": 8, "url": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Audio/Audio-8.mp3" },
+            { "id": 9, "url": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Audio/Audio-9.mp3" },
+            { "id": 10, "url": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Audio/Audio-10.mp3" }
+        ];
+
         document.addEventListener('DOMContentLoaded', () => {
             let filteredData = [...galleryData];
             let currentPhotoIndex = 0;
@@ -1826,9 +2006,11 @@ document.addEventListener('DOMContentLoaded',()=>{
             const homeSection = document.getElementById('home-section');
             const profileSection = document.getElementById('profile-section');
             const hiddenSection = document.getElementById('hidden-section');
+            const audioSection = document.getElementById('audio-section');
             const menuHome = document.getElementById('menu-home');
             const menuAlbum = document.getElementById('menu-album');
             const menuHidden = document.getElementById('menu-hidden');
+            const menuAudio = document.getElementById('menu-audio');
             const menuProfile = document.getElementById('menu-profile');
             const sidebar = document.getElementById('sidebar');
             const sidebarOverlay = document.getElementById('sidebar-overlay');
@@ -1848,9 +2030,11 @@ document.addEventListener('DOMContentLoaded',()=>{
                 homeSection.style.display = 'none';
                 profileSection.style.display = 'none';
                 hiddenSection.style.display = 'none';
+                audioSection.style.display = 'none';
                 menuHome.classList.remove('active');
                 menuAlbum.classList.remove('active');
                 menuHidden.classList.remove('active');
+                menuAudio.classList.remove('active');
                 menuProfile.classList.remove('active');
                 
                 // Reset Submenu active states
@@ -1898,6 +2082,14 @@ document.addEventListener('DOMContentLoaded',()=>{
                     // Do not close sidebar automatically if user clicked to expand, 
                     // but if they clicked a sub-item, we might want to close it on mobile.
                     if (subCategory) closeSidebarFunc();
+                } else if (section === 'audio') {
+                    audioSection.style.display = 'block';
+                    menuAudio.classList.add('active');
+                    hiddenSubmenu.classList.remove('active');
+                    menuHiddenWrapper.classList.remove('active');
+                    renderAudioGallery();
+                    window.scrollTo(0, 0);
+                    closeSidebarFunc();
                 } else if (section === 'profile') {
                     profileSection.style.display = 'block';
                     menuProfile.classList.add('active');
@@ -1940,6 +2132,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
             menuHome.addEventListener('click', (e) => { e.preventDefault(); switchSection('home'); });
             menuAlbum.addEventListener('click', (e) => { e.preventDefault(); switchSection('album'); });
+            menuAudio.addEventListener('click', (e) => { e.preventDefault(); switchSection('audio'); });
             menuProfile.addEventListener('click', (e) => { e.preventDefault(); switchSection('profile'); });
             document.getElementById('hero-btn-album').addEventListener('click', (e) => { e.preventDefault(); switchSection('album'); });
             document.getElementById('hero-btn-all').addEventListener('click', (e) => { e.preventDefault(); switchSection('album'); });
@@ -2037,6 +2230,164 @@ document.addEventListener('DOMContentLoaded',()=>{
                 setTimeout(revealOnScroll, 100);
             }
 
+            // Audio Player Logic
+            let currentAudio = null;
+            let currentAudioIndex = -1;
+            const audioPlayer = new Audio();
+
+            function renderAudioGallery() {
+                const audioGrid = document.getElementById('audio-grid');
+                audioGrid.innerHTML = '';
+
+                audioData.forEach((audio, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'audio-card scroll-reveal';
+                    card.innerHTML = `
+                        <div class="audio-progress-container" data-index="${index}">
+                            <div class="audio-progress-bar">
+                                <div class="audio-progress-thumb"></div>
+                            </div>
+                        </div>
+                        <div class="audio-controls">
+                            <button class="share-btn" data-index="${index}" title="Share Website">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                            </button>
+                            <button class="control-btn prev-audio" data-index="${index}">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><polygon points="19 20 9 12 19 4 19 20"></polygon><line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2"></line></svg>
+                            </button>
+                            <button class="control-btn play-pause-btn" data-index="${index}">
+                                <svg class="play-icon" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                <svg class="pause-icon" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                            </button>
+                            <button class="control-btn next-audio" data-index="${index}">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><polygon points="5 4 15 12 5 20 5 4"></polygon><line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2"></line></svg>
+                            </button>
+                            <a href="${audio.url}" download class="download-btn" title="Download Audio">
+                                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            </a>
+                        </div>
+                    `;
+
+                    const playBtn = card.querySelector('.play-pause-btn');
+                    const prevBtn = card.querySelector('.prev-audio');
+                    const nextBtn = card.querySelector('.next-audio');
+                    const shareBtn = card.querySelector('.share-btn');
+                    const progressContainer = card.querySelector('.audio-progress-container');
+
+                    playBtn.addEventListener('click', () => toggleAudio(index));
+                    prevBtn.addEventListener('click', () => playPrevious());
+                    nextBtn.addEventListener('click', () => playNext());
+                    shareBtn.addEventListener('click', () => {
+                        const siteUrl = window.location.href;
+                        if (navigator.share) {
+                            navigator.share({
+                                title: 'DhikzzzKiaaa Gallery',
+                                text: 'Lihat audio keren ini!',
+                                url: siteUrl
+                            }).catch(console.error);
+                        } else {
+                            // Fallback copy to clipboard
+                            navigator.clipboard.writeText(siteUrl).then(() => {
+                                alert('Link website berhasil disalin!');
+                            });
+                        }
+                    });
+                    
+                    progressContainer.addEventListener('click', (e) => {
+                        if (currentAudioIndex === index) {
+                            const width = progressContainer.clientWidth;
+                            const clickX = e.offsetX;
+                            const duration = audioPlayer.duration;
+                            audioPlayer.currentTime = (clickX / width) * duration;
+                        }
+                    });
+
+                    audioGrid.appendChild(card);
+                });
+                setTimeout(revealOnScroll, 100);
+                updatePlayerUI();
+            }
+
+            function toggleAudio(index) {
+                if (currentAudioIndex === index) {
+                    if (audioPlayer.paused) {
+                        audioPlayer.play();
+                    } else {
+                        audioPlayer.pause();
+                    }
+                } else {
+                    currentAudioIndex = index;
+                    audioPlayer.src = audioData[index].url;
+                    audioPlayer.play();
+                }
+                updatePlayerUI();
+            }
+
+            function playNext() {
+                let nextIndex = (currentAudioIndex + 1) % audioData.length;
+                toggleAudio(nextIndex);
+            }
+
+            function playPrevious() {
+                let prevIndex = (currentAudioIndex - 1 + audioData.length) % audioData.length;
+                toggleAudio(prevIndex);
+            }
+
+            audioPlayer.addEventListener('ended', () => {
+                playNext();
+            });
+
+            audioPlayer.addEventListener('play', updatePlayerUI);
+            audioPlayer.addEventListener('pause', updatePlayerUI);
+            audioPlayer.addEventListener('timeupdate', updateProgress);
+
+            function updateProgress() {
+                if (currentAudioIndex !== -1) {
+                    const duration = audioPlayer.duration;
+                    const currentTime = audioPlayer.currentTime;
+                    const progressPercent = (currentTime / duration) * 100;
+                    
+                    const allCards = document.querySelectorAll('.audio-card');
+                    const activeCard = allCards[currentAudioIndex];
+                    if (activeCard) {
+                        const progressBar = activeCard.querySelector('.audio-progress-bar');
+                        if (progressBar) {
+                            progressBar.style.width = `${progressPercent}%`;
+                        }
+                    }
+                }
+            }
+
+            function updatePlayerUI() {
+                const allPlayBtns = document.querySelectorAll('.play-pause-btn');
+                const allProgressBars = document.querySelectorAll('.audio-progress-bar');
+                
+                allPlayBtns.forEach((btn, idx) => {
+                    const playIcon = btn.querySelector('.play-icon');
+                    const pauseIcon = btn.querySelector('.pause-icon');
+                    const card = btn.closest('.audio-card');
+                    
+                    if (idx === currentAudioIndex) {
+                        if (!audioPlayer.paused) {
+                            playIcon.style.display = 'none';
+                            pauseIcon.style.display = 'block';
+                            card.style.borderColor = 'var(--primary)';
+                        } else {
+                            playIcon.style.display = 'block';
+                            pauseIcon.style.display = 'none';
+                        }
+                    } else {
+                        playIcon.style.display = 'block';
+                        pauseIcon.style.display = 'none';
+                        card.style.borderColor = 'var(--glass-border)';
+                        // Reset other progress bars
+                        if (allProgressBars[idx]) {
+                            allProgressBars[idx].style.width = '0%';
+                        }
+                    }
+                });
+            }
+
             searchInput.addEventListener('input', (e) => {
                 const term = e.target.value.toLowerCase();
                 filterData(term, document.querySelector('.filter-btn.active').dataset.filter);
@@ -2085,9 +2436,9 @@ document.addEventListener('DOMContentLoaded',()=>{
                 
                 lightboxImg.src = filteredData[index].image;
                 
-                // Sembunyikan nama jika di Hidden Album
+                // Sembunyikan nama jika di Hidden Album atau Audio
                 const photoNameDisplay = document.getElementById('photo-name-display');
-                if (menuHidden.classList.contains('active')) {
+                if (menuHidden.classList.contains('active') || menuAudio.classList.contains('active')) {
                     photoNameDisplay.style.display = 'none';
                 } else {
                     photoNameDisplay.style.display = 'block';
@@ -2134,10 +2485,29 @@ document.addEventListener('DOMContentLoaded',()=>{
                 revealOnScroll();
             });
 
-            mobileMenu.addEventListener('click', () => { sidebar.classList.add('active'); sidebarOverlay.classList.add('active'); });
-            function closeSidebarFunc() { sidebar.classList.remove('active'); sidebarOverlay.classList.remove('active'); }
-            closeSidebar.addEventListener('click', closeSidebarFunc);
-            sidebarOverlay.addEventListener('click', closeSidebarFunc);
+            const openSidebarFunc = (e) => {
+                if (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+                sidebar.classList.add('active');
+                sidebarOverlay.classList.add('active');
+            };
+
+            const closeSidebarFunc = (e) => {
+                if (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+                sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+            };
+
+            // Use a single event handler for both click and touch to avoid ghost clicks/conflicts
+            ['click', 'touchstart'].forEach(evt => {
+                mobileMenu.addEventListener(evt, openSidebarFunc, { passive: false });
+                sidebarOverlay.addEventListener(evt, closeSidebarFunc, { passive: false });
+            });
 
             function revealOnScroll() {
                 const reveals = document.querySelectorAll('.scroll-reveal');
