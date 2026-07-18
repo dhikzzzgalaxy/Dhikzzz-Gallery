@@ -241,9 +241,11 @@
     padding: 12px 20px;
 
     z-index: 2000;
-    transition: top .35s ease, opacity .35s ease;
+    transition: top .35s ease, opacity .35s ease, visibility .35s ease;
 
     opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
     box-shadow: 0 12px 30px rgba(0,0,0,.25);
 }
 
@@ -251,6 +253,8 @@
 #sidebar.active {
     top: 70px;
     opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 /* Hilangkan header dan tombol X */
@@ -282,11 +286,6 @@
     font-size: 1.2rem;
     font-weight: 500;
     transition: var(--transition);
-    pointer-events: none; /* Disable click by default */
-}
-
-#sidebar.active .sidebar-links a {
-    pointer-events: auto; /* Enable click when sidebar is active */
 }
 
 .sidebar-links a:hover,
@@ -414,152 +413,6 @@
 
         /* Gallery Grid */
         .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
-
-        /* Audio Section Styles */
-        .audio-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .audio-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 15px 20px;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0;
-            text-align: center;
-            position: relative;
-        }
-
-        .download-btn, .share-btn {
-            color: var(--text-white);
-            transition: var(--transition);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8px;
-            border-radius: 50%;
-            background: transparent;
-            border: none;
-        }
-
-        .download-btn:hover, .share-btn:hover {
-            color: var(--primary);
-            background: rgba(255, 255, 255, 0.05);
-            transform: scale(1.1);
-        }
-
-        .audio-card:hover {
-            transform: scale(1.03);
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .audio-progress-container {
-            width: 100%;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 3px;
-            margin: 15px 0 20px 0;
-            cursor: pointer;
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .audio-progress-bar {
-            width: 0%;
-            height: 100%;
-            background: var(--primary);
-            box-shadow: 0 0 10px var(--primary-glow);
-            border-radius: 3px;
-            position: relative;
-        }
-
-        .audio-progress-thumb {
-            position: absolute;
-            right: -6px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 12px;
-            height: 12px;
-            background: white;
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--primary-glow);
-            transition: transform 0.2s ease;
-            z-index: 5;
-        }
-
-        .audio-card:hover .audio-progress-thumb {
-            transform: translateY(-50%) scale(1.2);
-        }
-
-
-
-
-
-        .audio-controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            width: 100%;
-        }
-
-        .control-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-white);
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8px;
-            border-radius: 50%;
-        }
-
-        .control-btn:hover {
-            color: var(--primary);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .play-pause-btn {
-            width: 45px;
-            height: 45px;
-            background: var(--primary);
-            border-radius: 50%;
-            box-shadow: 0 0 15px var(--primary-glow);
-        }
-
-        .play-pause-btn:hover {
-            background: var(--secondary);
-            transform: scale(1.1);
-            color: white;
-        }
-
-        /* Responsive Audio Grid */
-        @media (max-width: 1024px) {
-            .audio-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        @media (max-width: 768px) {
-            .audio-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 480px) {
-            .audio-grid { grid-template-columns: 1fr; }
-        }
-
 
 .photo-img-wrapper {
     position: relative;
@@ -843,6 +696,117 @@
 
         .scroll-reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
         .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* Audio Section Styles */
+        .audio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .audio-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 15px 20px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .audio-card:hover {
+            transform: scale(1.03);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .audio-progress-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin: 15px 0 20px 0;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .audio-progress-bar {
+            width: 0%;
+            height: 100%;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary-glow);
+            border-radius: 3px;
+            position: relative;
+        }
+
+        .audio-progress-thumb {
+            position: absolute;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary-glow);
+            transition: transform 0.2s ease;
+            z-index: 5;
+        }
+
+        .audio-card:hover .audio-progress-thumb {
+            transform: translateY(-50%) scale(1.2);
+        }
+
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .control-btn, .download-btn, .share-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-white);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            border-radius: 50%;
+            text-decoration: none;
+        }
+
+        .control-btn:hover, .download-btn:hover, .share-btn:hover {
+            color: var(--primary);
+            background: rgba(255, 255, 255, 0.05);
+            transform: scale(1.1);
+        }
+
+        .play-pause-btn {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        .play-pause-btn:hover {
+            background: var(--secondary);
+            transform: scale(1.1);
+            color: white;
+        }
     </style>
 </head>
 <body class="dark-mode">
@@ -1984,7 +1948,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             { "id": 8, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum2-8.jpg" }
         ];
 
-        // Data Audio
+        // Audio Data
         const audioData = [
             { "id": 1, "url": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Audio/Audio-1.mp3" },
             { "id": 2, "url": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Audio/Audio-2.mp3" },
@@ -2079,9 +2043,9 @@ document.addEventListener('DOMContentLoaded',()=>{
                         renderHiddenGallery();
                     }
                     window.scrollTo(0, 0);
-                    // Do not close sidebar automatically if user clicked to expand, 
-                    // but if they clicked a sub-item, we might want to close it on mobile.
-                    if (subCategory) closeSidebarFunc();
+                    
+                    // Tutup sidebar setelah memilih submenu
+                    closeSidebarFunc();
                 } else if (section === 'audio') {
                     audioSection.style.display = 'block';
                     menuAudio.classList.add('active');
@@ -2230,8 +2194,157 @@ document.addEventListener('DOMContentLoaded',()=>{
                 setTimeout(revealOnScroll, 100);
             }
 
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                filterData(term, document.querySelector('.filter-btn.active').dataset.filter);
+            });
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    filterData(searchInput.value.toLowerCase(), btn.dataset.filter);
+                });
+            });
+
+            function filterData(searchTerm, category) {
+                filteredData = galleryData.filter(item => {
+                    const matchesSearch = item.category.toLowerCase().includes(searchTerm) || item.title.toLowerCase().includes(searchTerm);
+                    const matchesCategory = category === 'Semua' || item.category === category;
+                    return matchesSearch && matchesCategory;
+                });
+                renderGallery(filteredData);
+            }
+
+            let slideDirection = 'right';
+            let isLightboxOpen = false;
+            
+            function openLightbox(index, isNavigation = false) {
+                currentPhotoIndex = index;
+                
+                // Hapus semua class animasi sebelumnya
+                lightboxImg.classList.remove('fade-in', 'slide-left', 'slide-right');
+                
+                // Trigger reflow untuk reset animasi
+                void lightboxImg.offsetWidth;
+                
+                if (isNavigation) {
+                    // Animasi slide saat navigasi tombol
+                    if (slideDirection === 'left') {
+                        lightboxImg.classList.add('slide-left');
+                    } else {
+                        lightboxImg.classList.add('slide-right');
+                    }
+                } else {
+                    // Animasi fade-in saat membuka lightbox pertama kali
+                    lightboxImg.classList.add('fade-in');
+                }
+                
+                lightboxImg.src = filteredData[index].image;
+                
+                // Sembunyikan nama jika di Hidden Album
+                const photoNameDisplay = document.getElementById('photo-name-display');
+                if (menuHidden.classList.contains('active')) {
+                    photoNameDisplay.style.display = 'none';
+                } else {
+                    photoNameDisplay.style.display = 'block';
+                    photoNameDisplay.textContent = filteredData[index].title;
+                }
+                
+                if (!isLightboxOpen) {
+                    lightbox.classList.add('active');
+                    isLightboxOpen = true;
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            closeLightbox.addEventListener('click', () => { closeLightboxFunc(); });
+            
+            function closeLightboxFunc() {
+                // Tambahkan class closing untuk memicu animasi fade-out
+                lightbox.classList.add('closing');
+                
+                // Setelah animasi fade-out selesai (0.4s), hapus class active dan closing
+                setTimeout(() => {
+                    lightbox.classList.remove('active');
+                    lightbox.classList.remove('closing');
+                    document.body.style.overflow = 'auto';
+                    isLightboxOpen = false;
+                }, 400);
+            }
+            prevBtn.addEventListener('click', (e) => { 
+                e.stopPropagation(); 
+                slideDirection = 'left';
+                currentPhotoIndex = (currentPhotoIndex - 1 + filteredData.length) % filteredData.length; 
+                openLightbox(currentPhotoIndex, true); 
+            });
+            nextBtn.addEventListener('click', (e) => { 
+                e.stopPropagation(); 
+                slideDirection = 'right';
+                currentPhotoIndex = (currentPhotoIndex + 1) % filteredData.length; 
+                openLightbox(currentPhotoIndex, true); 
+            });
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) header.classList.add('scrolled');
+                else header.classList.remove('scrolled');
+                revealOnScroll();
+            });
+
+            mobileMenu.addEventListener('click', () => { sidebar.classList.add('active'); sidebarOverlay.classList.add('active'); });
+            function closeSidebarFunc() { sidebar.classList.remove('active'); sidebarOverlay.classList.remove('active'); }
+            closeSidebar.addEventListener('click', closeSidebarFunc);
+            sidebarOverlay.addEventListener('click', closeSidebarFunc);
+
+            function revealOnScroll() {
+                const reveals = document.querySelectorAll('.scroll-reveal');
+                reveals.forEach(el => {
+                    const windowHeight = window.innerHeight;
+                    const revealTop = el.getBoundingClientRect().top;
+                    if (revealTop < windowHeight - 150) el.classList.add('visible');
+                });
+            }
+
+            function startCounters() {
+                document.querySelectorAll('.counter').forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const updateCount = () => {
+                        const count = +counter.innerText;
+                        const inc = target / 200;
+                        if (count < target) { counter.innerText = Math.ceil(count + inc); setTimeout(updateCount, 1); }
+                        else counter.innerText = target;
+                    };
+                    updateCount();
+                });
+            }
+
+            // Profile Logic
+            function calculateAge(birthDateString) {
+                const birthDate = new Date(birthDateString);
+                const now = new Date();
+                let years = now.getFullYear() - birthDate.getFullYear();
+                let months = now.getMonth() - birthDate.getMonth();
+                let days = now.getDate() - birthDate.getDate();
+                if (days < 0) { months--; const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0); days += lastMonth.getDate(); }
+                if (months < 0) { years--; months += 12; }
+                let result = `${years} Tahun ${months} Bulan`;
+                if (days > 0) result += ` ${days} Hari`;
+                return result;
+            }
+            function calculateDaysSince(dateString) {
+                const start = new Date(dateString); const today = new Date();
+                start.setHours(0,0,0,0); today.setHours(0,0,0,0);
+                return Math.floor((today-start)/86400000);
+            }
+
+            document.querySelectorAll('.umur-value').forEach(el => { const b = el.dataset.birth; if(b) el.textContent = calculateAge(b); });
+            document.querySelectorAll('.hari-value').forEach(el => { const s = el.dataset.since; if(s) el.textContent = calculateDaysSince(s).toLocaleString('id-ID') + ' Hari'; });
+
+            // Update total foto count on Home
+            const totalFotoCount = document.getElementById('total-foto-count');
+            if (totalFotoCount) totalFotoCount.textContent = galleryData.length;
+
             // Audio Player Logic
-            let currentAudio = null;
             let currentAudioIndex = -1;
             const audioPlayer = new Audio();
 
@@ -2281,12 +2394,11 @@ document.addEventListener('DOMContentLoaded',()=>{
                         const siteUrl = window.location.href;
                         if (navigator.share) {
                             navigator.share({
-                                title: 'DhikzzzKiaaa Gallery',
+                                title: 'Audio Collection',
                                 text: 'Lihat audio keren ini!',
                                 url: siteUrl
                             }).catch(console.error);
                         } else {
-                            // Fallback copy to clipboard
                             navigator.clipboard.writeText(siteUrl).then(() => {
                                 alert('Link website berhasil disalin!');
                             });
@@ -2304,8 +2416,8 @@ document.addEventListener('DOMContentLoaded',()=>{
 
                     audioGrid.appendChild(card);
                 });
-                setTimeout(revealOnScroll, 100);
                 updatePlayerUI();
+                setTimeout(revealOnScroll, 100);
             }
 
             function toggleAudio(index) {
@@ -2380,182 +2492,12 @@ document.addEventListener('DOMContentLoaded',()=>{
                         playIcon.style.display = 'block';
                         pauseIcon.style.display = 'none';
                         card.style.borderColor = 'var(--glass-border)';
-                        // Reset other progress bars
                         if (allProgressBars[idx]) {
                             allProgressBars[idx].style.width = '0%';
                         }
                     }
                 });
             }
-
-            searchInput.addEventListener('input', (e) => {
-                const term = e.target.value.toLowerCase();
-                filterData(term, document.querySelector('.filter-btn.active').dataset.filter);
-            });
-
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    filterData(searchInput.value.toLowerCase(), btn.dataset.filter);
-                });
-            });
-
-            function filterData(searchTerm, category) {
-                filteredData = galleryData.filter(item => {
-                    const matchesSearch = item.category.toLowerCase().includes(searchTerm) || item.title.toLowerCase().includes(searchTerm);
-                    const matchesCategory = category === 'Semua' || item.category === category;
-                    return matchesSearch && matchesCategory;
-                });
-                renderGallery(filteredData);
-            }
-
-            let slideDirection = 'right';
-            let isLightboxOpen = false;
-            
-            function openLightbox(index, isNavigation = false) {
-                currentPhotoIndex = index;
-                
-                // Hapus semua class animasi sebelumnya
-                lightboxImg.classList.remove('fade-in', 'slide-left', 'slide-right');
-                
-                // Trigger reflow untuk reset animasi
-                void lightboxImg.offsetWidth;
-                
-                if (isNavigation) {
-                    // Animasi slide saat navigasi tombol
-                    if (slideDirection === 'left') {
-                        lightboxImg.classList.add('slide-left');
-                    } else {
-                        lightboxImg.classList.add('slide-right');
-                    }
-                } else {
-                    // Animasi fade-in saat membuka lightbox pertama kali
-                    lightboxImg.classList.add('fade-in');
-                }
-                
-                lightboxImg.src = filteredData[index].image;
-                
-                // Sembunyikan nama jika di Hidden Album atau Audio
-                const photoNameDisplay = document.getElementById('photo-name-display');
-                if (menuHidden.classList.contains('active') || menuAudio.classList.contains('active')) {
-                    photoNameDisplay.style.display = 'none';
-                } else {
-                    photoNameDisplay.style.display = 'block';
-                    photoNameDisplay.textContent = filteredData[index].title;
-                }
-                
-                if (!isLightboxOpen) {
-                    lightbox.classList.add('active');
-                    isLightboxOpen = true;
-                    document.body.style.overflow = 'hidden';
-                }
-            }
-
-            closeLightbox.addEventListener('click', () => { closeLightboxFunc(); });
-            
-            function closeLightboxFunc() {
-                // Tambahkan class closing untuk memicu animasi fade-out
-                lightbox.classList.add('closing');
-                
-                // Setelah animasi fade-out selesai (0.4s), hapus class active dan closing
-                setTimeout(() => {
-                    lightbox.classList.remove('active');
-                    lightbox.classList.remove('closing');
-                    document.body.style.overflow = 'auto';
-                    isLightboxOpen = false;
-                }, 400);
-            }
-            prevBtn.addEventListener('click', (e) => { 
-                e.stopPropagation(); 
-                slideDirection = 'left';
-                currentPhotoIndex = (currentPhotoIndex - 1 + filteredData.length) % filteredData.length; 
-                openLightbox(currentPhotoIndex, true); 
-            });
-            nextBtn.addEventListener('click', (e) => { 
-                e.stopPropagation(); 
-                slideDirection = 'right';
-                currentPhotoIndex = (currentPhotoIndex + 1) % filteredData.length; 
-                openLightbox(currentPhotoIndex, true); 
-            });
-
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) header.classList.add('scrolled');
-                else header.classList.remove('scrolled');
-                revealOnScroll();
-            });
-
-            const openSidebarFunc = (e) => {
-                if (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                }
-                sidebar.classList.add('active');
-                sidebarOverlay.classList.add('active');
-            };
-
-            const closeSidebarFunc = (e) => {
-                if (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                }
-                sidebar.classList.remove('active');
-                sidebarOverlay.classList.remove('active');
-            };
-
-            // Use a single event handler for both click and touch to avoid ghost clicks/conflicts
-            ['click', 'touchstart'].forEach(evt => {
-                mobileMenu.addEventListener(evt, openSidebarFunc, { passive: false });
-                sidebarOverlay.addEventListener(evt, closeSidebarFunc, { passive: false });
-            });
-
-            function revealOnScroll() {
-                const reveals = document.querySelectorAll('.scroll-reveal');
-                reveals.forEach(el => {
-                    const windowHeight = window.innerHeight;
-                    const revealTop = el.getBoundingClientRect().top;
-                    if (revealTop < windowHeight - 150) el.classList.add('visible');
-                });
-            }
-
-            function startCounters() {
-                document.querySelectorAll('.counter').forEach(counter => {
-                    const target = +counter.getAttribute('data-target');
-                    const updateCount = () => {
-                        const count = +counter.innerText;
-                        const inc = target / 200;
-                        if (count < target) { counter.innerText = Math.ceil(count + inc); setTimeout(updateCount, 1); }
-                        else counter.innerText = target;
-                    };
-                    updateCount();
-                });
-            }
-
-            // Profile Logic
-            function calculateAge(birthDateString) {
-                const birthDate = new Date(birthDateString);
-                const now = new Date();
-                let years = now.getFullYear() - birthDate.getFullYear();
-                let months = now.getMonth() - birthDate.getMonth();
-                let days = now.getDate() - birthDate.getDate();
-                if (days < 0) { months--; const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0); days += lastMonth.getDate(); }
-                if (months < 0) { years--; months += 12; }
-                let result = `${years} Tahun ${months} Bulan`;
-                if (days > 0) result += ` ${days} Hari`;
-                return result;
-            }
-            function calculateDaysSince(dateString) {
-                const start = new Date(dateString); const today = new Date();
-                start.setHours(0,0,0,0); today.setHours(0,0,0,0);
-                return Math.floor((today-start)/86400000);
-            }
-
-            document.querySelectorAll('.umur-value').forEach(el => { const b = el.dataset.birth; if(b) el.textContent = calculateAge(b); });
-            document.querySelectorAll('.hari-value').forEach(el => { const s = el.dataset.since; if(s) el.textContent = calculateDaysSince(s).toLocaleString('id-ID') + ' Hari'; });
-
-            // Update total foto count on Home
-            const totalFotoCount = document.getElementById('total-foto-count');
-            if (totalFotoCount) totalFotoCount.textContent = galleryData.length;
 
             renderGallery(filteredData);
 
