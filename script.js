@@ -258,7 +258,16 @@ document.addEventListener('DOMContentLoaded',()=>{
             { "id": 8, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-8.jpg" },
             { "id": 9, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-9.jpg" },
             { "id": 10, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-10.jpg" },
-            { "id": 11, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-11.jpg" }
+            { "id": 11, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-11.jpg" },
+            { "id": 12, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-12.jpg" },
+            { "id": 13, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-13.jpg" },
+            { "id": 14, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-14.jpg" },
+            { "id": 15, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-15.jpg" },
+            { "id": 16, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-16.jpg" },
+            { "id": 17, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-17.jpg" },
+            { "id": 18, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-18.jpg" },
+            { "id": 19, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-19.jpg" },
+            { "id": 20, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-20.jpg" }
         ];
 
         // Data Album Posts & Reposts
@@ -273,7 +282,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             { "id": 8, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum2-8.jpg" }
         ];
 
-        // Audio Data
+        // Data Audio
         const audioData = [
             { "id": 1, "url": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Audio/Audio-1.mp3" },
             { "id": 2, "url": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Audio/Audio-2.mp3" },
