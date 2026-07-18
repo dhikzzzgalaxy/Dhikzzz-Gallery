@@ -267,7 +267,8 @@ document.addEventListener('DOMContentLoaded',()=>{
             { "id": 17, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-17.jpg" },
             { "id": 18, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-18.jpg" },
             { "id": 19, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-19.jpg" },
-            { "id": 20, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-20.jpg" }
+            { "id": 20, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-20.jpg" },
+            { "id": 21, "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/HiddenAlbum-21.jpg" }            
         ];
 
         // Data Album Posts & Reposts
