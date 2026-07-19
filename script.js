@@ -243,7 +243,12 @@ document.addEventListener('DOMContentLoaded',()=>{
             { "id": 142, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-142.jpg", "title": "Album 142" },
             { "id": 143, "category": "Dika", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-143.jpg", "title": "Album 143" },
             { "id": 144, "category": "Dika", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-144.jpg", "title": "Album 144" },
-            { "id": 145, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-145.jpg", "title": "Album 145" }
+            { "id": 145, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-145.jpg", "title": "Album 145" },
+            { "id": 146, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-146.jpg", "title": "Album 146" },
+            { "id": 147, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-147.jpg", "title": "Album 147" },
+            { "id": 148, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-148.jpg", "title": "Album 148" },
+            { "id": 149, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-149.jpg", "title": "Album 149" },
+            { "id": 150, "category": "Saskia", "image": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Foto/Album-150.jpg", "title": "Album 150" }
         ];
 
         // Data Album Photo
