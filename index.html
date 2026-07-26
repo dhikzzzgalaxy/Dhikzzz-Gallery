@@ -86,7 +86,7 @@
         }
 
         .submenu-container.active {
-            max-height: 200px; /* Cukup untuk dua item */
+            max-height: 500px; /* Ditingkatkan agar muat lebih banyak submenu */
             opacity: 1;
             margin-top: 10px;
         }
@@ -849,7 +849,16 @@
                 </ul>
             </li>
             <li><a href="#" id="menu-audio">Audio</a></li>
-            <li><a href="#" id="menu-profile">Profile Pribadi</a></li>
+            <li class="menu-profile-wrapper">
+                <a href="#" id="menu-profile" class="menu-with-arrow">
+                    Profile Pribadi
+                    <svg class="arrow-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </a>
+                <ul class="submenu-container" id="profile-submenu">
+                    <li class="submenu-item"><a href="#" class="submenu-link" id="submenu-dhikzzz">Dhikzzz</a></li>
+                    <li class="submenu-item"><a href="#" class="submenu-link" id="submenu-kiaaa">Kiaaa</a></li>
+                </ul>
+            </li>
         </ul>
     </aside>
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
@@ -1102,7 +1111,7 @@
             position: relative; z-index: 1;
             max-width: 1000px;
             margin: 0 auto;
-            padding: 80px 24px 80px;
+            padding: 90px 24px 80px; /* Disesuaikan agar tidak menempel navbar (70px) */
             min-height: 100vh;
         }
 
@@ -1110,16 +1119,16 @@
         .section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: 8px; }
         .section-desc { color: var(--text-secondary); font-size: 1rem; font-weight: 300; }
 
-        .personal-info { padding: 20px 0 60px; }
+        .personal-info { padding: 0 0 40px; } /* Dikurangi padding atas dan bawah */
         .personal-info + .personal-info {
-            padding-top: 40px;
-            border-top: 1px solid var(--glass-border);
-            margin-top: 20px;
+            padding-top: 0;
+            border-top: none;
+            margin-top: 0;
         }
 
         .profile-badge {
             display: flex; align-items: center; justify-content: flex-start; gap: 16px;
-            margin-bottom: 36px;
+            margin-bottom: 24px; /* Dikurangi dari 36px ke 24px */
             opacity: 0; transform: translateY(20px);
             animation: fadeInUp 0.7s ease forwards;
         }
@@ -2022,6 +2031,14 @@ document.addEventListener('DOMContentLoaded',()=>{
             const menuHiddenWrapper = document.querySelector('.menu-hidden-wrapper');
             const submenuPhoto = document.getElementById('submenu-photo');
             const submenuPosts = document.getElementById('submenu-posts');
+            
+            const profileSubmenu = document.getElementById('profile-submenu');
+            const menuProfileWrapper = document.querySelector('.menu-profile-wrapper');
+            const submenuDhikzzz = document.getElementById('submenu-dhikzzz');
+            const submenuKiaaa = document.getElementById('submenu-kiaaa');
+            
+            const infoDika = document.getElementById('info-dika');
+            const profilSaskia = document.getElementById('profil-saskia');
             const hiddenTitle = document.getElementById('hidden-title');
             const hiddenDesc = document.getElementById('hidden-desc');
             const hiddenGalleryContainer = document.getElementById('hidden-gallery-container');
@@ -2042,6 +2059,8 @@ document.addEventListener('DOMContentLoaded',()=>{
                 // Reset Submenu active states
                 submenuPhoto.classList.remove('active');
                 submenuPosts.classList.remove('active');
+                submenuDhikzzz.classList.remove('active');
+                submenuKiaaa.classList.remove('active');
 
                 if (section === 'home') {
                     homeSection.style.display = 'block';
@@ -2097,7 +2116,30 @@ document.addEventListener('DOMContentLoaded',()=>{
                     menuProfile.classList.add('active');
                     hiddenSubmenu.classList.remove('active');
                     menuHiddenWrapper.classList.remove('active');
-                    window.scrollTo(0, 0);
+                    
+                    // Profile submenu handling
+                    profileSubmenu.classList.add('active');
+                    menuProfileWrapper.classList.add('active');
+                    
+                    // Logika selektif: Sembunyikan semua profil dulu
+                    infoDika.style.display = 'none';
+                    profilSaskia.style.display = 'none';
+                    
+                    if (subCategory === 'dhikzzz') {
+                        submenuDhikzzz.classList.add('active');
+                        infoDika.style.display = 'block';
+                        window.scrollTo(0, 0);
+                    } else if (subCategory === 'kiaaa') {
+                        submenuKiaaa.classList.add('active');
+                        profilSaskia.style.display = 'block';
+                        window.scrollTo(0, 0);
+                    } else {
+                        // Default tampilkan keduanya jika hanya klik menu utama Profile Pribadi
+                        infoDika.style.display = 'block';
+                        profilSaskia.style.display = 'block';
+                        window.scrollTo(0, 0);
+                    }
+                    
                     closeSidebarFunc();
                 }
             }
@@ -2135,7 +2177,31 @@ document.addEventListener('DOMContentLoaded',()=>{
             menuHome.addEventListener('click', (e) => { e.preventDefault(); switchSection('home'); });
             menuAlbum.addEventListener('click', (e) => { e.preventDefault(); switchSection('album'); });
             menuAudio.addEventListener('click', (e) => { e.preventDefault(); switchSection('audio'); });
-            menuProfile.addEventListener('click', (e) => { e.preventDefault(); switchSection('profile'); });
+            menuProfile.addEventListener('click', (e) => {
+                e.preventDefault();
+                const isSubmenuActive = profileSubmenu.classList.contains('active');
+                
+                if (isSubmenuActive && !menuProfile.classList.contains('active')) {
+                    profileSubmenu.classList.remove('active');
+                    menuProfileWrapper.classList.remove('active');
+                } else if (!isSubmenuActive) {
+                    profileSubmenu.classList.add('active');
+                    menuProfileWrapper.classList.add('active');
+                } else {
+                    profileSubmenu.classList.toggle('active');
+                    menuProfileWrapper.classList.toggle('active');
+                }
+            });
+
+            submenuDhikzzz.addEventListener('click', (e) => {
+                e.preventDefault();
+                switchSection('profile', 'dhikzzz');
+            });
+
+            submenuKiaaa.addEventListener('click', (e) => {
+                e.preventDefault();
+                switchSection('profile', 'kiaaa');
+            });
             document.getElementById('hero-btn-album').addEventListener('click', (e) => { e.preventDefault(); switchSection('album'); });
             document.getElementById('hero-btn-all').addEventListener('click', (e) => { e.preventDefault(); switchSection('album'); });
 
@@ -2330,7 +2396,16 @@ document.addEventListener('DOMContentLoaded',()=>{
             });
 
             mobileMenu.addEventListener('click', () => { sidebar.classList.add('active'); sidebarOverlay.classList.add('active'); });
-            function closeSidebarFunc() { sidebar.classList.remove('active'); sidebarOverlay.classList.remove('active'); }
+            function closeSidebarFunc() { 
+                sidebar.classList.remove('active'); 
+                sidebarOverlay.classList.remove('active'); 
+                
+                // Otomatis tutup semua submenu saat sidebar ditutup
+                hiddenSubmenu.classList.remove('active');
+                menuHiddenWrapper.classList.remove('active');
+                profileSubmenu.classList.remove('active');
+                menuProfileWrapper.classList.remove('active');
+            }
             closeSidebar.addEventListener('click', closeSidebarFunc);
             sidebarOverlay.addEventListener('click', closeSidebarFunc);
 
