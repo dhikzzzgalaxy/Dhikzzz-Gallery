@@ -849,6 +849,15 @@
                 </ul>
             </li>
             <li><a href="#" id="menu-audio">Audio</a></li>
+            <li class="menu-akira-wrapper">
+                <a href="#" id="menu-akira" class="menu-with-arrow">
+                    Akira
+                    <svg class="arrow-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </a>
+                <ul class="submenu-container" id="akira-submenu">
+                    <li class="submenu-item"><a href="https://happybirthdayakira.vercel.app/" class="submenu-link" id="submenu-hbd">HBD 2027</a></li>
+                </ul>
+            </li>
             <li class="menu-profile-wrapper">
                 <a href="#" id="menu-profile" class="menu-with-arrow">
                     Profile Pribadi
@@ -931,7 +940,7 @@
             <div class="container">
                 <div class="section-header scroll-reveal">
                     <h2 class="section-title" id="hidden-title">Hidden Album</h2>
-                    <p class="section-desc" id="hidden-desc">Koleksi momen-momen random.</p>
+                    <p class="section-desc" id="hidden-desc">Koleksi momen yang jarang terlihat.</p>
                 </div>
                 <!-- Gallery Grid for Hidden Album -->
                 <div id="hidden-gallery-container" class="gallery-grid"></div>
@@ -955,6 +964,12 @@
                     <!-- Audio cards will be injected here -->
                 </div>
             </div>
+        </div>
+
+        <!-- Akira Birthday Section -->
+        <div id="akira-birthday" class="container" style="display: none; text-align: center; padding: 60px 20px; margin-top: 20px; margin-bottom: 20px;">
+            <h1 class="hero-title gradient-text" style="font-size: 3.5rem; margin-bottom: 10px; line-height: 1.2;">Akira</h1>
+            <a href="https://happybirthdayakira.vercel.app/" style="font-size: 1.8rem; color: var(--primary); text-decoration: none; font-weight: 700; transition: var(--transition); display: inline-block;">HBD 2027</a>
         </div>
 
         <!-- Profile Section (Hidden by Default) -->
@@ -1262,7 +1277,6 @@
 
     <!-- Main Content -->
     <div class="page-profil">
-
         <section class="personal-info" id="info-dika">
             <div class="section-header">
             </div>
@@ -1463,8 +1477,8 @@
                 </div>
             </div>
         </section>
-
-                <section class="personal-info personal-info--pink" id="profil-saskia">
+        
+          <section class="personal-info personal-info--pink" id="profil-saskia">
             <div class="section-header">
             </div>
             <div class="profile-badge">
@@ -2018,10 +2032,12 @@ document.addEventListener('DOMContentLoaded',()=>{
             const profileSection = document.getElementById('profile-section');
             const hiddenSection = document.getElementById('hidden-section');
             const audioSection = document.getElementById('audio-section');
+            const akiraSection = document.getElementById('akira-birthday');
             const menuHome = document.getElementById('menu-home');
             const menuAlbum = document.getElementById('menu-album');
             const menuHidden = document.getElementById('menu-hidden');
             const menuAudio = document.getElementById('menu-audio');
+            const menuAkira = document.getElementById('menu-akira');
             const menuProfile = document.getElementById('menu-profile');
             const sidebar = document.getElementById('sidebar');
             const sidebarOverlay = document.getElementById('sidebar-overlay');
@@ -2031,6 +2047,9 @@ document.addEventListener('DOMContentLoaded',()=>{
             const menuHiddenWrapper = document.querySelector('.menu-hidden-wrapper');
             const submenuPhoto = document.getElementById('submenu-photo');
             const submenuPosts = document.getElementById('submenu-posts');
+            
+            const akiraSubmenu = document.getElementById('akira-submenu');
+            const menuAkiraWrapper = document.querySelector('.menu-akira-wrapper');
             
             const profileSubmenu = document.getElementById('profile-submenu');
             const menuProfileWrapper = document.querySelector('.menu-profile-wrapper');
@@ -2050,10 +2069,12 @@ document.addEventListener('DOMContentLoaded',()=>{
                 profileSection.style.display = 'none';
                 hiddenSection.style.display = 'none';
                 audioSection.style.display = 'none';
+                akiraSection.style.display = 'none';
                 menuHome.classList.remove('active');
                 menuAlbum.classList.remove('active');
                 menuHidden.classList.remove('active');
                 menuAudio.classList.remove('active');
+                menuAkira.classList.remove('active');
                 menuProfile.classList.remove('active');
                 
                 // Reset Submenu active states
@@ -2061,6 +2082,8 @@ document.addEventListener('DOMContentLoaded',()=>{
                 submenuPosts.classList.remove('active');
                 submenuDhikzzz.classList.remove('active');
                 submenuKiaaa.classList.remove('active');
+                akiraSubmenu.classList.remove('active');
+                menuAkiraWrapper.classList.remove('active');
 
                 if (section === 'home') {
                     homeSection.style.display = 'block';
@@ -2094,7 +2117,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                     } else {
                         submenuPhoto.classList.add('active');
                         hiddenTitle.textContent = 'Photo';
-                        hiddenDesc.textContent = 'Koleksi momen-momen random.';
+                        hiddenDesc.textContent = 'Koleksi momen yang jarang terlihat.';
                         hiddenGalleryContainer.style.display = 'grid';
                         postsContainer.style.display = 'none';
                         renderHiddenGallery();
@@ -2109,6 +2132,13 @@ document.addEventListener('DOMContentLoaded',()=>{
                     hiddenSubmenu.classList.remove('active');
                     menuHiddenWrapper.classList.remove('active');
                     renderAudioGallery();
+                    window.scrollTo(0, 0);
+                    closeSidebarFunc();
+                } else if (section === 'akira') {
+                    akiraSection.style.display = 'block';
+                    menuAkira.classList.add('active');
+                    hiddenSubmenu.classList.remove('active');
+                    menuHiddenWrapper.classList.remove('active');
                     window.scrollTo(0, 0);
                     closeSidebarFunc();
                 } else if (section === 'profile') {
@@ -2177,6 +2207,21 @@ document.addEventListener('DOMContentLoaded',()=>{
             menuHome.addEventListener('click', (e) => { e.preventDefault(); switchSection('home'); });
             menuAlbum.addEventListener('click', (e) => { e.preventDefault(); switchSection('album'); });
             menuAudio.addEventListener('click', (e) => { e.preventDefault(); switchSection('audio'); });
+            menuAkira.addEventListener('click', (e) => {
+                e.preventDefault();
+                const isSubmenuActive = akiraSubmenu.classList.contains('active');
+                
+                if (isSubmenuActive && !menuAkira.classList.contains('active')) {
+                    akiraSubmenu.classList.remove('active');
+                    menuAkiraWrapper.classList.remove('active');
+                } else if (!isSubmenuActive) {
+                    akiraSubmenu.classList.add('active');
+                    menuAkiraWrapper.classList.add('active');
+                } else {
+                    akiraSubmenu.classList.toggle('active');
+                    menuAkiraWrapper.classList.toggle('active');
+                }
+            });
             menuProfile.addEventListener('click', (e) => {
                 e.preventDefault();
                 const isSubmenuActive = profileSubmenu.classList.contains('active');
