@@ -1092,7 +1092,7 @@
         <div id="audio-section" class="gallery-section" style="display: none;">
             <div class="container">
                 <div class="section-header scroll-reveal">
-                    <h2 class="section-title">Audio Collection</h2>
+                    <h2 class="section-title">Audio</h2>
                     <p class="section-desc">Dengarkan koleksi audio favorit.</p>
                 </div>
                 
@@ -1107,7 +1107,7 @@
             <div class="container">
                 <div class="section-header scroll-reveal">
                     <h2 class="section-title">Video</h2>
-                    <p class="section-desc">Koleksi Video Random.</p>
+                    <p class="section-desc">Putar Koleksi Video Random.</p>
                 </div>
 
                 <div id="video-grid" class="video-grid">
@@ -2209,6 +2209,22 @@ document.addEventListener('DOMContentLoaded',()=>{
                 "url": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Video/Video-1.mp4",
                 "type": "video/mp4",
                 "thumbnail": ""
+            },
+            {
+                "id": 2,
+                "title": "Video 2",
+                "description": "",
+                "url": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Video/Video-2.mp4",
+    "type": "video/mp4",
+    "thumbnail": ""
+            },
+            {
+                "id": 3,
+                "title": "Video 3",
+                "description": "",
+                "url": "https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/Video/Video-3.mp4",
+    "type": "video/mp4",
+    "thumbnail": ""
             }
         ];
 
@@ -2663,6 +2679,8 @@ document.addEventListener('DOMContentLoaded',()=>{
                 menuHiddenWrapper.classList.remove('active');
                 profileSubmenu.classList.remove('active');
                 menuProfileWrapper.classList.remove('active');
+                akiraSubmenu.classList.remove('active');
+                menuAkiraWrapper.classList.remove('active');
             }
             closeSidebar.addEventListener('click', closeSidebarFunc);
             sidebarOverlay.addEventListener('click', closeSidebarFunc);
