@@ -573,6 +573,47 @@
             color: white; cursor: pointer; z-index: 3100;
         }
 
+        .lightbox-favorite-btn {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            z-index: 3100;
+            width: 46px;
+            height: 46px;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            color: #e2e8f0;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.55rem;
+            line-height: 1;
+            transition: var(--transition);
+        }
+        .lightbox-favorite-btn:not(.is-favorite),
+        .favorite-btn:not(.is-favorite) {
+            color: transparent !important;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 1.2px #f43f5e;
+        }
+        .lightbox-favorite-btn:hover,
+        .lightbox-favorite-btn.is-favorite,
+        .favorite-btn:hover,
+        .favorite-btn.is-favorite {
+            color: #f43f5e;
+            -webkit-text-fill-color: #f43f5e;
+            -webkit-text-stroke: 0;
+            background: transparent;
+            transform: scale(1.08);
+        }
+        .lightbox-img-container,
+        .lightbox-video-container { position: relative; }
+        @media (max-width: 480px) {
+            .lightbox-favorite-btn { top: 12px; left: 12px; width: 42px; height: 42px; }
+        }
+
         .lightbox-content {
             display: flex; flex-direction: column; max-width: 900px; width: 100%;
             background: transparent; border-radius: 24px; overflow: hidden;
@@ -761,6 +802,92 @@
             border-color: var(--primary);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
+
+        .favorite-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 4;
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(255,255,255,.14);
+            border-radius: 50%;
+            background: rgba(10, 12, 16, .72);
+            color: #cbd5e1;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            line-height: 1;
+            transition: var(--transition);
+        }
+        .favorite-btn:hover,
+        .favorite-btn.is-favorite {
+            color: #f43f5e;
+            border-color: transparent;
+            background: transparent;
+            transform: scale(1.08);
+        }
+        .audio-card .favorite-btn { top: 10px; right: 10px; }
+        .video-card .favorite-btn { top: 12px; right: 12px; }
+        .favorite-card {
+            position: relative;
+            min-height: 120px;
+            padding: 22px 52px 20px 20px;
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            background: var(--glass-bg);
+            color: var(--text-white);
+        }
+        .favorite-card h3 { font-size: 1rem; margin-bottom: 6px; }
+        .favorite-card p { color: var(--text-gray); font-size: .85rem; }
+        .favorite-media-preview {
+            width: 100%;
+            border-radius: 12px;
+            margin: 0 0 14px;
+            background: #05070a;
+            border: 1px solid rgba(255,255,255,.08);
+            overflow: hidden;
+        }
+        .favorite-media-preview video,
+        .favorite-media-preview img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        .favorite-media-preview audio {
+            display: block;
+            width: 100%;
+            height: 42px;
+        }
+        .audio-top-space {
+            position: relative;
+            width: 100%;
+            min-height: 42px;
+        }
+        .audio-top-space .favorite-btn {
+            top: 6px;
+            left: 0;
+            right: auto;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            color: var(--text-white);
+            box-shadow: none;
+        }
+        .audio-top-space .favorite-btn:hover,
+        .audio-top-space .favorite-btn.is-favorite {
+            background: transparent;
+            color: #f43f5e;
+            box-shadow: none;
+        }
+        .favorite-video-card { padding-right: 52px; cursor: pointer; }
+        .favorite-card .favorite-btn { top: 14px; right: 14px; }
+        .favorite-group-title { margin: 35px 0 14px; font-size: 1.25rem; }
+        .favorite-empty { color: var(--text-gray); text-align: center; padding: 35px 10px; grid-column: 1 / -1; }
 
         .audio-progress-container {
             width: 100%;
@@ -1015,6 +1142,7 @@
             </li>
             <li><a href="#" id="menu-audio">Audio</a></li>
             <li><a href="#" id="menu-video">Video</a></li>
+            <li><a href="#" id="menu-favorite">Favorite <span id="favorite-count" aria-label="Jumlah favorite">0</span></a></li>
             <li class="menu-akira-wrapper">
                 <a href="#" id="menu-akira" class="menu-with-arrow">
                     Akira
@@ -1143,6 +1271,26 @@
                 <div id="video-grid" class="video-grid">
                     <!-- Kartu video akan dibuat otomatis dari videoData -->
                 </div>
+            </div>
+        </div>
+
+        <!-- Favorite Section -->
+        <div id="favorite-section" class="gallery-section" style="display: none;">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2 class="section-title">Favorite</h2>
+                    <p class="section-desc">Kumpulan audio dan video yang kamu tandai sebagai favorite.</p>
+                </div>
+                <h3 class="favorite-group-title">Album</h3>
+                <div id="favorite-photo-grid" class="gallery-grid"></div>
+                <h3 class="favorite-group-title">Photo</h3>
+                <div id="favorite-hidden-photo-grid" class="gallery-grid"></div>
+                <h3 class="favorite-group-title">Post &amp; Repost</h3>
+                <div id="favorite-post-grid" class="gallery-grid"></div>
+                <h3 class="favorite-group-title">Audio</h3>
+                <div id="favorite-audio-grid" class="audio-grid"></div>
+                <h3 class="favorite-group-title">Video</h3>
+                <div id="favorite-video-grid" class="video-grid"></div>
             </div>
         </div>
 
@@ -1995,6 +2143,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         <span class="close-lightbox">&times;</span>
         <div class="lightbox-content">
             <div class="lightbox-img-container">
+                <button id="photo-lightbox-favorite" class="lightbox-favorite-btn" type="button" aria-label="Tambahkan foto ke favorite" aria-pressed="false">❤</button>
                 <img id="lightbox-img" src="" alt="">
             </div>
             <div class="lightbox-nav-bottom">
@@ -2014,6 +2163,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         <span id="close-video-lightbox" class="close-lightbox" role="button" aria-label="Tutup video">&times;</span>
         <div class="lightbox-content">
             <div class="lightbox-video-container">
+                <button id="video-lightbox-favorite" class="lightbox-favorite-btn" type="button" aria-label="Tambahkan video ke favorite" aria-pressed="false">❤</button>
                 <video id="video-lightbox-player" class="lightbox-video" controls preload="metadata" playsinline>
                     <source id="video-lightbox-source" src="" type="video/mp4">
                     Browser Anda tidak mendukung pemutar video HTML5.
@@ -2395,7 +2545,113 @@ document.addEventListener('DOMContentLoaded',()=>{
             const hiddenSection = document.getElementById('hidden-section');
             const audioSection = document.getElementById('audio-section');
             const videoSection = document.getElementById('video-section');
+            const favoriteSection = document.getElementById('favorite-section');
+            const favoritePhotoGrid = document.getElementById('favorite-photo-grid');
+            const favoriteHiddenPhotoGrid = document.getElementById('favorite-hidden-photo-grid');
+            const favoritePostGrid = document.getElementById('favorite-post-grid');
+            const favoriteAudioGrid = document.getElementById('favorite-audio-grid');
+            const favoriteVideoGrid = document.getElementById('favorite-video-grid');
+            const favoriteCount = document.getElementById('favorite-count');
             const videoGrid = document.getElementById('video-grid');
+            const menuFavorite = document.getElementById('menu-favorite');
+            const FAVORITES_STORAGE_KEY = 'dhikzzz-gallery-favorites';
+            let favorites = JSON.parse(localStorage.getItem(FAVORITES_STORAGE_KEY) || '{}');
+
+            function favoriteKey(type, id) { return `${type}-${id}`; }
+            function isFavorite(type, id) { return Boolean(favorites[favoriteKey(type, id)]); }
+            function updateFavoriteCount() {
+                const count = Object.keys(favorites).length;
+                favoriteCount.textContent = count;
+                favoriteCount.style.display = count ? 'inline-flex' : 'none';
+            }
+            function toggleFavorite(type, item) {
+                const key = favoriteKey(type, item.id);
+                if (favorites[key]) delete favorites[key];
+                else favorites[key] = { type, id: item.id };
+                localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(favorites));
+                updateFavoriteCount();
+                renderFavorites();
+                document.querySelectorAll(`[data-favorite-type="${type}"][data-favorite-id="${item.id}"]`).forEach(button => {
+                    const active = isFavorite(type, item.id);
+                    button.classList.toggle('is-favorite', active);
+                    button.setAttribute('aria-pressed', String(active));
+                    button.textContent = '❤';
+                });
+            }
+            function favoriteButton(type, item, label) {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = `favorite-btn${isFavorite(type, item.id) ? ' is-favorite' : ''}`;
+                button.dataset.favoriteType = type;
+                button.dataset.favoriteId = item.id;
+                button.dataset.favoriteIcon = type === 'audio' ? 'outline' : 'default';
+                button.setAttribute('aria-label', `${isFavorite(type, item.id) ? 'Hapus dari' : 'Tambahkan ke'} favorite: ${label}`);
+                button.setAttribute('aria-pressed', String(isFavorite(type, item.id)));
+                button.textContent = '❤';
+                button.addEventListener('click', event => { event.stopPropagation(); toggleFavorite(type, item); });
+                return button;
+            }
+            function renderFavorites() {
+                if (!favoritePhotoGrid || !favoriteHiddenPhotoGrid || !favoritePostGrid || !favoriteAudioGrid || !favoriteVideoGrid) return;
+                const photoFavorites = galleryData.filter(item => isFavorite('photo', item.id));
+                const hiddenPhotoFavorites = hiddenPhotoData.filter(item => isFavorite('hiddenPhoto', item.id));
+                const postFavorites = hiddenPostsRepostsData.filter(item => isFavorite('post', item.id));
+                const audioFavorites = audioData.filter(item => isFavorite('audio', item.id));
+                const videoFavorites = videoData.filter(item => isFavorite('video', item.id));
+                favoritePhotoGrid.innerHTML = photoFavorites.length ? '' : '<p class="favorite-empty">Belum ada album favorite.</p>';
+                favoriteHiddenPhotoGrid.innerHTML = hiddenPhotoFavorites.length ? '' : '<p class="favorite-empty">Belum ada photo favorite.</p>';
+                favoritePostGrid.innerHTML = postFavorites.length ? '' : '<p class="favorite-empty">Belum ada post & repost favorite.</p>';
+                favoriteAudioGrid.innerHTML = audioFavorites.length ? '' : '<p class="favorite-empty">Belum ada audio favorite.</p>';
+                favoriteVideoGrid.innerHTML = videoFavorites.length ? '' : '<p class="favorite-empty">Belum ada video favorite.</p>';
+                photoFavorites.forEach((photo, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'photo-card scroll-reveal';
+                    card.innerHTML = `<div class="photo-img-wrapper"><img src="${photo.image}" alt="${photo.title || `Album ${photo.id}`}" loading="lazy"></div>`;
+                    card.addEventListener('click', () => {
+                        filteredData = photoFavorites;
+                        openLightbox(index, false, 'photo');
+                    });
+                    favoritePhotoGrid.appendChild(card);
+                });
+                function renderImageFavoriteCards(items, container, type, label) {
+                    items.forEach((item, index) => {
+                        const card = document.createElement('div');
+                        card.className = 'photo-card scroll-reveal';
+                        card.innerHTML = `<div class="photo-img-wrapper"><img src="${item.image}" alt="${label} ${item.id}" loading="lazy"></div>`;
+                        card.addEventListener('click', () => {
+                            filteredData = items;
+                            activePhotoFavoriteType = type;
+                            openLightbox(index, false, type);
+                        });
+                        container.appendChild(card);
+                    });
+                }
+                renderImageFavoriteCards(hiddenPhotoFavorites, favoriteHiddenPhotoGrid, 'hiddenPhoto', 'Photo');
+                renderImageFavoriteCards(postFavorites, favoritePostGrid, 'post', 'Post & Repost');
+
+                audioFavorites.forEach(audio => {
+                    const card = document.createElement('div');
+                    card.className = 'favorite-card scroll-reveal';
+                    card.innerHTML = `<div class="favorite-media-preview"><audio controls preload="metadata" src="${audio.url}" aria-label="Putar Audio ${audio.id}"></audio></div><h3>Audio ${audio.id}</h3>`;
+                    favoriteAudioGrid.appendChild(card);
+                });
+                videoFavorites.forEach(video => {
+                    const card = document.createElement('div');
+                    card.className = 'favorite-card favorite-video-card scroll-reveal';
+                    const preview = video.thumbnail
+                        ? `<img src="${video.thumbnail}" alt="${video.title || `Video ${video.id}`}" loading="lazy">`
+                        : `<video src="${video.url}" muted preload="metadata" playsinline></video>`;
+                    card.innerHTML = `<div class="favorite-media-preview">${preview}</div><h3>${video.title || `Video ${video.id}`}</h3>`;
+                    card.addEventListener('click', (event) => {
+                        if (event.target.closest('.favorite-btn')) return;
+                        openVideoLightbox(video);
+                    });
+                    favoriteVideoGrid.appendChild(card);
+                });
+                setTimeout(revealOnScroll, 50);
+            }
+            updateFavoriteCount();
+
             const akiraSection = document.getElementById('akira-birthday');
             const menuHome = document.getElementById('menu-home');
             const menuAlbum = document.getElementById('menu-album');
@@ -2435,6 +2691,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                 hiddenSection.style.display = 'none';
                 audioSection.style.display = 'none';
                 videoSection.style.display = 'none';
+                favoriteSection.style.display = 'none';
                 akiraSection.style.display = 'none';
                 if (section !== 'video') closeVideoLightboxFunc();
                 menuHome.classList.remove('active');
@@ -2442,6 +2699,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                 menuHidden.classList.remove('active');
                 menuAudio.classList.remove('active');
                 menuVideo.classList.remove('active');
+                menuFavorite.classList.remove('active');
                 menuAkira.classList.remove('active');
                 menuProfile.classList.remove('active');
                 
@@ -2508,6 +2766,12 @@ document.addEventListener('DOMContentLoaded',()=>{
                     hiddenSubmenu.classList.remove('active');
                     menuHiddenWrapper.classList.remove('active');
                     renderVideoGallery();
+                    window.scrollTo(0, 0);
+                    closeSidebarFunc();
+                } else if (section === 'favorite') {
+                    favoriteSection.style.display = 'block';
+                    menuFavorite.classList.add('active');
+                    renderFavorites();
                     window.scrollTo(0, 0);
                     closeSidebarFunc();
                 } else if (section === 'akira') {
@@ -2584,6 +2848,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             menuAlbum.addEventListener('click', (e) => { e.preventDefault(); switchSection('album'); });
             menuAudio.addEventListener('click', (e) => { e.preventDefault(); switchSection('audio'); });
             menuVideo.addEventListener('click', (e) => { e.preventDefault(); switchSection('video'); });
+            menuFavorite.addEventListener('click', (e) => { e.preventDefault(); switchSection('favorite'); });
             menuAkira.addEventListener('click', (e) => {
                 e.preventDefault();
                 const isSubmenuActive = akiraSubmenu.classList.contains('active');
@@ -2638,6 +2903,9 @@ document.addEventListener('DOMContentLoaded',()=>{
             const photoCountSpan = document.getElementById('photo-count');
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
+            const photoLightboxFavorite = document.getElementById('photo-lightbox-favorite');
+            let activePhotoLightboxItem = null;
+            let activePhotoFavoriteType = 'photo';
             const closeLightbox = document.querySelector('#lightbox .close-lightbox');
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
@@ -2648,6 +2916,8 @@ document.addEventListener('DOMContentLoaded',()=>{
             const videoLightboxSource = document.getElementById('video-lightbox-source');
             const videoLightboxTitle = document.getElementById('video-lightbox-title');
             const videoLightboxDescription = document.getElementById('video-lightbox-description');
+            const videoLightboxFavorite = document.getElementById('video-lightbox-favorite');
+            let activeVideoLightboxItem = null;
             let isVideoLightboxOpen = false;
             let videoLightboxCloseTimer;
 
@@ -2678,7 +2948,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                         </div>`;
                     card.addEventListener('click', () => {
                         filteredData = data;
-                        openLightbox(index);
+                        openLightbox(index, false, 'photo');
                     });
                     galleryContainer.appendChild(card);
                 });
@@ -2749,12 +3019,13 @@ document.addEventListener('DOMContentLoaded',()=>{
                     return matchesSearch && matchesCategory;
                 });
                 renderGallery(filteredData);
+            renderFavorites();
             }
 
             let slideDirection = 'right';
             let isLightboxOpen = false;
             
-            function openLightbox(index, isNavigation = false) {
+            function openLightbox(index, isNavigation = false, favoriteType = null) {
                 currentPhotoIndex = index;
                 
                 // Hapus semua class animasi sebelumnya
@@ -2776,6 +3047,19 @@ document.addEventListener('DOMContentLoaded',()=>{
                 }
                 
                 lightboxImg.src = filteredData[index].image;
+                activePhotoLightboxItem = filteredData[index];
+                if (favoriteType) {
+                    activePhotoFavoriteType = favoriteType;
+                } else if (menuHidden.classList.contains('active')) {
+                    activePhotoFavoriteType = submenuPosts.classList.contains('active') ? 'post' : 'hiddenPhoto';
+                }
+                if (photoLightboxFavorite) {
+                    const active = isFavorite(activePhotoFavoriteType, activePhotoLightboxItem.id);
+                    photoLightboxFavorite.classList.toggle('is-favorite', active);
+                    photoLightboxFavorite.textContent = '❤';
+                    photoLightboxFavorite.setAttribute('aria-pressed', String(active));
+                    photoLightboxFavorite.setAttribute('aria-label', `${active ? 'Hapus dari' : 'Tambahkan ke'} favorite: ${activePhotoLightboxItem.title || `Album ${activePhotoLightboxItem.id}`}`);
+                }
                 
                 // Sembunyikan nama jika di Hidden Album
                 const photoNameDisplay = document.getElementById('photo-name-display');
@@ -2791,6 +3075,19 @@ document.addEventListener('DOMContentLoaded',()=>{
                     isLightboxOpen = true;
                     document.body.style.overflow = 'hidden';
                 }
+            }
+
+            if (photoLightboxFavorite) {
+                photoLightboxFavorite.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (activePhotoLightboxItem) toggleFavorite(activePhotoFavoriteType, activePhotoLightboxItem);
+                    if (activePhotoLightboxItem) {
+                        const active = isFavorite(activePhotoFavoriteType, activePhotoLightboxItem.id);
+                        photoLightboxFavorite.classList.toggle('is-favorite', active);
+                        photoLightboxFavorite.textContent = '❤';
+                        photoLightboxFavorite.setAttribute('aria-pressed', String(active));
+                    }
+                });
             }
 
             closeLightbox.addEventListener('click', () => { closeLightboxFunc(); });
@@ -2906,6 +3203,14 @@ document.addEventListener('DOMContentLoaded',()=>{
 
                 if (videoLightboxTitle) videoLightboxTitle.textContent = video.title || `Video ${video.id}`;
                 if (videoLightboxDescription) videoLightboxDescription.textContent = video.description || '';
+                activeVideoLightboxItem = video;
+                if (videoLightboxFavorite) {
+                    const active = isFavorite('video', video.id);
+                    videoLightboxFavorite.classList.toggle('is-favorite', active);
+                    videoLightboxFavorite.textContent = '❤';
+                    videoLightboxFavorite.setAttribute('aria-pressed', String(active));
+                    videoLightboxFavorite.setAttribute('aria-label', `${active ? 'Hapus dari' : 'Tambahkan ke'} favorite: ${video.title || `Video ${video.id}`}`);
+                }
 
                 videoLightbox.classList.add('active');
                 videoLightbox.setAttribute('aria-hidden', 'false');
@@ -2960,6 +3265,19 @@ document.addEventListener('DOMContentLoaded',()=>{
                 setTimeout(revealOnScroll, 100);
             }
 
+            if (videoLightboxFavorite) {
+                videoLightboxFavorite.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (activeVideoLightboxItem) toggleFavorite('video', activeVideoLightboxItem);
+                    if (activeVideoLightboxItem) {
+                        const active = isFavorite('video', activeVideoLightboxItem.id);
+                        videoLightboxFavorite.classList.toggle('is-favorite', active);
+                        videoLightboxFavorite.textContent = '❤';
+                        videoLightboxFavorite.setAttribute('aria-pressed', String(active));
+                    }
+                });
+            }
+
             closeVideoLightbox.addEventListener('click', (e) => {
                 e.stopPropagation();
                 closeVideoLightboxFunc();
@@ -2983,6 +3301,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                     const card = document.createElement('div');
                     card.className = 'audio-card scroll-reveal';
                     card.innerHTML = `
+                        <div class="audio-top-space"></div>
                         <div class="audio-progress-container" data-index="${index}">
                             <div class="audio-progress-bar">
                                 <div class="audio-progress-thumb"></div>
@@ -3013,6 +3332,8 @@ document.addEventListener('DOMContentLoaded',()=>{
                     const nextBtn = card.querySelector('.next-audio');
                     const shareBtn = card.querySelector('.share-btn');
                     const progressContainer = card.querySelector('.audio-progress-container');
+                    const audioTopSpace = card.querySelector('.audio-top-space');
+                    audioTopSpace.appendChild(favoriteButton('audio', audio, `Audio ${audio.id}`));
 
                     playBtn.addEventListener('click', () => toggleAudio(index));
                     prevBtn.addEventListener('click', () => playPrevious());
