@@ -1142,7 +1142,7 @@
             </li>
             <li><a href="#" id="menu-audio">Audio</a></li>
             <li><a href="#" id="menu-video">Video</a></li>
-            <li><a href="#" id="menu-favorite">Favorite <span id="favorite-count" aria-label="Jumlah favorite">0</span></a></li>
+            <li><a href="#" id="menu-favorite">Favorite</a></li>
             <li class="menu-akira-wrapper">
                 <a href="#" id="menu-akira" class="menu-with-arrow">
                     Akira
@@ -2561,8 +2561,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             function isFavorite(type, id) { return Boolean(favorites[favoriteKey(type, id)]); }
             function updateFavoriteCount() {
                 const count = Object.keys(favorites).length;
-                favoriteCount.textContent = count;
-                favoriteCount.style.display = count ? 'inline-flex' : 'none';
+                if (favoriteCount) favoriteCount.style.display = 'none';
             }
             function toggleFavorite(type, item) {
                 const key = favoriteKey(type, item.id);
