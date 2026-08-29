@@ -138,6 +138,52 @@
             scroll-behavior: smooth;
         }
 
+        /* Nonaktifkan kotak/highlight browser saat elemen interaktif disentuh atau diklik */
+        button,
+        a,
+        input,
+        select,
+        textarea,
+        summary,
+        [role="button"],
+        [tabindex] {
+            -webkit-tap-highlight-color: transparent;
+            tap-highlight-color: transparent;
+        }
+
+        button:focus,
+        button:active,
+        button:focus-visible,
+        a:focus,
+        a:active,
+        a:focus-visible,
+        input:focus,
+        input:active,
+        input:focus-visible,
+        select:focus,
+        select:active,
+        select:focus-visible,
+        textarea:focus,
+        textarea:active,
+        textarea:focus-visible,
+        summary:focus,
+        summary:active,
+        summary:focus-visible,
+        [role="button"]:focus,
+        [role="button"]:active,
+        [role="button"]:focus-visible,
+        [tabindex]:focus,
+        [tabindex]:active,
+        [tabindex]:focus-visible {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        *::selection {
+            background: transparent;
+            color: inherit;
+        }
+
         body {
             font-family: var(--font-main);
             background-color: var(--bg-dark);
@@ -219,6 +265,29 @@
 
         .menu-toggle { cursor: pointer; color: var(--text-white); }
 
+        .menu-toggle svg {
+            display: block;
+            overflow: visible;
+        }
+
+        .menu-toggle svg line {
+            transform-box: fill-box;
+            transform-origin: center;
+            transition: transform 0.3s ease, opacity 0.2s ease;
+        }
+
+        .menu-toggle.active svg line:nth-child(1) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active svg line:nth-child(2) {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        .menu-toggle.active svg line:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
 /* Sidebar dropdown dari atas kanan */
 #sidebar {
     position: fixed;
@@ -292,6 +361,35 @@
 .sidebar-links a.active {
     color: var(--primary);
     transform: translateX(-5px);
+}
+
+/* Hilangkan highlight dan kotak browser khusus menu sidebar */
+.menu-toggle,
+.sidebar-links a,
+.sidebar-overlay,
+.close-sidebar {
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.menu-toggle:focus,
+.menu-toggle:active,
+.menu-toggle:focus-visible,
+.sidebar-links a:focus,
+.sidebar-links a:active,
+.sidebar-links a:focus-visible,
+.sidebar-overlay:focus,
+.sidebar-overlay:active,
+.sidebar-overlay:focus-visible,
+.close-sidebar:focus,
+.close-sidebar:active,
+.close-sidebar:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    background-image: none !important;
 }
 
 /* Overlay */
@@ -1113,7 +1211,7 @@
                     </div>
                     <h1>DhikzzzKiaaa<span>Gallery</span></h1>
                 </div>
-                <div class="menu-toggle" id="mobile-menu">
+                <div class="menu-toggle" id="mobile-menu" role="button" tabindex="0" aria-label="Buka menu" aria-expanded="false">
                     <svg viewBox="0 0 24 24" width="30" height="30" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                 </div>
             </nav>
@@ -3154,10 +3252,19 @@ document.addEventListener('DOMContentLoaded',()=>{
                 revealOnScroll();
             });
 
-            mobileMenu.addEventListener('click', () => { sidebar.classList.add('active'); sidebarOverlay.classList.add('active'); });
+            mobileMenu.addEventListener('click', () => {
+                sidebar.classList.add('active');
+                sidebarOverlay.classList.add('active');
+                mobileMenu.classList.add('active');
+                mobileMenu.setAttribute('aria-label', 'Tutup menu');
+                mobileMenu.setAttribute('aria-expanded', 'true');
+            });
             function closeSidebarFunc() { 
                 sidebar.classList.remove('active'); 
-                sidebarOverlay.classList.remove('active'); 
+                sidebarOverlay.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                mobileMenu.setAttribute('aria-label', 'Buka menu');
+                mobileMenu.setAttribute('aria-expanded', 'false'); 
                 
                 // Otomatis tutup semua submenu saat sidebar ditutup
                 hiddenSubmenu.classList.remove('active');
