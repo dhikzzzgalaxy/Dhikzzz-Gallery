@@ -1202,6 +1202,7 @@
             <section id="album-section" class="gallery-section">
                 <div class="container">
                     <div class="section-header scroll-reveal">
+                        <h2 class="section-title">Album Foto</h2>
                         <p class="section-desc">Telusuri setiap momen berharga berdasarkan kategori.</p>
                     </div>
 
@@ -1232,6 +1233,7 @@
         <div id="hidden-section" class="gallery-section" style="display: none;">
             <div class="container">
                 <div class="section-header scroll-reveal">
+                    <h2 class="section-title" id="hidden-title">Hidden Album</h2>
                     <p class="section-desc" id="hidden-desc">Koleksi momen yang jarang terlihat.</p>
                 </div>
                 <!-- Gallery Grid for Hidden Album -->
@@ -1279,6 +1281,7 @@
                     <h2 class="section-title">Favorite</h2>
                     <p class="section-desc">Kumpulan audio dan video yang kamu tandai sebagai favorite.</p>
                 </div>
+                <h3 class="favorite-group-title">Album</h3>
                 <div id="favorite-photo-grid" class="gallery-grid"></div>
                 <h3 class="favorite-group-title">Photo</h3>
                 <div id="favorite-hidden-photo-grid" class="gallery-grid"></div>
@@ -1286,6 +1289,7 @@
                 <div id="favorite-post-grid" class="gallery-grid"></div>
                 <h3 class="favorite-group-title">Audio</h3>
                 <div id="favorite-audio-grid" class="audio-grid"></div>
+                <h3 class="favorite-group-title">Video</h3>
                 <div id="favorite-video-grid" class="video-grid"></div>
             </div>
         </div>
@@ -2146,7 +2150,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                 <button id="prev-btn" class="nav-btn">
                     <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
                 </button>
-                <div id="photo-name-display" style="display: none;"></div>
+                <div id="photo-name-display" style="display: flex; align-items: center; justify-content: center; color: white; font-size: 1.1rem; font-weight: 600; min-width: 200px; text-align: center;">Album 1</div>
                 <button id="next-btn" class="nav-btn">
                     <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </button>
@@ -3080,9 +3084,14 @@ document.addEventListener('DOMContentLoaded',()=>{
                     photoLightboxFavorite.setAttribute('aria-label', `${active ? 'Hapus dari' : 'Tambahkan ke'} favorite: ${activePhotoLightboxItem.title || `Album ${activePhotoLightboxItem.id}`}`);
                 }
                 
-                // Sembunyikan seluruh judul foto Album
+                // Sembunyikan nama jika di Hidden Album
                 const photoNameDisplay = document.getElementById('photo-name-display');
-                photoNameDisplay.style.display = 'none';
+                if (menuHidden.classList.contains('active')) {
+                    photoNameDisplay.style.display = 'none';
+                } else {
+                    photoNameDisplay.style.display = 'block';
+                    photoNameDisplay.textContent = filteredData[index].title;
+                }
                 
                 if (!isLightboxOpen) {
                     lightbox.classList.add('active');
