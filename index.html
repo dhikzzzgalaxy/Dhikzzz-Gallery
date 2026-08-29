@@ -1202,7 +1202,6 @@
             <section id="album-section" class="gallery-section">
                 <div class="container">
                     <div class="section-header scroll-reveal">
-                        <h2 class="section-title">Album Foto</h2>
                         <p class="section-desc">Telusuri setiap momen berharga berdasarkan kategori.</p>
                     </div>
 
@@ -1233,7 +1232,6 @@
         <div id="hidden-section" class="gallery-section" style="display: none;">
             <div class="container">
                 <div class="section-header scroll-reveal">
-                    <h2 class="section-title" id="hidden-title">Hidden Album</h2>
                     <p class="section-desc" id="hidden-desc">Koleksi momen yang jarang terlihat.</p>
                 </div>
                 <!-- Gallery Grid for Hidden Album -->
@@ -1264,7 +1262,7 @@
         <div id="video-section" class="gallery-section" style="display: none;">
             <div class="container">
                 <div class="section-header scroll-reveal">
-                    <h2 class="section-title">Video</h2>
+                    
                     <p class="section-desc">Putar Koleksi Video Random.</p>
                 </div>
 
@@ -1281,7 +1279,6 @@
                     <h2 class="section-title">Favorite</h2>
                     <p class="section-desc">Kumpulan audio dan video yang kamu tandai sebagai favorite.</p>
                 </div>
-                <h3 class="favorite-group-title">Album</h3>
                 <div id="favorite-photo-grid" class="gallery-grid"></div>
                 <h3 class="favorite-group-title">Photo</h3>
                 <div id="favorite-hidden-photo-grid" class="gallery-grid"></div>
@@ -1289,7 +1286,6 @@
                 <div id="favorite-post-grid" class="gallery-grid"></div>
                 <h3 class="favorite-group-title">Audio</h3>
                 <div id="favorite-audio-grid" class="audio-grid"></div>
-                <h3 class="favorite-group-title">Video</h3>
                 <div id="favorite-video-grid" class="video-grid"></div>
             </div>
         </div>
@@ -2150,7 +2146,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                 <button id="prev-btn" class="nav-btn">
                     <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
                 </button>
-                <div id="photo-name-display" style="display: flex; align-items: center; justify-content: center; color: white; font-size: 1.1rem; font-weight: 600; min-width: 200px; text-align: center;">Album 1</div>
+                <div id="photo-name-display" style="display: none;"></div>
                 <button id="next-btn" class="nav-btn">
                     <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </button>
@@ -2169,8 +2165,8 @@ document.addEventListener('DOMContentLoaded',()=>{
                     Browser Anda tidak mendukung pemutar video HTML5.
                 </video>
             </div>
-            <div class="video-lightbox-meta">
-                <h3 id="video-lightbox-title">Video</h3>
+            <div class="video-lightbox-meta" style="display: none;">
+                <h3 id="video-lightbox-title"></h3>
                 <p id="video-lightbox-description"></p>
             </div>
         </div>
@@ -2664,7 +2660,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                     const preview = video.thumbnail
                         ? `<img src="${video.thumbnail}" alt="${video.title || `Video ${video.id}`}" loading="lazy">`
                         : `<video src="${video.url}" muted preload="metadata" playsinline></video>`;
-                    card.innerHTML = `<div class="favorite-media-preview">${preview}</div><h3>${video.title || `Video ${video.id}`}</h3>`;
+                    card.innerHTML = `<div class="favorite-media-preview">${preview}</div>`;
                     card.addEventListener('click', (event) => {
                         if (event.target.closest('.favorite-btn')) return;
                         openVideoLightbox(video);
@@ -3084,14 +3080,9 @@ document.addEventListener('DOMContentLoaded',()=>{
                     photoLightboxFavorite.setAttribute('aria-label', `${active ? 'Hapus dari' : 'Tambahkan ke'} favorite: ${activePhotoLightboxItem.title || `Album ${activePhotoLightboxItem.id}`}`);
                 }
                 
-                // Sembunyikan nama jika di Hidden Album
+                // Sembunyikan seluruh judul foto Album
                 const photoNameDisplay = document.getElementById('photo-name-display');
-                if (menuHidden.classList.contains('active')) {
-                    photoNameDisplay.style.display = 'none';
-                } else {
-                    photoNameDisplay.style.display = 'block';
-                    photoNameDisplay.textContent = filteredData[index].title;
-                }
+                photoNameDisplay.style.display = 'none';
                 
                 if (!isLightboxOpen) {
                     lightbox.classList.add('active');
@@ -3278,7 +3269,6 @@ document.addEventListener('DOMContentLoaded',()=>{
                             <span class="video-card-play" aria-hidden="true">▶</span>
                         </div>
                         <div class="video-card-content">
-                            <h3 class="video-card-title">${video.title || `Video ${video.id}`}</h3>
                             <p class="video-card-description">${video.description || ''}</p>
                         </div>`;
                     card.addEventListener('click', () => openVideoLightbox(video));
