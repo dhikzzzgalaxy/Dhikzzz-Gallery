@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DhikzzzKiaaa Gallery | Koleksi Foto Pribadi</title>
+    <title>Sankia Album | Koleksi Foto Pribadi</title>
 
     <!-- Favicon & Icons -->
     <!-- Standard favicon (fallback) -->
@@ -31,8 +31,8 @@
     <meta name="apple-mobile-web-app-title" content="Dhikzzz Gallery">
 
     <!-- Open Graph (Facebook, WhatsApp, Discord, LinkedIn) -->
-    <meta property="og:title" content="DhikzzzKiaaa Gallery | Koleksi Foto Pribadi">
-    <meta property="og:description" content="Koleksi kenangan foto pribadi DhikzzzKiaaa Gallery dengan tampilan modern premium.">
+    <meta property="og:title" content="Sankia Album | Koleksi Foto Pribadi">
+    <meta property="og:description" content="Koleksi foto pribadi Sankia Album">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://dhikzzzgalaxy.github.io/Dhikzzz-Gallery/">
     <meta property="og:image" content="https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/IconKiaaa.jpg">
@@ -42,12 +42,12 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="DhikzzzKiaaa Gallery | Koleksi Foto Pribadi">
-    <meta name="twitter:description" content="Koleksi kenangan foto pribadi DhikzzzKiaaa Gallery dengan tampilan modern premium.">
+    <meta name="twitter:title" content="Sankia Album | Koleksi Foto Pribadi">
+    <meta name="twitter:description" content="Koleksi foto pribadi Sankia Album">
     <meta name="twitter:image" content="https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/IconKiaaa.jpg">
 
 
-    <meta name="description" content="Koleksi kenangan foto pribadi DhikzzzKiaaa Gallery dengan tampilan modern premium.">
+    <meta name="description" content="Koleksi foto pribadi Sankia Album">
     
     <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -291,7 +291,7 @@
 /* Sidebar dropdown dari atas kanan */
 #sidebar {
     position: fixed;
-    top: 70px;
+    top: -300px;
     right: 20px;
     left: auto;
 
@@ -310,36 +310,20 @@
     padding: 12px 20px;
 
     z-index: 2000;
-    /* Berporos di sisi kanan atas: panel terasa terbuka dari gulungan ke bawah. */
-    transform-origin: top right;
-    transform: perspective(900px) rotateX(-78deg) scaleY(0.06);
-    transition:
-        transform 560ms cubic-bezier(0.22, 0.8, 0.2, 1),
-        opacity 440ms ease;
-    transform-style: preserve-3d;
-    will-change: transform, opacity;
+    transition: top .35s ease, opacity .35s ease, visibility .35s ease;
 
     opacity: 0;
-    /* Panel hilang secara visual melalui opacity dan tidak dapat diklik saat tertutup. */
-    visibility: visible;
+    visibility: hidden;
     pointer-events: none;
     box-shadow: 0 12px 30px rgba(0,0,0,.25);
 }
 
-/* Saat dibuka: karpet dibentangkan dari atas ke bawah. */
+/* Saat dibuka */
 #sidebar.active {
-    transform: perspective(900px) rotateX(0deg) scaleY(1);
+    top: 70px;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    #sidebar {
-        transform: none;
-        transition: opacity 180ms ease;
-    }
-
 }
 
 /* Hilangkan header dan tombol X */
@@ -1189,7 +1173,7 @@
     <section id="password-lock" aria-label="Kunci password">
         <div class="password-panel">
             <div class="password-logo" aria-hidden="true"><img src="https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/IconKiaaa.jpg" alt="" onerror="this.style.display='none'; this.parentElement.textContent='D';"></div>
-            <h1 class="password-heading">DhikzzzKiaaa Gallery</h1>
+            <h1 class="password-heading">Sankia Album</h1>
             <div class="password-dots" id="password-dots" aria-label="Status password"><span class="password-dot"></span><span class="password-dot"></span><span class="password-dot"></span><span class="password-dot"></span><span class="password-dot"></span><span class="password-dot"></span></div>
             <div class="password-keypad" role="group" aria-label="Keypad angka">
                 <button class="password-key" type="button" data-key="1">1</button><button class="password-key" type="button" data-key="2">2</button><button class="password-key" type="button" data-key="3">3</button>
@@ -1223,9 +1207,9 @@
             <nav class="navbar">
                 <div class="logo">
                     <div class="profile-img">
-                        <img src="https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/IconKiaaa.jpg" alt="DhikzzzKiaaa">
+                        <img src="https://raw.githubusercontent.com/dhikzzzgalaxy/Dhikzzz-Gallery/main/IconKiaaa.jpg" alt="Sankia">
                     </div>
-                    <h1>DhikzzzKiaaa<span>Gallery</span></h1>
+                    <h1>Sankia<span>Album</span></h1>
                 </div>
                 <div class="menu-toggle" id="mobile-menu" role="button" tabindex="0" aria-label="Buka menu" aria-expanded="false">
                     <svg viewBox="0 0 24 24" width="30" height="30" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -1290,8 +1274,8 @@
                         <div class="badge">
                             <span class="dot"></span> Koleksi Foto Pribadi
                         </div>
-                        <h2 class="hero-title"><span class="gradient-text"><DhikzzzKiaaa></span></h2>
-                        <p class="hero-desc">Kumpulan Kenangan Yang Masih Ku Simpan Dengan Baik</p>
+                        <h2 class="hero-title"><span class="gradient-text"><Sankia></span></h2>
+                        <p class="hero-desc">Koleksi Momen Yang Selalu Tersimpan Rapih</p>
                         <div class="hero-btns">
                             <a href="#" id="hero-btn-album" class="btn btn-primary ripple">
                                 <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -2258,7 +2242,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         <div class="lightbox-content">
             <div class="lightbox-img-container">
                 <button id="photo-lightbox-favorite" class="lightbox-favorite-btn" type="button" aria-label="Tambahkan foto ke favorite" aria-pressed="false">❤</button>
-                <img class="photo" id="lightbox-img" src="" alt="DhikzzzKiaaa Gallery" loading="lazy" />
+                <img class="photo" id="lightbox-img" src="" alt="Sankia Album" loading="lazy" />
             </div>
             <div class="lightbox-nav-bottom">
                 <button id="prev-btn" class="nav-btn">
@@ -3097,7 +3081,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                     card.innerHTML = `
                         <div class="photo-img-wrapper">
                             <span class="badge-mini">${photo.category}</span>
-                            <img src="${photo.image}" alt="DhikzzzKiaaa Gallery" loading="lazy">
+                            <img src="${photo.image}" alt="Sankia Album" loading="lazy">
                         </div>`;
                     card.addEventListener('click', () => {
                         filteredData = data;
@@ -3120,7 +3104,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                 hiddenPhotoData.forEach((photo, index) => {
                     const card = document.createElement('div');
                     card.className = 'photo-card scroll-reveal';
-                    card.innerHTML = `<div class="photo-img-wrapper"><img src="${photo.image}" alt="DhikzzzKiaaa Gallery" loading="lazy"></div>`;
+                    card.innerHTML = `<div class="photo-img-wrapper"><img src="${photo.image}" alt="Sankia Album" loading="lazy"></div>`;
                     card.addEventListener('click', () => {
                         filteredData = hiddenPhotoData;
                         openLightbox(index);
@@ -3142,7 +3126,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                 hiddenPostsRepostsData.forEach((post, index) => {
                     const card = document.createElement('div');
                     card.className = 'photo-card scroll-reveal';
-                    card.innerHTML = `<div class="photo-img-wrapper"><img src="${post.image}" alt="DhikzzzKiaaa Gallery" loading="lazy"></div>`;
+                    card.innerHTML = `<div class="photo-img-wrapper"><img src="${post.image}" alt="Sankia Album" loading="lazy"></div>`;
                     card.addEventListener('click', () => {
                         filteredData = hiddenPostsRepostsData;
                         openLightbox(index);
@@ -3277,11 +3261,6 @@ document.addEventListener('DOMContentLoaded',()=>{
             });
 
             mobileMenu.addEventListener('click', () => {
-                if (sidebar.classList.contains('active')) {
-                    closeSidebarFunc();
-                    return;
-                }
-
                 sidebar.classList.add('active');
                 sidebarOverlay.classList.add('active');
                 mobileMenu.classList.add('active');
