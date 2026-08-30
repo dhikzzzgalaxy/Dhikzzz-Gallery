@@ -291,7 +291,7 @@
 /* Sidebar dropdown dari atas kanan */
 #sidebar {
     position: fixed;
-    top: -300px;
+    top: 70px;
     right: 20px;
     left: auto;
 
@@ -310,20 +310,36 @@
     padding: 12px 20px;
 
     z-index: 2000;
-    transition: top .35s ease, opacity .35s ease, visibility .35s ease;
+    /* Berporos di sisi kanan atas: panel terasa terbuka dari gulungan ke bawah. */
+    transform-origin: top right;
+    transform: perspective(900px) rotateX(-78deg) scaleY(0.06);
+    transition:
+        transform 560ms cubic-bezier(0.22, 0.8, 0.2, 1),
+        opacity 440ms ease;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
 
     opacity: 0;
-    visibility: hidden;
+    /* Panel hilang secara visual melalui opacity dan tidak dapat diklik saat tertutup. */
+    visibility: visible;
     pointer-events: none;
     box-shadow: 0 12px 30px rgba(0,0,0,.25);
 }
 
-/* Saat dibuka */
+/* Saat dibuka: karpet dibentangkan dari atas ke bawah. */
 #sidebar.active {
-    top: 70px;
+    transform: perspective(900px) rotateX(0deg) scaleY(1);
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #sidebar {
+        transform: none;
+        transition: opacity 180ms ease;
+    }
+
 }
 
 /* Hilangkan header dan tombol X */
@@ -3261,6 +3277,11 @@ document.addEventListener('DOMContentLoaded',()=>{
             });
 
             mobileMenu.addEventListener('click', () => {
+                if (sidebar.classList.contains('active')) {
+                    closeSidebarFunc();
+                    return;
+                }
+
                 sidebar.classList.add('active');
                 sidebarOverlay.classList.add('active');
                 mobileMenu.classList.add('active');
