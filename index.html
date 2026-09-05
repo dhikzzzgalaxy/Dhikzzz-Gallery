@@ -1366,7 +1366,7 @@
             <div class="container">
                 <div class="section-header scroll-reveal">
                     <h2 class="section-title">Audio</h2>
-                    <p class="section-desc">Dengarkan koleksi audio favorit.</p>
+                    <p class="section-desc">Dengarkan koleksi suara favorite</p>
                 </div>
                 
                 <div id="audio-grid" class="audio-grid">
@@ -2915,7 +2915,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                 audioFavorites.forEach(audio => {
                     const card = document.createElement('div');
                     card.className = 'favorite-card scroll-reveal';
-                    card.innerHTML = `<div class="favorite-media-preview"><audio controls preload="metadata" src="${audio.url}" aria-label="Putar Audio ${audio.id}"></audio></div><h3>Audio ${audio.id}</h3>`;
+                    card.innerHTML = `<div class="favorite-media-preview"><audio controls preload="metadata" src="${audio.url}" aria-label="Putar Audio ${audio.id}"></audio></div>`;
                     favoriteAudioGrid.appendChild(card);
                 });
                 videoFavorites.forEach(video => {
